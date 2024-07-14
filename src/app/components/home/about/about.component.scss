@@ -1,0 +1,21 @@
+@import "./../../../../variables.scss";
+
+.jobs {
+    background-color: $Navy;
+    .jobs-inner {
+        background-color: #fff;
+    }
+}
+
+.about-details {
+    h2 {
+        color: $LightestNavy;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    p {
+        color: #000;
+    } 
+    a {
+        color: $LightNavy;
+    }
+}

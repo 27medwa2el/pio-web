@@ -1,0 +1,39 @@
+@import "./../../../../variables.scss";
+
+h3 {
+    color: $LightNavy;
+}
+
+.other-proyect-title {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: $LightestSlate;
+}
+
+.space-row {
+    margin: 5%;
+    padding: 5%;
+    margin-bottom: -2%;
+}
+
+.value-heading {
+    top: 42%;
+    left: 32%;
+    color: rgb(231, 224, 224);
+    font-weight: bold;
+}
+
+.jobs {
+    background-color: $Navy;
+
+    .jobs-inner {
+        background-color: #fff;
+    }
+}
+
+.empty-space {
+    background-color: $Navy; // Set background color
+    height: 100px; // Add height to make it visible
+    margin: 0; // Ensure there is no margin
+    padding: 0; // Ensure there is no padding
+}

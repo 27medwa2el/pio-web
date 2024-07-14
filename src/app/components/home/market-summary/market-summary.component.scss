@@ -1,0 +1,75 @@
+@import "./../../../../variables.scss";
+
+.market-summary-container {
+  padding: 20px;
+  background-color: $Navy;
+  color: white;
+
+  .summary-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .btn {
+      margin: 5px;
+    }
+  }
+
+  .summary-details {
+    margin-bottom: 20px;
+
+    p {
+      margin: 5px 0;
+    }
+  }
+
+  .market-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .btn {
+      margin: 5px;
+    }
+  }
+
+  .market-table {
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: $LightNavy;
+      }
+
+      td {
+        background-color: white;
+        color: black;
+      }
+
+      .text-success {
+        color: green;
+      }
+
+      .text-danger {
+        color: red;
+      }
+    }
+  }
+}
+.jobs {
+    background-color: $Navy;
+  
+    .jobs-inner {
+      background-color: #fff;
+      margin-bottom: -5%;
+    }
+  }
+  

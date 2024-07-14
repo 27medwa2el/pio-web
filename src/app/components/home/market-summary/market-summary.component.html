@@ -1,0 +1,54 @@
+<div class="jobs">
+    <div class="container"data-aos="fade-up" data-aos-duration="1000">
+        <!-- <div class="container">
+            <h3 class="section-title">
+               {{"Reports.Title" | translate}}
+            </h3>
+        </div> -->
+      <div class="jobs-inner">
+    <div class="summary-tabs mx-2">
+      <button class="btn btn-light active">Market Summary</button>
+      <button class="btn btn-light">EGX Summary</button>
+      <button class="btn btn-light">Trading Summary</button>
+    </div>
+    <div class="summary-details mx-2 my-2">
+      <p>Top Gainers: <span class="text-success">{{ topGainers }}</span></p>
+      <p>Top Losers: <span class="text-danger">{{ topLosers }}</span></p>
+      <p>Stock Count: {{ stockCount }}</p>
+      <p>Trades Count: {{ tradesCount }}</p>
+      <p>Total Volume: {{ totalVolume }}</p>
+      <p>Total Value: {{ totalValue }}</p>
+      <p>Last Updated: {{ lastUpdated }}</p>
+    </div>
+    <div class="market-tabs mx-2" >
+      <button class="btn btn-light active">Arab Markets</button>
+      <button class="btn btn-light">International Markets</button>
+    </div>
+    <div class="market-table mx-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Market Value</th>
+            <th>Change Value</th>
+            <th>Change %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let market of markets">
+            <td>{{ market.name }}</td>
+            <td>{{ market.marketValue }}</td>
+            <td [ngClass]="{'text-success': market.changeValue >= 0, 'text-danger': market.changeValue < 0}">
+              {{ market.changeValue }}
+            </td>
+            <td [ngClass]="{'text-success': market.changePercentage >= 0, 'text-danger': market.changePercentage < 0}">
+              {{ market.changePercentage }}%
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  
