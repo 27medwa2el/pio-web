@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'andresjosehr-portfolio';
+  title = 'Pioneers-securities';
   
   constructor(
     private titleService: Title,
