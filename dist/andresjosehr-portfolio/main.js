@@ -102,7 +102,7 @@ class AppComponent {
     this.translateService = translateService;
     this.location = location;
     this.languageService = languageService;
-    this.title = 'andresjosehr-portfolio';
+    this.title = 'pioneers-web';
   }
   ngOnInit() {
     this.languageService.initLanguage();
