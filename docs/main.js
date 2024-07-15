@@ -616,7 +616,7 @@ class FooterComponent {
     selectors: [["app-footer"]],
     decls: 16,
     vars: 1,
-    consts: [[1, "footer-left-bar", "d-none", "d-md-block"], ["href", "https://github.com/andresjosehr", "target", "_blank", 3, "click"], [1, "fab", "fa-github"], ["href", "https://www.linkedin.com/in/andresjosehr/", "target", "_blank", 3, "click"], [1, "fab", "fa-linkedin-in"], [1, "footer-right-bar", "d-none", "d-md-block"], ["href", "mailto:andresjosehr@gmail.com", "target", "_blank", 3, "click"], [1, "footer-credits", "text-center"], ["href", "https://github.com/27medwa2el", "target", "_blank", "rel", "nofollow noopener noreferrer", 3, "click"]],
+    consts: [[1, "footer-left-bar", "d-none", "d-md-block"], ["href", "https://github.com/27medwa2el", "target", "_blank", 3, "click"], [1, "fab", "fa-github"], ["href", "https://www.linkedin.com/company/pioneerssecurities/", "target", "_blank", 3, "click"], [1, "fab", "fa-linkedin-in"], [1, "footer-right-bar", "d-none", "d-md-block"], ["href", "mailto:pioneers-securities@gmail.com", "target", "_blank", 3, "click"], [1, "footer-credits", "text-center"], ["href", "https://github.com/27medwa2el", "target", "_blank", "rel", "nofollow noopener noreferrer", 3, "click"]],
     template: function FooterComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "footer")(1, "div")(2, "ul", 0)(3, "li")(4, "a", 1);
