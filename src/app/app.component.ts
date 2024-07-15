@@ -28,11 +28,11 @@ export class AppComponent implements OnInit{
     this.languageService.initLanguage()
 
 
-    this.titleService.setTitle( "Pioneers Holding" );
+    this.titleService.setTitle("Pioneers Securities" );
 
     this.metaService.addTags([
-      {name: 'keywords', content: 'Frontend, software, developer'},
-      {name: 'description', content: 'Con 4 años de experiencia desarrollando sistemas, interfaces, bots y soluciones tecnológicas  para hacer de la web un lugar mejor. En mi trabajo me gusta liderar, proponer y ejecutar ideas, escribir y refactorizar código limpio, reutilizable y escalable.'},
+      {name: 'keywords', content: 'Pioneers, Securities, trading'},
+      {name: 'description', content: 'Pioneers securities the biggest trading company in egypt through the years.'},
     ]);
     
     
