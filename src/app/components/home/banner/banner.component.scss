@@ -64,8 +64,8 @@
 .clickable-photo-container {
     position: absolute; // Position it absolutely relative to the parent
     bottom: 100px; // Adjust as needed for spacing
-    left: 100px; // Adjust as needed for spacing
-    z-index: 1; // Ensure it sits above the first photo
+    left: 400px; // Adjust as needed for spacing
+    z-index: 2; // Ensure it sits above the first photo
 }
 
 

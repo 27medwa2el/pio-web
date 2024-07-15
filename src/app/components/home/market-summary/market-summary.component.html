@@ -6,20 +6,38 @@
             </h3>
         </div> -->
       <div class="jobs-inner">
-    <div class="summary-tabs mx-2">
-      <button class="btn btn-light active">Market Summary</button>
-      <button class="btn btn-light">EGX Summary</button>
-      <button class="btn btn-light">Trading Summary</button>
-    </div>
-    <div class="summary-details mx-2 my-2">
-      <p>Top Gainers: <span class="text-success">{{ topGainers }}</span></p>
-      <p>Top Losers: <span class="text-danger">{{ topLosers }}</span></p>
-      <p>Stock Count: {{ stockCount }}</p>
-      <p>Trades Count: {{ tradesCount }}</p>
-      <p>Total Volume: {{ totalVolume }}</p>
-      <p>Total Value: {{ totalValue }}</p>
-      <p>Last Updated: {{ lastUpdated }}</p>
-    </div>
+        <div class="summary-tabs mx-2">
+          <button class="btn btn-light active" (click)="changeSummary('market')">Market Summary</button>
+          <button class="btn btn-light" (click)="changeSummary('egx')">EGX Summary</button>
+          <button class="btn btn-light" (click)="changeSummary('trading')">Trading Summary</button>
+      </div>
+      
+      <div class="summary-details mx-2 my-2">
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>Top Gainers</th>
+                      <th>Top Losers</th>
+                      <th>Stock Count</th>
+                      <th>Trades Count</th>
+                      <th>Total Volume</th>
+                      <th>Total Value</th>
+                      <th>Last Updated</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="text-success">{{ summaryData.topGainers }}</td>
+                      <td class="text-danger">{{ summaryData.topLosers }}</td>
+                      <td>{{ summaryData.stockCount }}</td>
+                      <td>{{ summaryData.tradesCount }}</td>
+                      <td>{{ summaryData.totalVolume }}</td>
+                      <td>{{ summaryData.totalValue }}</td>
+                      <td>{{ summaryData.lastUpdated }}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
     <div class="market-tabs mx-2" >
       <button class="btn btn-light active">Arab Markets</button>
       <button class="btn btn-light">International Markets</button>

@@ -18,8 +18,31 @@
   .summary-details {
     margin-bottom: 20px;
 
-    p {
-      margin: 5px 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: $LightNavy;
+      }
+
+      td {
+        background-color: white;
+        color: black;
+      }
+
+      .text-success {
+        color: green;
+      }
+
+      .text-danger {
+        color: red;
+      }
     }
   }
 
@@ -34,11 +57,9 @@
   }
 
   .market-table {
-    
     table {
       width: 100%;
       border-collapse: collapse;
-      
 
       th, td {
         padding: 10px;
@@ -64,12 +85,12 @@
     }
   }
 }
+
 .jobs {
-    background-color: $Navy;
-  
-    .jobs-inner {
-      background-color: #fff;
-      margin-bottom: -5%;
-    }
+  background-color: $Navy;
+
+  .jobs-inner {
+    background-color: #fff;
+    margin-bottom: -5%;
   }
-  
+}
