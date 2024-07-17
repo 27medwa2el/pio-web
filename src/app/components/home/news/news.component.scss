@@ -1,0 +1,126 @@
+@import "./../../../../variables.scss";
+.jobs {
+    background-color: $Navy;
+    .jobs-inner {
+        background-color: #fff;
+    }
+}
+.empty-space {
+    height: 70px;   
+    background-color: $Navy;
+  }
+.news-container {
+    padding: 20px;
+  
+    .nav-tabs {
+      margin-bottom: 20px;
+    }
+  
+    .news-list {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .news-item {
+      display: flex;
+      margin-bottom: 20px;
+      cursor: pointer;
+  
+      .news-image {
+        flex: 1;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+      }
+  
+      .news-content {
+        flex: 2;
+        padding-left: 20px;
+  
+        .news-title {
+          font-size: 1.5em;
+          color: #007bff;
+        }
+  
+        .news-summary {
+          margin: 10px 0;
+        }
+  
+        .news-read-more {
+          color: #007bff;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .news-detail-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s;
+  
+      .back-button {
+        align-self: flex-start;
+        cursor: pointer;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: #007bff;
+      }
+  
+      .news-detail-image {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+  
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          animation: imageGrow 0.5s;
+        }
+      }
+  
+      .news-detail-content {
+        width: 100%;
+        max-width: 600px;
+  
+        .news-detail-title {
+          margin-bottom: 20px;
+          color: #007bff;
+          font-size: 2em;
+          text-align: center;
+        }
+  
+        .news-detail-summary {
+          font-size: 1.2em;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes imageGrow {
+    from {
+      transform: scale(0.9);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  

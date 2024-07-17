@@ -194,6 +194,7 @@
     "CoreValues.Title" : "Core Values",
     "Reports.Title" : "Reports",
     "OtherProjects.Title": "Trading Rules",
+    "News.Title": "News",
     "OtherProjects.Projects": [{
             "Title": "Pokemon",
             "Description": "Pokemon search engine that uses the pokeapi. Object-oriented programming was used to organize the information of the pokemons along with their respective image.",

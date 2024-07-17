@@ -31,7 +31,7 @@
 .clickable-photo-container {
   position: absolute; /* Position the container absolutely */
   bottom: 20px; /* Adjust as needed */
-  left: 22%; /* Adjust as needed */
+  left: 58%; /* Adjust as needed */
   z-index: 5; /* Ensure it appears above the first photo */
   display: flex;
   flex-direction: column;

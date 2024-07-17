@@ -22,6 +22,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { BaseChartDirective } from 'ng2-charts';
 import { StockMarketComponent } from './stock-market/stock-market.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
+import { NewsComponent } from './news/news.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -32,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     HomeComponent,
     BannerComponent,
+    
     AboutComponent,
     JobsComponent,
     ProyectsComponent,
@@ -39,11 +42,13 @@ export function HttpLoaderFactory(http: HttpClient){
     ContactComponent,
     ContactUsComponent,
     StockMarketComponent,
-    MarketSummaryComponent
+    MarketSummaryComponent,
+    NewsComponent
   ],
   imports: [
     CommonModule,
     BaseChartDirective,
+    BrowserAnimationsModule,
     NgbNavModule,
     MatSelectModule,
     MatButtonModule,
