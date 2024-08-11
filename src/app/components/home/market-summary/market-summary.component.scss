@@ -33,6 +33,7 @@
       }
 
       td {
+        // text-align: center;
         background-color: white;
         color: black;
       }
@@ -116,4 +117,12 @@
   .summary-details{
     text-align: right;
   }
+}
+
+tr th {
+  text-align: center;
+}
+
+tr td {
+  text-align: center;
 }

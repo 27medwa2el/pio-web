@@ -81,8 +81,23 @@ export class NewsComponent implements OnInit {
     this.filterArticles();
   }
 
+  getHeader(header: string): string {
+    return header.replace('العنوان:', '').replace('العنوان :', '')
+  }
+
   getSummary(details: string): string {
-    return details.split('<br>')[0]; 
+    return details.toLocaleLowerCase().split('<br>')[0];
+  }
+
+  getFormattedDate(dateString: string): string {
+    const language = localStorage.getItem('language')
+    const date = new Date(dateString)
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? (language === 'ar' ? 'م' : 'pm') : (language === 'ar' ? 'ص' : 'am');
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()} ${hours}:${minutes}${ampm}`
   }
 
   getDisplayedPages(): number[] {
