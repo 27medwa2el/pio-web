@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './additional-tables.component.scss'
 })
 export class AdditionalTablesComponent {
+  currentTab: string = 'tab1';
 
+  changeTab(tab: string): void {
+    this.currentTab = tab
+  }
 }

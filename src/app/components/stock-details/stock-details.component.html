@@ -27,10 +27,8 @@
                 <th>{{ "bidVolume" | translate }}</th>
                 <th>{{ "highBidPrice" | translate }}</th>
                 <th>{{ "lowAskPrice" | translate }}</th>
-                
                 <th>{{ "value" | translate }}</th>
                 <th>{{ "volume" | translate }}</th>
-                
               </tr>
             </thead>
             <tbody>
@@ -48,11 +46,8 @@
                 <td>{{ stockDetails.bidVolume }}</td>
                 <td>{{ stockDetails.highBidPrice }}</td>
                 <td>{{ stockDetails.lowAskPrice }}</td>
-                
                 <td>{{ stockDetails.value }}</td>
-                <td>{{ stockDetails.volume }}</td>
-                
-                
+                <td>{{ stockDetails.volume }}</td>                
               </tr>
             </tbody>
           </table>
@@ -60,7 +55,7 @@
   
         <!-- Chart and Info Container -->
         <div class="info-chart-container">
-          <div class="chart-container">
+          <div *ngIf="!loading" class="chart-container">
             <canvas baseChart
               [datasets]="lineChartData"
               [labels]="lineChartLabels"
@@ -68,23 +63,28 @@
               [type]="lineChartType"
               [legend]="lineChartLegend">
             </canvas>
+
           </div>
-          <div class="details-section-container">
+          <div [ngClass]="{'loader': loading}"></div>
+          <div *ngIf="!loading" class="details-section-container">
             <h3 class="bigger-text">{{ "Additional Information" | translate }}</h3>
             <div class="details-section">
                <div> 
               <p class="bigger-text">{{ "Address" | translate }}</p>  <p>{{ stockAdditionalDetails?.address }}</p>
             </div>
-
-            <div>   <p class="bigger-text">{{ "Telephone" | translate }} </p>  <p>{{ stockAdditionalDetails?.telephone }}</p> </div>
-            <div>    <p class="bigger-text">{{ "Fax" | translate }}</p>  <p> {{ stockAdditionalDetails?.fax }}</p> </div>
-            <div>  <p class="bigger-text">{{ "Capital" | translate }}</p>  <p> {{ stockAdditionalDetails?.capital }}</p></div>
+            <div> <p class="bigger-text">{{ "Telephone" | translate }} </p>  <p>{{ stockAdditionalDetails?.telephone }}</p> </div>
+            <div> <p class="bigger-text">{{ "Fax" | translate }}</p>  <p> {{ stockAdditionalDetails?.fax }}</p> </div>
+            <div> <p class="bigger-text">{{ "Capital" | translate }}</p>  <p> {{ stockAdditionalDetails?.capital }}</p></div>
             <div> <p class="bigger-text">{{ "Email" | translate }}</p>  <p> {{ stockAdditionalDetails?.email }}</p> </div>
-            <div>  <p class="bigger-text">{{ "Board Members" | translate }}</p>  <p> <span [innerHTML]="stockAdditionalDetails?.boardMembers"></span></p> </div>
+            <div> <p class="bigger-text">{{ "Board Members" | translate }}</p>  <p> <span [innerHTML]="stockAdditionalDetails?.boardMembers"></span></p> </div>
             </div>
           </div>
         </div>
-  
+        <div *ngIf="stockNews">
+          <div *ngFor="let news of stockNews">
+            <div>{{news.newsHeader}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,128 @@
+@import "./../../../../variables.scss";
+
+.market-summary-container {
+  padding: 20px;
+  background-color: $Navy;
+  color: white;
+
+  .summary-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .btn {
+      margin: 5px;
+    }
+    
+  }
+
+  .summary-details {
+    margin-bottom: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: $LightNavy;
+      }
+
+      td {
+        // text-align: center;
+        background-color: white;
+        color: black;
+      }
+
+      .text-success {
+        color: green;
+      }
+
+      .text-danger {
+        color: red;
+      }
+    }
+  }
+
+  .market-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .btn {
+      margin: 5px;
+    }
+  }
+
+  .market-table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: $LightNavy;
+      }
+
+      td {
+        background-color: white;
+        color: black;
+      }
+
+      .text-success {
+        color: green;
+      }
+
+      .text-danger {
+        color: red;
+      }
+    }
+  }
+}
+
+.jobs {
+  background-color: $Navy;
+  
+  .jobs-inner {
+    background-color: #fff;
+    margin-bottom: -5%;
+  }
+}
+.summary-tabs .btn {
+  margin: 5px;
+}
+
+.summary-tabs .btn.active {
+  background-color: $LightNavy;
+  color: white;
+}
+.market-type-filter {
+  mat-form-field {
+    width: 100px; 
+    max-width: 100%; 
+  }
+}
+[dir="rtl"] {
+  .summary-tabs{
+    text-align: right;
+  }
+  .summary-details{
+    text-align: right;
+  }
+}
+
+tr th {
+  text-align: center;
+}
+
+tr td {
+  text-align: center;
+}
