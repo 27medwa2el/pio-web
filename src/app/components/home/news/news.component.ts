@@ -29,16 +29,18 @@ export class NewsComponent implements OnInit {
   selectedArticle: NewsDto;
   currentPage: number = 1;
   pageSize: number = 4;
-  selectedCategory: number = 1;
+  selectedCategory: string;
   totalPages: number;
+  categories: string[];
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
     this.newsService.getArticles().subscribe(data => {
       this.articles = data;
+      this.categories = this.getUniqueCategories();
+      this.selectedCategory = this.categories[0];
       this.filterArticles();
-      this.updateDisplayedArticles();
     });
   }
 
@@ -50,8 +52,12 @@ export class NewsComponent implements OnInit {
     this.selectedArticle = null;
   }
 
+  getUniqueCategories(): string[] {
+    return [...new Set(this.articles.map(article => article.newsCategoryName))];
+  }
+
   filterArticles(): void {
-    this.filteredArticles = this.articles.filter(article => article.newsCategory === this.selectedCategory);
+    this.filteredArticles = this.articles.filter(article => article.newsCategoryName === this.selectedCategory);
     this.currentPage = 1; 
     this.totalPages = Math.ceil(this.filteredArticles.length / this.pageSize);
     this.updateDisplayedArticles();
@@ -70,7 +76,7 @@ export class NewsComponent implements OnInit {
     }
   }
 
-  changeCategory(category: number): void {
+  changeCategory(category: string): void {
     this.selectedCategory = category;
     this.filterArticles();
   }
@@ -92,6 +98,4 @@ export class NewsComponent implements OnInit {
 
     return Array.from({ length: (endPage - startPage + 1) }, (_, i) => startPage + i);
   }
-
-  //kjk
 }

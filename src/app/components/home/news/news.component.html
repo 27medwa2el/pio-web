@@ -11,11 +11,8 @@
         <div class="jobs-inner" [dir]="'Direction' | translate">
           <div class="news-container" data-aos="fade-up" data-aos-duration="1000">
             <ul ngbNav #nav="ngbNav" class="nav-tabs">
-              <li ngbNavItem (click)="changeCategory(1)">
-                <a ngbNavLink>{{ 'LocalNews' | translate }}</a>
-              </li>
-              <li ngbNavItem (click)="changeCategory(2)">
-                <a ngbNavLink>{{ 'InternationalNews' | translate }}</a>
+              <li *ngFor="let category of categories" ngbNavItem (click)="changeCategory(category)">
+                <a ngbNavLink>{{ category }}</a>
               </li>
             </ul>
 
@@ -26,7 +23,7 @@
                 </div>
                 <div class="news-content">
                   <h3 class="news-title">{{ article.newsHeader }}</h3>
-                  <p class="news-date">{{ article.newsDate | date:'shortDate' }}</p>
+                  <p class="news-date">{{ article.newsDate | date:'short' }}</p>
                   <p class="news-summary">{{ getSummary(article.newsDetails) }}</p>
                   <a (click)="selectArticle(article)" class="news-read-more">{{ 'News.ReadMore' | translate }}</a>
                 </div>
@@ -51,6 +48,11 @@
                 <h1 class="news-detail-title">{{ selectedArticle.newsHeader }}</h1>
                 <p class="news-detail-date">{{ selectedArticle.newsDate | date:'fullDate' }}</p>
                 <p class="news-detail-summary" [innerHTML]="selectedArticle.newsDetails"></p>
+              </div>
+              <div *ngIf="selectedArticle.newsAttachment">
+                <a [href]="selectedArticle.newsAttachment" target="_blank" class="download-button">
+                  {{ 'News.DownloadAttachment' | translate }}
+                </a>
               </div>
             </div>
 

@@ -4,5 +4,7 @@ export class NewsDto {
     newsDetails: string;
     newsDate: string;
     newsCategory: number;
+    newsCategoryName: string;
+    newsAttachment?: string;
   }
   

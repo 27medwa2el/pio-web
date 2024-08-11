@@ -7,12 +7,12 @@ import { NewsDto } from 'src/app/models/news/news-dto.model';
   providedIn: 'root'
 })
 export class NewsService {
-  private apiUrl = 'https://www.pioneers-securities.com/webdataapi/api/news'; 
-
+  private apiUrl = 'http://localhost:5037/api/news'; 
+  private language = localStorage.getItem("language")?? "en";
   constructor(private http: HttpClient) { }
 
   getArticles(): Observable<NewsDto[]> {
-    return this.http.get<NewsDto[]>(`${this.apiUrl}/GetTodayNews`);
+    return this.http.get<NewsDto[]>(`${this.apiUrl}/GetTodayNews`,{headers: {"accept-language": this.language}});
   }
 
   getArticleById(id: number): Observable<NewsDto> {
