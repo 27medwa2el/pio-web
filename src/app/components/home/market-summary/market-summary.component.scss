@@ -13,6 +13,7 @@
     .btn {
       margin: 5px;
     }
+    
   }
 
   .summary-details {
@@ -88,9 +89,31 @@
 
 .jobs {
   background-color: $Navy;
-
+  
   .jobs-inner {
     background-color: #fff;
     margin-bottom: -5%;
+  }
+}
+.summary-tabs .btn {
+  margin: 5px;
+}
+
+.summary-tabs .btn.active {
+  background-color: $LightNavy;
+  color: white;
+}
+.market-type-filter {
+  mat-form-field {
+    width: 100px; 
+    max-width: 100%; 
+  }
+}
+[dir="rtl"] {
+  .summary-tabs{
+    text-align: right;
+  }
+  .summary-details{
+    text-align: right;
   }
 }

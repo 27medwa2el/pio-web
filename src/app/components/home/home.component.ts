@@ -7,16 +7,16 @@ import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
 
   constructor(
     private analyticsService: AnalyticsService,
   ) {
   }
 
-  ngOnInit(): void {
-    this.analyticsService.sendAnalyticPageView("/inicio", "Se entro a inicio")
-  }
+  // ngOnInit(): void {
+  //   this.analyticsService.sendAnalyticPageView("/inicio", "Se entro a inicio")
+  // }
 
 
 }

@@ -1,0 +1,103 @@
+@import "./../../../../variables.scss";
+
+.market-watch {
+  margin-bottom: 20px;
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-left: none;
+      size: 50px;
+    }
+
+    th {
+      cursor: pointer;
+      position: relative;
+    }
+
+    th span {
+      position: absolute;
+      right: 10px;
+    }
+
+    td {
+      background-color: white;
+      color: black;
+    }
+
+    th, td {
+      border-right: none;
+    }
+
+    // th:first-child, td:first-child {
+    //   border-left: none;
+    // }
+
+    tr:first-child th, tr:first-child td {
+      border-top: none;
+    }
+
+    .text-success {
+      color: green;
+    }
+
+    .text-danger {
+      color: red;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .pagination {
+    margin-top: 20px;
+    .page-item {
+      .page-link {
+        color: $LightNavy;
+        // &:hover {
+        //   color: $Navy;
+        // }
+      }
+      &.active .page-link {
+        background-color: $LightNavy;
+        border-color: $LightNavy;
+        color: white;
+      }
+      &.disabled .page-link {
+        color: Gray;
+      }
+    }
+  }
+}
+
+.jobs {
+  background-color: $Navy;
+  padding-top: 10%;
+  .jobs-inner {
+    background-color: #fff;
+    margin-bottom: -5%;
+  }
+}
+
+[dir="rtl"] {
+  .summary-tabs {
+    text-align: right;
+  }
+
+  .summary-details {
+    text-align: right;
+  }
+}

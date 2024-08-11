@@ -1,0 +1,91 @@
+<section id="market-watch" class="jobs" [dir]="'Direction' | translate">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <div class="jobs-inner">
+        <div class="container empty-space"> </div>
+  
+        <!-- Stock Selector Dropdown -->
+        <div class="dropdown-container">
+          <h3 class="bigger-text" for="stockSelector" [dir]="'Direction'">{{ "SelectStock" | translate }}</h3>
+          <select id="stockSelector" class="form-control" [(ngModel)]="isin" (change)="onStockChange($event.target.value)">
+            <option *ngFor="let stock of allStocks" [value]="stock.isin">{{ stock.englishName }}</option>
+          </select>
+        </div>
+  
+        <!-- Table Container -->
+        <div *ngIf="stockDetails" class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>{{ "Name" | translate }}</th>
+                <th>{{ "symbol" | translate }}</th>
+                <th>{{ "open" | translate }}</th>
+                <th>{{ "close" | translate }}</th>
+                <th>{{ "change" | translate }}</th>
+                <th>{{ "lastPrice" | translate }}</th>
+                <th>{{ "tradesCount" | translate }}</th>
+                <th>{{ "askVolume" | translate }}</th>
+                <th>{{ "bidVolume" | translate }}</th>
+                <th>{{ "highBidPrice" | translate }}</th>
+                <th>{{ "lowAskPrice" | translate }}</th>
+                
+                <th>{{ "value" | translate }}</th>
+                <th>{{ "volume" | translate }}</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ stockDetails.englishName }}</td>
+                <td>{{ stockDetails.symbol }}</td>
+                <td>{{ stockDetails.open }}</td>
+                <td>{{ stockDetails.close }}</td>
+                <td [ngClass]="{'text-success': stockDetails.change > 0, 'text-danger': stockDetails.change < 0}">
+                  {{ stockDetails.change }}
+                </td>
+                <td>{{ stockDetails.lastPrice }}</td>
+                <td>{{ stockDetails.tradesCount }}</td>
+                <td>{{ stockDetails.askVolume }}</td>
+                <td>{{ stockDetails.bidVolume }}</td>
+                <td>{{ stockDetails.highBidPrice }}</td>
+                <td>{{ stockDetails.lowAskPrice }}</td>
+                
+                <td>{{ stockDetails.value }}</td>
+                <td>{{ stockDetails.volume }}</td>
+                
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Chart and Info Container -->
+        <div class="info-chart-container">
+          <div class="chart-container">
+            <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [type]="lineChartType"
+              [legend]="lineChartLegend">
+            </canvas>
+          </div>
+          <div class="details-section-container">
+            <h3 class="bigger-text">{{ "Additional Information" | translate }}</h3>
+            <div class="details-section">
+               <div> 
+              <p class="bigger-text">{{ "Address" | translate }}</p>  <p>{{ stockAdditionalDetails?.address }}</p>
+            </div>
+
+            <div>   <p class="bigger-text">{{ "Telephone" | translate }} </p>  <p>{{ stockAdditionalDetails?.telephone }}</p> </div>
+            <div>    <p class="bigger-text">{{ "Fax" | translate }}</p>  <p> {{ stockAdditionalDetails?.fax }}</p> </div>
+            <div>  <p class="bigger-text">{{ "Capital" | translate }}</p>  <p> {{ stockAdditionalDetails?.capital }}</p></div>
+            <div> <p class="bigger-text">{{ "Email" | translate }}</p>  <p> {{ stockAdditionalDetails?.email }}</p> </div>
+            <div>  <p class="bigger-text">{{ "Board Members" | translate }}</p>  <p> <span [innerHTML]="stockAdditionalDetails?.boardMembers"></span></p> </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { BannerComponent } from './banner/banner.component';
 import { ContactComponent } from './contact/contact.component';
@@ -24,8 +24,11 @@ import { StockMarketComponent } from './stock-market/stock-market.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 import { NewsComponent } from './news/news.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SectorsComponent } from './sectors/sectors.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MarketWatchComponent } from './market-watch/market-watch.component';
 export function HttpLoaderFactory(http: HttpClient){
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 
@@ -34,7 +37,6 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     HomeComponent,
     BannerComponent,
-    
     AboutComponent,
     JobsComponent,
     ProyectsComponent,
@@ -43,10 +45,13 @@ export function HttpLoaderFactory(http: HttpClient){
     ContactUsComponent,
     StockMarketComponent,
     MarketSummaryComponent,
-    NewsComponent
+    NewsComponent,
+    SectorsComponent,
+    MarketWatchComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     BaseChartDirective,
     BrowserAnimationsModule,
     NgbNavModule,
@@ -56,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatDividerModule,
     MatOptionModule,
     CarouselModule,
+    ReactiveFormsModule,
     TranslateModule.forChild({
         loader: {
             provide: TranslateLoader,

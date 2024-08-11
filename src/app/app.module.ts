@@ -18,7 +18,7 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TradingRulesModule } from './components/trading-rules/trading-rules.module';
+import { StockDetailsModule } from './components/stock-details/stock-details.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,7 +27,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BaseChartDirective,
     HomeModule,
     GeneralModule,
-    TradingRulesModule,
+    StockDetailsModule,
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,

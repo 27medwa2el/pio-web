@@ -1,0 +1,130 @@
+@import "./../../../variables.scss";
+
+.jobs {
+  background-color: $Navy;
+  padding-top: 10%;
+  margin-top: 30px;
+  padding-bottom: 35%;
+
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  .dropdown-container {
+    margin-bottom: 20px;
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      cursor: pointer;
+    }
+
+    td {
+      background-color: white;
+      color: black;
+    }
+
+    .text-success {
+      color: green;
+    }
+
+    .text-danger {
+      color: red;
+    }
+  }
+}
+
+.info-chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px; 
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.chart-container {
+  flex: 1; 
+  padding-right: 10px; 
+
+  canvas {
+    width: 100%;
+    height: 400px; 
+  }
+}
+
+.details-section-container {
+  flex: 1; 
+  padding-left: 10px; 
+  height: 300px;
+  overflow: auto; 
+}
+
+.details-section {
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+.details-section div{
+ display: flex;
+ flex-direction: row;
+ gap: 10px;
+}
+.bigger-text{
+    font-weight: bold;
+    color: #000;
+   }
+[dir="rtl"] {
+  h3 {
+    text-align: right;
+  }
+  
+}
+
+
+@media (max-width: 768px) {
+    .empty-space{
+        height: 200px;
+        background-color: $Navy;
+    }
+    
+    
+  }
+  @media (max-width: 827px) {
+    .empty-space{
+        height: 200px;
+        background-color: $Navy;
+    }
+    
+  }
+  @media (max-width: 1000px) {
+    .empty-space{
+        height: 200px;
+        background-color: $Navy;
+    }
+  }
+  @media (max-width: 576px) {
+    .empty-space{
+        height: 200px;
+        background-color: $Navy;
+    }
+}
+  

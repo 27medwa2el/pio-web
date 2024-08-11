@@ -1,52 +1,62 @@
 <section id="news">
-<div class="empty-space">
-
-</div>
-<div class="jobs ">
-  <div class="container" data-aos="fade-up" data-aos-duration="1000">
-    <div class="section-box">
+  <div class="empty-space"></div>
+  <div class="jobs">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <div class="section-box">
         <div>
-          <h3 class="section-title">
-            {{"News.Title" | translate}}
+          <h3 class="section-title" [dir]="'Direction' | translate">
+            {{ 'News.Title' | translate }}
           </h3>
         </div>
-    <div class="jobs-inner ">
-<div class="news-container" data-aos="fade-up" data-aos-duration="1000">
-    <ul ngbNav #nav="ngbNav" class="nav-tabs">
-      <li ngbNavItem>
-        <a ngbNavLink>General</a>
-      </li>
-      <li ngbNavItem>
-        <a ngbNavLink>Trading</a>
-      </li>
-    </ul>
-  
-    <div *ngIf="!selectedArticle" class="news-list" data-aos="fade-up" data-aos-duration="1000">
-      <div *ngFor="let article of articles" class="news-item" (click)="selectArticle(article)">
-        <div class="news-image">
-          <img [src]="article.imageUrl" alt="Article Image">
+        <div class="jobs-inner" [dir]="'Direction' | translate">
+          <div class="news-container" data-aos="fade-up" data-aos-duration="1000">
+            <ul ngbNav #nav="ngbNav" class="nav-tabs">
+              <li ngbNavItem (click)="changeCategory(1)">
+                <a ngbNavLink>{{ 'LocalNews' | translate }}</a>
+              </li>
+              <li ngbNavItem (click)="changeCategory(2)">
+                <a ngbNavLink>{{ 'InternationalNews' | translate }}</a>
+              </li>
+            </ul>
+
+            <div *ngIf="!selectedArticle" class="news-list" data-aos="fade-up" data-aos-duration="1000">
+              <div *ngFor="let article of displayedArticles" class="news-item" (click)="selectArticle(article)">
+                <div class="news-image">
+                  <img [src]="article.imagePath || 'assets/images/stocks.jpg'" alt="Article Image">
+                </div>
+                <div class="news-content">
+                  <h3 class="news-title">{{ article.newsHeader }}</h3>
+                  <p class="news-date">{{ article.newsDate | date:'shortDate' }}</p>
+                  <p class="news-summary">{{ getSummary(article.newsDetails) }}</p>
+                  <a (click)="selectArticle(article)" class="news-read-more">{{ 'News.ReadMore' | translate }}</a>
+                </div>
+              </div>
+              <div class="pagination">
+                <button (click)="changePage(1)" [disabled]="currentPage === 1">First</button>
+                <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">&laquo;</button>
+                <ng-container *ngFor="let page of getDisplayedPages()">
+                  <button (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
+                </ng-container>
+                <button (click)="changePage(currentPage + 1)" [disabled]="currentPage * pageSize >= filteredArticles.length">&raquo;</button>
+                <button (click)="changePage(totalPages)" [disabled]="currentPage === totalPages">Last</button>
+              </div>
+            </div>
+
+            <div *ngIf="selectedArticle" class="news-detail-container" [@fadeInAnimation]>
+              <div class="back-button" (click)="clearSelection()">← Back</div>
+              <div class="news-detail-image" [@imageAnimation]>
+                <img [src]="selectedArticle.imagePath || 'assets/images/stocks.jpg'" alt="Article Image">
+              </div>
+              <div class="news-detail-content">
+                <h1 class="news-detail-title">{{ selectedArticle.newsHeader }}</h1>
+                <p class="news-detail-date">{{ selectedArticle.newsDate | date:'fullDate' }}</p>
+                <p class="news-detail-summary" [innerHTML]="selectedArticle.newsDetails"></p>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="news-content">
-          <h3 class="news-title">{{ article.title }}</h3>
-          <p class="news-summary">{{ article.summary }}</p>
-          <a (click)="selectArticle(article)" class="news-read-more">Read More ⟶</a>
-        </div>
-      </div>
-    </div>
-  
-    <div *ngIf="selectedArticle" class="news-detail-container" [@fadeInAnimation]>
-      <div class="back-button" (click)="clearSelection()">← Back</div>
-      <div class="news-detail-image" [@imageAnimation]>
-        <img [src]="selectedArticle.imageUrl" alt="Article Image">
-      </div>
-      <div class="news-detail-content">
-        <h1 class="news-detail-title">{{ selectedArticle.title }}</h1>
-        <p class="news-detail-summary">{{ selectedArticle.content }}</p>
-      </div>
-    </div>
-</div>
       </div>
     </div>
   </div>
-</div>
 </section>

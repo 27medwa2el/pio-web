@@ -1,82 +1,60 @@
-<section class="section more-proyects" id="trading-rules">
-    <div class="container">
-        <div class="section-box">
-            <div class="container">
-                <h3 class="section-title">
-                   {{"OtherProjects.Title" | translate}}
-                </h3>
-            </div>
-            <div class="table-responsive">
-            <table class="table bg-light">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Download</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">31032024_034624الباب الحادي عشر من اللائحة التنفيذية لقانون سوق رأس المال.pdf</th>
-                    <td>2.94Mb</td>
-                    <td>27-Apr-2024</td>
-                    <td>.PDF</td>
-                    <td><img src="../../../../assets/icons/OIF.jpg"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">31032024_034616كتاب دروي رقم 4 بشأن حماية سرية بيانات المتعاملين من الإحتيال.pdf</th>
-                    <td>2.94Mb</td>
-                    <td>27-Apr-2024</td>
-                    <td>.PDF</td>
-                    <td><img src="../../../../assets/icons/OIF.jpg"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">31032024_034533كتاب دوري بشأن شراء حق الاكتتاب 2014.pdf</th>
-                    <td>2.94Mb</td>
-                    <td>27-Apr-2024</td>
-                    <td>.PDF</td>
-                    <td><img src="../../../../assets/icons/OIF.jpg"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- <div class="mt-5">
-                <div class="row p-0">
-
-                    <div *ngFor='let project of "OtherProjects.Projects" | translate; let i = index'
-                      (click)="redirect(project['demoLink'], $event)"
-                     class="col-12 col-md-6 col-lg-6 col-xl-4 proyect-col" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="more-proyect-box">
-                            <div class="row w-100 text-left m-0 p-0">
-                                <div class="col-6 p-0">
-                                    <img src='assets/icons/folder.svg' width="40">
-                                </div>
-                                <div class="col-6 d-flex p-0 justify-content-end">
-                                    <a (click)='analyticsService.sendAnalyticEvent("click_pokemonlist_external_link", "proyects", "click")' style='color: inherit' [href]="project['demoLink']" target="_blank"><i id="demoLink" class="ml-3 fas fa-external-link-alt"></i></a>
-                                    <a (click)='analyticsService.sendAnalyticEvent("click_pokemonlist_github", "proyects", "click")' style='color: inherit' [href]="project['ghLink']" target="_blank"><i id="ghLink" class="ml-4 fab fa-github"></i></a>
-                                </div>
-                                <h5 class="other-proyect-title mt-4">{{project.Title}}</h5>
-                                <p class="other-proyect-description">
-                                    {{project.Description}}
-                                </p>
-                            </div>
-                            <div>
-                                <ul class="more-proyects-skills">
-                                    <li *ngFor='let technology of project.Technologies'>
-                                      <span class="underline">{{technology}}</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> -->
-            <!-- <div class="w-100 text-center mt-5 pt-5">
-                <a [routerLink]="'/proyectos'" class='main-btn'>Ver todo</a>
-            </div> -->
-        </div>
-    </div>
+<section class="section more-proyects" id="trading-rules" [dir]="'Direction' | translate">
+  <div class="container">
+      <div class="section-box">
+          <div class="container">
+              <h3 class="section-title">
+                 {{"OtherProjects.Title" | translate}}
+              </h3>
+          </div>
+          <div class="table-responsive">
+              <table class="table bg-light">
+                  <thead>
+                    <tr>
+                      <th scope="col">{{ "Name" | translate }}</th>
+                      <th scope="col">{{ "Size" | translate }}</th>
+                      <th scope="col">{{ "Date" | translate }}</th>
+                      <th scope="col">{{ "Type" | translate }}</th>
+                      <th scope="col">{{ "Download" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">31032024_034624الباب الحادي عشر من اللائحة التنفيذية لقانون سوق رأس المال.pdf</th>
+                      <td>2.94Mb</td>
+                      <td>27-Apr-2024</td>
+                      <td>.PDF</td>
+                      <td>
+                        <a href="https://www.pioneers-securities.com/Pioneers/Content/Downloads/en/31032024_034624%D8%A7%D9%84%D8%A8%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%AF%D9%8A%20%D8%B9%D8%B4%D8%B1%20%D9%85%D9%86%20%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%B3%D9%88%D9%82%20%D8%B1%D8%A3%D8%B3%20%D8%A7%D9%84%D9%85%D8%A7%D9%84.pdf" target="_blank">
+                          <img src="assets/icons/OIF.jpg" alt="Download">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">31032024_034616كتاب دروي رقم 4 بشأن حماية سرية بيانات المتعاملين من الإحتيال.pdf</th>
+                      <td>535.74KB</td>
+                      <td>27-Apr-2024</td>
+                      <td>.PDF</td>
+                      <td>
+                        <a href="https://www.pioneers-securities.com/Pioneers/Content/Downloads/en/31032024_034616%D9%83%D8%AA%D8%A7%D8%A8%20%D8%AF%D8%B1%D9%88%D9%8A%20%D8%B1%D9%82%D9%85%204%20%D8%A8%D8%B4%D8%A3%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%B3%D8%B1%D9%8A%D8%A9%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%B9%D8%A7%D9%85%D9%84%D9%8A%D9%86%20%D9%85%D9%86%20%D8%A7%D9%84%D8%A5%D8%AD%D8%AA%D9%8A%D8%A7%D9%84.pdf" target="_blank">
+                          <img src="assets/icons/OIF.jpg" alt="Download">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">31032024_034533كتاب دوري بشأن شراء حق الاكتتاب 2014.pdf</th>
+                      <td>684.67KB</td>
+                      <td>27-Apr-2024</td>
+                      <td>.PDF</td>
+                      <td>
+                        <a href="https://www.pioneers-securities.com/Pioneers/Content/Downloads/en/31032024_034533%D9%83%D8%AA%D8%A7%D8%A8%20%D8%AF%D9%88%D8%B1%D9%8A%20%D8%A8%D8%B4%D8%A3%D9%86%20%D8%B4%D8%B1%D8%A7%D8%A1%20%D8%AD%D9%82%20%D8%A7%D9%84%D8%A7%D9%83%D8%AA%D8%AA%D8%A7%D8%A8%202014.pdf" target="_blank">
+                          <img src="assets/icons/OIF.jpg" alt="Download">
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        
+      </div>
+  </div>
 </section>

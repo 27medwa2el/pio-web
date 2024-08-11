@@ -1,5 +1,5 @@
 <div class="empty-space"></div>
-<div class="jobs">
+<div class="jobs" [dir]="'Direction' | translate">
     <div class="container">
         <div class="container">
             <h3 class="section-title">
@@ -10,19 +10,20 @@
         <div class="jobs-inner">
             <div class="row space-row">
                 <div class="col-3 w-50 h-25 p-2 position-relative">
-                    <img src="../../../../assets/images/Integrity.jpeg" class="img-fluid border rounded">
+                    <img [src]="'Integrity.Image' | translate" class="img-fluid border rounded" alt="{{ 'Integrity' | translate }}">
                 </div>
                 <div class="col-3 w-50 h-25 p-2">
-                    <img src="../../../../assets/images/Loyalty.jpeg" class="img-fluid border rounded">
+                    <img [src]="'Loyalty.Image' | translate" class="img-fluid border rounded" alt="{{ 'Loyalty' | translate }}">
                 </div>
                 <div class="col-3 w-50 h-25 p-2">
-                    <img src="../../../../assets/images/Creativity.jpeg" class="img-fluid border rounded">
+                    <img [src]="'Creativity.Image' | translate" class="img-fluid border rounded" alt="{{ 'Creativity' | translate }}">
                 </div>
                 <div class="col-3 w-50 h-25 p-2">
-                    <img src="../../../../assets/images/passion.jpeg" class="img-fluid border rounded">
+                    <img [src]="'Passion.Image' | translate" class="img-fluid border rounded" alt="{{ 'Passion' | translate }}">
                 </div>
             </div>
-            <p class="space-row">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur iure magnam ex, blanditiis libero facere error. Aliquam dolores dolor officiis magnam ullam optio quia fugit alias tempore, ducimus soluta magni Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur iure magnam ex, blanditiis libero facere error. Aliquam dolores dolor officiis magnam ullam optio quia fugit alias tempore, ducimus soluta magni Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur iure magnam ex, blanditiis libero facere error. Aliquam dolores dolor officiis magnam ullam optio quia fugit alias tempore, ducimus soluta magni Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur iure magnam ex, blanditiis libero facere error. Aliquam dolores dolor officiis magnam ullam optio quia fugit alias tempore, ducimus soluta magni</p>
+            <p class="space-row">{{ "CoreValues.Description" | translate }}</p>
         </div>
     </div>
 </div>
+ 

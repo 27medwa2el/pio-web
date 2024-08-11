@@ -3,15 +3,15 @@
         <div class="row no-gutters position-relative">
             <div class="col-12 position-relative">
                 <!-- First photo -->
-                <img src="../../../../assets/images/phone_download.jpeg" class="img-fluid w-100 container empty-space" alt="First Photo">
-                
+                <img *ngIf="language=='ar'" src="assets/images/banner_ar.png" class="img-fluid w-100 container empty-space" alt="First Photo">
+                <img *ngIf="language=='en'" src="assets/images/banner_en.png" class="img-fluid w-100 container empty-space" alt="First Photo">
                 <!-- Button container for alignment -->
                 <div class="clickable-photo-container">
-                    <a href="#" class="clickable-photo mb-2">
-                        <img src="../../../../assets/images/AppStore.png" class="clickable-photo-img" alt="App Store">
+                    <a href="https://apps.apple.com/tc/app/pioneers-egypt/id1196384460" class="clickable-photo mb-2">
+                        <img src="assets/images/AppStore.png" class="clickable-photo-img" alt="App Store">
                     </a>
-                    <a href="#" class="clickable-photo mb-2">
-                        <img src="../../../../assets/images/GooglePlay.png" class="clickable-photo-img" alt="Google Play">
+                    <a href="https://play.google.com/store/apps/details?id=tea.mobile.view.pioneersApp&hl=en_US" class="clickable-photo mb-2">
+                        <img src="assets/images/GooglePlay.png" class="clickable-photo-img" alt="Google Play">
                     </a>
                 </div>
             </div>

@@ -1,11 +1,9 @@
 @import "./../../../../variables.scss";
-
 .container {
   .row {
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
 
   .col-md-6 {
@@ -22,10 +20,6 @@
     align-items: center;
     height: 50%;
     width: 100%;
-  }
-
-  .btn {
-    margin: 2px;
   }
 
   .market-status {
@@ -49,24 +43,33 @@
       margin-bottom: 20px;
     }
 
-    p {
-      margin: 5px 0;
-      font-weight: bold;
+    .market-summary-table {
+      width: 100%;
+      table {
+        width: 100%;
+        border-collapse: collapse;
 
-      span {
-        margin-right: 10px;
-      }
+        td, th {
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
 
-      .text-success {
-        color: green;
-      }
+        .text-success {
+          color: green;
+        }
 
-      .text-danger {
-        color: red;
-      }
+        .text-danger {
+          color: red;
+        }
 
-      .text-primary {
-        color: blue;
+        .text-primary {
+          color: blue;
+        }
+
+        td {
+          font-weight: bold;
+        }
       }
     }
   }
@@ -77,5 +80,55 @@
 
   .jobs-inner {
     background-color: #fff;
+  }
+}
+
+.btn-primary {
+  background-color: $LightNavy;
+  color: white;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+.btn-primary, .btn-light {
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.btn-primary.active, .btn-light.active {
+  border-color: #007bff;
+}
+
+[dir="rtl"] {
+  .container {
+    .row {
+      flex-direction: row-reverse;
+    }
+
+    .col-md-6 {
+      margin-top: 20px;
+    }
+
+    .market-status {
+      .col-md-6 {
+        margin-top: 20px;
+      }
+
+      h4 {
+        text-align: right; 
+      }
+
+      .market-summary-table {
+        table {
+          td {
+            margin-left: 10px; 
+            margin-right: 0; 
+          }
+        }
+      }
+    }
   }
 }

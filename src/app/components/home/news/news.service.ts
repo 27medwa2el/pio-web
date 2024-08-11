@@ -1,48 +1,23 @@
 import { Injectable } from '@angular/core';
-
-interface Article {
-  id: number;
-  title: string;
-  summary: string;
-  content: string;
-  imageUrl: string;
-}
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { NewsDto } from 'src/app/models/news/news-dto.model';
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
-  private articles: Article[] = [
-    {
-      id: 1,
-      title: 'Title 1',
-      summary: 'Part of the news',
-      content: 'Full content of the news article 1',
-      imageUrl: 'assets/images/stocks.jpg'
-    },
-    {
-      id: 2,
-      title: 'Title 2',
-      summary: 'Part of the news',
-      content: 'Full content of the news article 2',
-      imageUrl: 'assets/images/stocks.jpg'
-    },
-    {
-      id: 3,
-      title: 'Title 3',
-      summary: 'Part of the news',
-      content: 'Full content of the news article 3',
-      imageUrl: 'assets/images/stocks.jpg'
-    }
-  ];
+  private apiUrl = 'https://www.pioneers-securities.com/webdataapi/api/news'; 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getArticles(): Article[] {
-    return this.articles;
+  getArticles(): Observable<NewsDto[]> {
+    return this.http.get<NewsDto[]>(`${this.apiUrl}/GetTodayNews`);
   }
 
-  getArticleById(id: number): Article | undefined {
-    return this.articles.find(article => article.id === id);
+  getArticleById(id: number): Observable<NewsDto> {
+    return this.getArticles().pipe(
+      map(articles => articles.find(article => article.newsId === id))
+    );
   }
 }

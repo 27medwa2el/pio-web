@@ -2,8 +2,10 @@
 
 .jobs {
     background-color: $Navy;
+    
     .jobs-inner {
         background-color: #fff;
+        
     }
 }
 
@@ -18,4 +20,16 @@
     a {
         color: $LightNavy;
     }
+}
+
+
+.empty-space {
+    background-color: $Navy; 
+    height: 100px; 
+    margin: 0; 
+    padding: 0; 
+}
+[dir="rtl"] {
+    text-align: right;
+    font-size: larger;
 }

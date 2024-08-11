@@ -2,9 +2,6 @@
   <div class="container contact">
     <div class="section-box">
       <div class="mb-4" data-aos="fade-up" data-aos-duration="1000">
-        <!-- <h3 class="contact-pre-title big-subtitle">
-          05. {{ "Contact.Pretitle" | translate }}
-        </h3> -->
         <h4 class="e-font contact-title big-title">
           {{ "Contact.Title" | translate }}
         </h4>
@@ -14,13 +11,7 @@
       </p>
       <div class="mt-5">
         <a
-          (click)="
-            analyticsService.sendAnalyticEvent(
-              'click_send_mail',
-              'contact',
-              'email'
-            )
-          "
+          (click)="analyticsService.sendAnalyticEvent('click_send_mail', 'contact', 'email')"
           href="mailto:helpdesk@pioneers-securities.com"
           target="_blank"
           class="main-btn"
@@ -30,6 +21,26 @@
           {{ "Contact.Btn" | translate }}
         </a>
       </div>
+      <div class="branches-section">
+        <button (click)="toggleBranches()" class="branches-btn" data-aos="fade-up" data-aos-duration="1000">
+          <i class="fa fa-map-marker"></i> {{ "Branch.Title" | translate }}
+        </button>
+        <div class="branches-container" [@branchAnimation]="showBranches ? 'visible' : 'void'">
+          <div *ngFor="let branch of branches" class="branch-item" data-aos="fade-up" data-aos-duration="1000">
+            <div class="branch-icon">
+              <i class="fa fa-building"></i>
+            </div>
+            <div class="branch-details">
+              <h5>{{ branch.name }}</h5>
+              <p (click)="openMap(branch.mapLink)">{{ branch.location }}</p>
+              <p *ngFor="let phone of branch.phones">
+                <a [href]="'tel:' + phone">{{ phone }}</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+  

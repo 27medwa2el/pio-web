@@ -1,0 +1,70 @@
+<section id="market-statistics">
+    <div class="jobs">
+        <div class="container" data-aos="fade-up" data-aos-duration="1000">
+            <div class="jobs-inner">
+                <div class="row" [dir]="'Direction' | translate">
+                    <!-- Sectors Table -->
+                    <div class="col-md-8">
+                        <h1 class="s">{{ "SectorRanking.Title" | translate }}</h1>
+
+                        <!-- Filter Buttons -->
+                        <div class="sector-filter-buttons my-3">
+                            <button class="btn" [class.selected]="selectedPeriod === 'W'" (click)="changePeriod('W')">{{ "W" | translate }}</button>
+                            <button class="btn" [class.selected]="selectedPeriod === '2W'" (click)="changePeriod('2W')">{{ "2W" | translate }}</button>
+                            <button class="btn" [class.selected]="selectedPeriod === 'M'" (click)="changePeriod('M')">{{ "M" | translate }}</button>
+                            <button class="btn" [class.selected]="selectedPeriod === '2M'" (click)="changePeriod('2M')">{{ "2M" | translate }}</button>
+                            <button class="btn" [class.selected]="selectedPeriod === 'YTD'" (click)="changePeriod('YTD')">{{ "YTD" | translate }}</button>
+                        </div>
+
+                        <!-- Tables Container -->
+                        <div class="summary-details mx-2 my-2">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ "SectorName" | translate }}</th>
+                                            <th>{{ "ValuePercentage" | translate }}</th>
+                                            <th>{{ "Value" | translate }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let sector of sectorsData">
+                                            <td>{{ sector.sectorName }}</td>
+                                            <td>{{ sector.valuePcnt }}%</td>
+                                            <td>{{ sector.value }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Currencies Table -->
+                    <div class="col-md-4">
+                        <div class="summary-details mx-2 my-2">
+                            <h1>{{ "Currencies.Title" | translate }}</h1>
+                            <div class="table-responsive"> 
+                                <table class="table">
+                                    <thead>
+                                        <tr> 
+                                            <th>{{ "Currency" | translate }}</th>
+                                            <th>{{ "Ask" | translate }}</th>
+                                            <th>{{ "Bid" | translate }}</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+                                        <tr *ngFor="let currency of currenciesData">
+                                            <td>{{ currency.name }}</td>
+                                            <td>{{ currency.ask }}</td>
+                                            <td>{{ currency.bid }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <span style="margin: 50px;">{{ "LastUpdated" | translate }} : {{ currenciesData[0].lastUpdated | date:'short' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

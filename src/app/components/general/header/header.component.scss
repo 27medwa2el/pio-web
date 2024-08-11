@@ -1,13 +1,82 @@
 @import "./../../../../variables.scss";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      flex-grow: 1; 
+      width: 100%; 
+      padding-right: 40px; 
+    }
+
+    .search-icon-button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: -35px; 
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      z-index: 1000; 
+
+      ul {
+        list-style-type: none; 
+        margin: 0;
+        padding: 0;
+        color: #000;
+
+        li {
+          padding: 8px 12px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #f8f9fa;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.main-navbar :dir(ltr){
+  font-family: $CodeFont;
+}
+.main-navbar :dir(rtl){
+  font-family: $MainFont;
+  font-weight: 800
+}
 .main-navbar {
     height: 70px;
     background: $Navy;
-    font-family: $CodeFont;
+    
     .menu-ul{
       li{
         margin: 0px 13px;
       }
-      // First and Last li has no margin
+      
       li:first-child{
         margin-left: 0px;
       }
@@ -67,7 +136,7 @@
         background-color: $Navy;
         height: 100%;
         position: relative;
-        right: -625px;
+        right: -753px;
         margin-left: auto;
         font-family: $CodeFont;
         box-shadow: rgba(2, 12, 27, 0.7) -10px 0px 30px -15px;
@@ -133,56 +202,62 @@
       padding-bottom: 4px;
     }
     .menu-wrapper {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+      position: relative;
+      width: 36px;
+      height: 60px;
+      cursor: pointer;
+      z-index: 11;
+    
+      .hamburger-menu,
+      .hamburger-menu:after,
+      .hamburger-menu:before {
+        display: block;
         width: 36px;
-        height: 60px;
-        cursor: pointer;
-        z-index: 11;
-        .hamburger-menu,
-        .hamburger-menu:after,
-        .hamburger-menu:before {
-            width: 36px;
-            height: 1.5px;
+        height: 1.5px;
+        background: $Green;
+        transition: all 0.15s ease-in-out; 
+      }
+    
+      .hamburger-menu {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          background: $Green;
         }
-        .hamburger-menu {
-            position: relative;
-            transform: translateY(25px);
-            background: $Green;
-            transition: all 0ms 300ms;
-            &:before {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 8px;
-                background: $Green;
-                transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-            }
-            &:after {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 8px;
-                background: $Green;
-                transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-            }
-            &.animate {
-                background: rgba(255, 255, 255, 0);
-                &:after {
-                    top: 0;
-                    transform: rotate(45deg);
-                    transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
-                }
-                &:before {
-                    bottom: 0;
-                    transform: rotate(-45deg);
-                    transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
-                }
-            }
+    
+        &:before {
+          bottom: 8px;
+          transition: bottom 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out; 
         }
+    
+        &:after {
+          top: 8px;
+          transition: top 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out; 
+        }
+    
+        &.animate {
+          background: transparent;
+          &:before {
+            bottom: 0;
+            transform: rotate(-45deg);
+            transition: bottom 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out; 
+          }
+          &:after {
+            top: 0;
+            transform: rotate(45deg);
+            transition: top 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out; 
+          }
+        }
+      }
     }
+    
+    
 }
 
 .on-top {
@@ -190,12 +265,12 @@
     width: 100%;
     top: 0;
     z-index: 9;
-    height: 100px;
+    height: 120px;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
 .nav-shadow {
-    height: 70px;
+    height: 130px;
     box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
@@ -207,18 +282,30 @@
             padding: .5rem .7rem;
         }
     }
-}
-
-@media (max-width: 827px) {
-    nav .nav {
-        display: none;
+    .nav-shadow {
+        height: 140px;
     }
 }
 
-@media (min-width: 827px) {
+@media (max-width: 991px) {
+    nav .nav {
+        display: none;
+    } 
+    .nav-shadow {
+        height: 160px;
+    }
+    .language-container-full-nav {
+      display: none;
+  }
+}
+
+@media (min-width: 991px) {
     .menu-wrapper,
     .menu-responsive {
         display: none;
+    }
+    .nav-shadow {
+        height: 140px;
     }
 }
 
@@ -303,3 +390,142 @@
         visibility: inherit;
     }
 }
+.status-bar {
+    width: 100%;
+    color: #e6e6e6;
+    padding: 10px 0;
+    text-align: center;
+  
+    .status-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-family: $CodeFont;
+  
+      .datetime {
+        font-size: 12px;
+        padding: 5px 10px;
+        color: #000;
+      }
+  
+      .indicator {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+  
+        &.green {
+          background-color: green;
+        }
+  
+        &.red {
+          background-color: red;
+        }
+      }
+  
+      .link-button, .open-account-button {
+        background: none;
+        border: none;
+        color: $LightestNavy;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 12px;
+  
+        &:hover {
+          color: #ff4500;
+        }
+      }
+  
+      .search-bar {
+        padding: 5px;
+        font-size: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+  
+        &:focus {
+          outline: none;
+          border-color: #021016;
+        }
+      }
+  
+      .search-button {
+        padding: 5px 10px;
+        font-size: 12px;
+        border: none;
+        background-color: $LightNavy;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+  
+        &:hover {
+          background-color: #030f16;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .status-bar .status-content {
+      flex-wrap: wrap;
+      gap: 10px;
+  
+      .datetime,  .link-button, .open-account-button, .search-bar, .search-button, .search-bar {
+        flex: 3 6 20%;
+        text-align: center;
+      }
+      .indicator{
+        flex: 3 6 2%;
+        text-align: center;
+        width: 1px;
+        height: 25px;
+        border-radius: 100%;
+
+      }
+  
+      
+    }
+    .nav-shadow {
+        height: 220px;
+    }
+  }
+  @media (max-width: 500px) {
+    
+    .status-bar .status-content {
+      flex-wrap: wrap;
+      gap: 10px;
+  
+      .datetime,  .link-button, .open-account-button, .search-bar, .search-button, .search-bar {
+        flex: 3 6 20%;
+        text-align: center;
+      }
+      .indicator{
+        flex: 3 6 2%;
+        text-align: center;
+        width: 1px;
+        height: 25px;
+        border-radius: 100%;
+
+      }
+  
+      
+    }
+    .nav-shadow {
+        height: 235px;
+    }
+  }
+  
+  
+  .news-ticker {
+    width: 100%;
+    background: $LightestSlate;
+    color: $Green;
+    padding: 5px 0;
+    font-family: $CodeFont;
+    border-top: 1px solid $Green;
+  
+    marquee {
+      color: $LightestSlate;
+    }
+  }
+  

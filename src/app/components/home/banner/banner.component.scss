@@ -54,19 +54,27 @@
 }
 
 .position-relative {
-    position: relative; // Ensure this is set on the container
+    position: relative; 
 
     img {
-        display: block; // Ensures no gaps around images
+        display: block; 
     }
 }
 
 .clickable-photo-container {
-    position: absolute; // Position it absolutely relative to the parent
-    bottom: 100px; // Adjust as needed for spacing
-    left: 400px; // Adjust as needed for spacing
-    z-index: 2; // Ensure it sits above the first photo
+    position: absolute; 
+    bottom: 100px; 
+    left: 400px; 
+    z-index: 2; 
 }
 
 
 
+@media (max-width: 827px) {
+    nav .nav {
+        display: none;
+    } 
+    .nav-shadow {
+        height: 220px;
+    }
+}

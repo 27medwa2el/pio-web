@@ -1,78 +1,150 @@
 <section id="market-statistics">
-<div class="jobs">
-    <div class="container"data-aos="fade-up" data-aos-duration="1000">
-        <div class="container">
-            <h3 class="section-title">
-               {{"Reports.Title" | translate}}
-            </h3>
-        </div>
+  <div class="jobs">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000" [dir]="'Direction' | translate">
+      <div class="container" [dir]="'Direction' | translate">
+        <h3 class="section-title">{{ "Header.Item5" | translate }}</h3>
+      </div>
       <div class="jobs-inner">
-  <div class="row mx-2 "data-aos="fade-up" data-aos-duration="1000">
-    <div class="col-md-6 text-center">
-      <h4>EGX</h4>
-      <div>
-        <button class="btn btn-sm btn-light">Daily</button>
-        <button class="btn btn-sm btn-light">W</button>
-        <button class="btn btn-sm btn-light">1M</button>
-        <button class="btn btn-sm btn-light">3M</button>
-        <button class="btn btn-sm btn-light">6M</button>
-        <button class="btn btn-sm btn-light">1Y</button>
-        <button class="btn btn-sm btn-light">YTD</button>
-      </div>
-      <canvas baseChart 
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions"
-              [legend]="lineChartLegend"
-              [type]="lineChartType">
-      </canvas>
-    </div>
-    <div class="col-md-6 text-center">
-      <h4>MONEY FLOW</h4>
-      <div class="pie-container">
-        <canvas baseChart 
-                [datasets]="pieChartDatasets"
-                [labels]="pieChartLabels"
-                [type]="pieChartType">
-        </canvas>
+        <div class="row mx-2" data-aos="fade-up" data-aos-duration="1000">
+          <div class="col-md-6 text-center">
+            <h4>{{ "EGX.Title" | translate }}</h4>
+            <div>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedStock !== 'Egx100', 'btn-primary': selectedStock === 'Egx100'}"
+                (click)="onStockChange('Egx100')">
+                {{ "EGX100" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedStock !== 'Egx70', 'btn-primary': selectedStock === 'Egx70'}"
+                (click)="onStockChange('Egx70')">
+                {{ "EGX70" | translate }}
+              </button>
+              <!-- <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedStock !== 'Egx50', 'btn-primary': selectedStock === 'Egx50'}"
+                (click)="onStockChange('Egx50')">
+                {{ "EGX50" | translate }}
+              </button> -->
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedStock !== 'Egx30Cap', 'btn-primary': selectedStock === 'Egx30Cap'}"
+                (click)="onStockChange('Egx30Cap')">
+                {{ "EGX30Cap" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedStock !== 'Egx30', 'btn-primary': selectedStock === 'Egx30'}"
+                (click)="onStockChange('Egx30')">
+                {{ "EGX30" | translate }}
+              </button>
+            </div>
+            <canvas baseChart
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [legend]="lineChartLegend"
+                    [type]="lineChartType">
+            </canvas>
+            <div>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== 'd', 'btn-primary': selectedPeriod === 'd'}"
+                (click)="onPeriodChange('d')">{{ "Daily" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== 'w', 'btn-primary': selectedPeriod === 'w'}"
+                (click)="onPeriodChange('w')">{{ "W" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== '1m', 'btn-primary': selectedPeriod === '1m'}"
+                (click)="onPeriodChange('1m')">{{ "1M" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== '3m', 'btn-primary': selectedPeriod === '3m'}"
+                (click)="onPeriodChange('3m')">{{ "3M" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== '6m', 'btn-primary': selectedPeriod === '6m'}"
+                (click)="onPeriodChange('6m')">{{ "6M" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== '12m', 'btn-primary': selectedPeriod === '12m'}"
+                (click)="onPeriodChange('12m')">{{ "1Y" | translate }}
+              </button>
+              <button 
+                class="btn btn-sm" 
+                [ngClass]="{'btn-light': selectedPeriod !== 'ytd', 'btn-primary': selectedPeriod === 'ytd'}"
+                (click)="onPeriodChange('ytd')">{{ "YTD" | translate }}
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+            <h4>{{ "MoneyFlows.Title" | translate }}</h4>
+            <div class="pie-container">
+              <canvas baseChart
+                      [datasets]="pieChartDatasets"
+                      [labels]="pieChartLabels"
+                      [type]="pieChartType">
+              </canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Market Status Section -->
+        <div class="row mx-2 market-status" data-aos="fade-up" data-aos-duration="1000">
+          <div class="col-md-6">
+            <h4>{{ "MarketStatus.Title" | translate }}</h4>
+            <div *ngIf="marketSummary" class="market-summary-table">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="text-success">{{ "Gainers" | translate }}</td>
+                    <td>{{ marketSummary.gainers }}</td>
+                    <td class="text-success">{{ (marketSummary.gainers / marketSummary.stockCount * 100) | number:'1.2-2' }}%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-danger">{{ "Losers" | translate }}</td>
+                    <td>{{ marketSummary.losers }}</td>
+                    <td class="text-danger">{{ (marketSummary.losers / marketSummary.stockCount * 100) | number:'1.2-2' }}%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-primary">{{ "Unchanged" | translate }}</td>
+                    <td>{{ marketSummary.stockCount - marketSummary.gainers - marketSummary.losers }}</td>
+                    <td class="text-primary">{{ ((marketSummary.stockCount - marketSummary.gainers - marketSummary.losers) / marketSummary.stockCount * 100) | number:'1.2-2' }}%</td>
+                  </tr>
+                  <tr>
+                    <td>{{ "Value" | translate }} (Mn)</td>
+                    <td colspan="2" class="text-dark">{{ marketSummary.totalValue | number:'1.0-0' }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ "Volume" | translate }} (Mn)</td>
+                    <td colspan="2" class="text-dark">{{ marketSummary.totalVolume | number:'1.0-0' }}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>{{ "GainersLosersUnchanged.Title" | translate }}</h4>
+            <div class="pie-container" data-aos="fade-up" data-aos-duration="1000">
+              <canvas baseChart
+                      [datasets]="marketPieChartDatasets"
+                      [labels]="marketPieChartLabels"
+                      [type]="marketPieChartType">
+              </canvas>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
-
-  <!-- Market Status Section -->
-  <div class="row mx-2 market-status" data-aos="fade-up" data-aos-duration="1000">
-    <div class="col-md-6">
-      <h4>MARKET STATUS</h4>
-      <div>
-        <button class="btn btn-sm btn-light active">Today</button>
-        <button class="btn btn-sm btn-light">W</button>
-        <button class="btn btn-sm btn-light">2W</button>
-        <button class="btn btn-sm btn-light">M</button>
-        <button class="btn btn-sm btn-light">3M</button>
-        <button class="btn btn-sm btn-light">YTD</button>
-      </div>
-      <div>
-        <p><span class="text-success">Gainers</span> <span>79</span> <span class="text-success">34.5%</span></p>
-        <p><span class="text-danger">Losers</span> <span>69</span> <span class="text-danger">30.13%</span></p>
-        <p><span class="text-primary">Unchanged</span> <span>31</span> <span class="text-primary">35.37%</span></p>
-      </div>
-      <div>
-        <p>Value (Mn) <span class="text-dark">1993.84</span> <span class="text-success">1425.55</span> <span class="text-danger">493.85</span></p>
-        <p>Volume (Mn) <span class="text-dark">738.57</span> <span class="text-success">596.33</span> <span class="text-danger">132.18</span></p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="pie-container" data-aos="fade-up" data-aos-duration="1000">
-        <canvas baseChart 
-                [datasets]="marketPieChartDatasets"
-                [labels]="marketPieChartLabels"
-                [type]="marketPieChartType">
-        </canvas>
-      </div>
-    </div>
-</div>
-</div>
-
-  </div>
-</div>
 </section>

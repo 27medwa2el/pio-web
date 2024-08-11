@@ -26,7 +26,7 @@ import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
 export class BannerComponent implements OnInit {
 
   
-
+public language = localStorage.getItem("language");
   constructor(
     public analyticsService: AnalyticsService
   ) { }

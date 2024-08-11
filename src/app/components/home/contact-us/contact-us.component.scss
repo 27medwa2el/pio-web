@@ -103,12 +103,20 @@ td {
         cursor: pointer;
     }
 }
-
+.btn{
+    background-color: $LightNavy;
+    border-color: $LightNavy;
+}
 
 @media(max-width: 1300px){
     .more-proyects{
         .proyect-col{
             height: auto;
         }
+    }
+}
+[dir="rtl"] {
+    .contact-info{
+        text-align: right;
     }
 }
