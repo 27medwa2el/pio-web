@@ -85,7 +85,7 @@
 
 .jobs {
   background-color: $Navy;
-  padding-top: 10%;
+  padding-top: 4%;
   .jobs-inner {
     background-color: #fff;
     margin-bottom: -5%;
@@ -100,4 +100,20 @@
   .summary-details {
     text-align: right;
   }
+}
+
+// @media (max-width: 768px) {
+
+//   .jobs-inner {
+//     margin-bottom: -15%;
+//   }
+// }
+@media (max-width: 768px) {
+  .jobs {
+   
+    .jobs-inner {
+      margin-bottom: -15%;
+    }
+  }
+  
 }

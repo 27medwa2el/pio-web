@@ -3,6 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 }
 
 .trade-text {
@@ -11,7 +12,9 @@
   text-decoration: none;
   font-weight: bold;
 }
-
+.photos-container{
+  margin-bottom: 20px;
+}
 .empty-space {
   margin-top: 80px;
 }

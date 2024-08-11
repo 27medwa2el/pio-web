@@ -32,13 +32,13 @@
                 </div>
               </div>
               <div class="pagination">
-                <button (click)="changePage(1)" [disabled]="currentPage === 1">First</button>
+                <button (click)="changePage(1)" [disabled]="currentPage === 1">{{ 'First' | translate }}</button>
                 <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">&laquo;</button>
                 <ng-container *ngFor="let page of getDisplayedPages()">
                   <button (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
                 </ng-container>
                 <button (click)="changePage(currentPage + 1)" [disabled]="currentPage * pageSize >= filteredArticles.length">&raquo;</button>
-                <button (click)="changePage(totalPages)" [disabled]="currentPage === totalPages">Last</button>
+                <button (click)="changePage(totalPages)" [disabled]="currentPage === totalPages">{{ 'Last' | translate }}</button>
               </div>
             </div>
 
