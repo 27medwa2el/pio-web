@@ -23,11 +23,7 @@
                 </div>
                 <div class="news-content">
                   <h3 class="news-title">{{ article.newsHeader }}</h3>
-<<<<<<< Updated upstream
-                  <p class="news-date">{{ article.newsDate | date:'short' }}</p>
-=======
                   <p class="news-date">{{ getFormattedDate(article.newsDate) }}</p>
->>>>>>> Stashed changes
                   <p class="news-summary">{{ getSummary(article.newsDetails) }}</p>
                   <a (click)="selectArticle(article)" class="news-read-more">{{ 'News.ReadMore' | translate }}</a>
                 </div>
