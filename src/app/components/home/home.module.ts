@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SectorsComponent } from './sectors/sectors.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarketWatchComponent } from './market-watch/market-watch.component';
+import { AdditionalTablesComponent } from './additional-tables/additional-tables.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(http: HttpClient){
     MarketSummaryComponent,
     NewsComponent,
     SectorsComponent,
-    MarketWatchComponent
+    MarketWatchComponent,
+    AdditionalTablesComponent
   ],
   imports: [
     CommonModule,
