@@ -22,7 +22,7 @@
                   <img [src]="article.imagePath || 'assets/images/stocks.jpg'" alt="Article Image">
                 </div>
                 <div class="news-content">
-                  <h3 class="news-title">{{ article.newsHeader }}</h3>
+                  <h3 class="news-title">{{ getHeader(article.newsHeader) }}</h3>
                   <p class="news-date">{{ getFormattedDate(article.newsDate) }}</p>
                   <p class="news-summary">{{ getSummary(article.newsDetails) }}</p>
                   <a (click)="selectArticle(article)" class="news-read-more">{{ 'News.ReadMore' | translate }}</a>

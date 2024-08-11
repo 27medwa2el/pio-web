@@ -81,8 +81,12 @@ export class NewsComponent implements OnInit {
     this.filterArticles();
   }
 
+  getHeader(header: string): string {
+    return header.replace('العنوان:', '').replace('العنوان :', '')
+  }
+
   getSummary(details: string): string {
-    return details.split('<br>')[0]; 
+    return details.toLocaleLowerCase().split('<br>')[0];
   }
 
   getFormattedDate(dateString: string): string {
