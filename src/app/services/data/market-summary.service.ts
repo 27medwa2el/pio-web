@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CurrencyDto, EgxChart, EgxSummary, Investor, Market, MarketIndicatorDto, MarketMoneyFlow, MarketSummary, SectorsDto } from 'src/app/models/market-summary/market-summary.model';
+import { NewsDto } from 'src/app/models/news/news-dto.model';
 
 
 @Injectable({
@@ -66,5 +67,8 @@ export class MarketSummaryService {
 }
   getStockDataInfo(isin: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/StocksData/GetStockDataInfo/${isin}`);
+  }
+  getNewsForStock(isin: string): Observable<NewsDto[]> {
+    return this.http.get<NewsDto[]>(`${this.baseUrl}/api/News/GetNewsForStock/${isin}`);
   }
 }
