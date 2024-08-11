@@ -92,4 +92,6 @@ export class NewsComponent implements OnInit {
 
     return Array.from({ length: (endPage - startPage + 1) }, (_, i) => startPage + i);
   }
+
+  //kjk
 }
