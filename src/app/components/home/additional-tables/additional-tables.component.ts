@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MarketSummaryService } from 'src/app/services/data/market-summary.service';
 
 @Component({
   selector: 'app-additional-tables',
@@ -6,9 +7,52 @@ import { Component } from '@angular/core';
   styleUrl: './additional-tables.component.scss'
 })
 export class AdditionalTablesComponent {
-  currentTab: string = 'tab1';
+  dividends: any[]=[];
+  currentSummary: string = 'dividends';
+  bonusShares: any[] = [];
+  genAssemblies: any[] = [];
 
-  changeTab(tab: string): void {
-    this.currentTab = tab
+
+  constructor(private marketSummaryService: MarketSummaryService) {}
+
+  ngOnInit(): void {
+    this.loadDividendsTables();
+    this.loadGenAssemblies();
+    this.loadBonusShares();
+  }
+
+  loadDividendsTables(): void {
+    this.marketSummaryService.getDividendsTables().subscribe((data: any[]) => {
+      this.dividends = data;
+    });
+  }
+
+  loadGenAssemblies(): void {
+    this.marketSummaryService.getGenAssembliesIsins().subscribe((data: any[]) => {
+      this.genAssemblies = data;
+    });
+  }
+
+  loadBonusShares(): void {
+    this.marketSummaryService.getBonusShares().subscribe((data: any[]) => {
+      this.bonusShares = data;
+    });
+  }
+
+  
+
+  changeSummary(type: string): void {
+    this.currentSummary = type;
+    switch (type) {
+      case 'dividends':
+        this.loadDividendsTables();
+        break;
+      case 'genAssemblies':
+        this.loadGenAssemblies();
+        break;
+      case 'bonusShares':
+        this.loadBonusShares();
+        break;
+    }
   }
 }

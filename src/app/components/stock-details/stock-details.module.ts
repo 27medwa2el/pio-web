@@ -8,6 +8,7 @@ import { NgbModule, NgbNav, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BaseChartDirective } from 'ng2-charts';
+import { BonusAssembliesComponent } from './bonus-assemblies/bonus-assemblies.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -16,7 +17,8 @@ export function HttpLoaderFactory(http: HttpClient){
 
 @NgModule({
   declarations: [
-    StockDetailsComponent
+    StockDetailsComponent,
+    BonusAssembliesComponent
   ],
   imports: [
     CommonModule,

@@ -71,4 +71,23 @@ export class MarketSummaryService {
   getNewsForStock(isin: string): Observable<NewsDto[]> {
     return this.http.get<NewsDto[]>(`${this.baseUrl}/api/News/GetNewsForStock/${isin}`);
   }
+  getDividendsForStock(isin: string): Observable<NewsDto[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/DividendsTables/GetDividendsForStock/${isin}`);
+  }
+  getGenAssembliesIsins(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/GenAssembliesIsins`,{headers: {"accept-language": this.language}});
+  }
+  getStockAssemblies(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/GenAssembliesIsins/GetAssembliesForStock/${isin}`,{headers: {"accept-language": this.language}});
+  }
+  getBonusShares(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/BonusShares`,{headers: {"accept-language": this.language}});
+  }
+  getStockBonusShares(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/BonusShares/GetBonusShareForStock/${isin}`,{headers: {"accept-language": this.language}});
+  }
+
+  getDividendsTables(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/DividendsTables`,{headers: {"accept-language": this.language}});
+  }
 }

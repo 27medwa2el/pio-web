@@ -1,0 +1,72 @@
+<div class="container mt-4 bonus-assemblies-container"  [dir]="'Direction' | translate">
+    <div class="row">
+      <!-- Bonus Shares Table -->
+      <div class="col-md-6">
+        <h4 class="table-title">{{ "BonusShares" | translate }}</h4>
+        <div class="table-container">
+          <ng-container *ngIf="bonusSharesData && bonusSharesData.length > 0; else noBonusShares">
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>{{ "Company" | translate }}</th>
+                  <th>{{ "Distribution" | translate }}</th>
+                  <th>{{ "MaturityDate" | translate }}</th>
+                  <th>{{ "DistributionDate" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bonusShare of bonusSharesData">
+                  <td>{{ bonusShare.bsCompName }}</td>
+                  <td>{{ bonusShare.bsDistibution }}</td>
+                  <td>{{ bonusShare.bsMatDate }}</td>
+                  <td>{{ bonusShare.bsDistDate }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <!-- No Bonus Shares Message -->
+          <ng-template #noBonusShares>
+            <div class="no-content-message text-center">
+              {{ "There's no information availabe" | translate }}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+  
+      <!-- Assemblies Table -->
+      <div class="col-md-6">
+        <h4 class="table-title">{{ "GeneralAssemblies" | translate }}</h4>
+        <div class="table-container">
+          <ng-container *ngIf="assembliesData && assembliesData.length > 0; else noAssemblies">
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>{{ "Name" | translate }}</th>
+                  <th>{{ "Date" | translate }}</th>
+                  <th>{{ "Address" | translate }}</th>
+                  <th>{{ "Timing" | translate }}</th>
+                  <th>{{ "Type" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let assembly of assembliesData">
+                  <td>{{ assembly.genIsinName }}</td>
+                  <td>{{ assembly.genIsinDate }}</td>
+                  <td>{{ assembly.genIsinAddress }}</td>
+                  <td>{{ assembly.genIsinTiming }}</td>
+                  <td>{{ assembly.genIsinType }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <!-- No Assemblies Message -->
+          <ng-template #noAssemblies>
+            <div class="no-content-message text-center">
+              {{ "There's no information availabe" | translate }}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,173 +1,115 @@
-<section id="market-statistics">
-    <div class="jobs" [dir]="'Direction' | translate">
-      <div class="container" data-aos="fade-up" data-aos-duration="1000">
-        <div class="jobs-inner">
-          <div class="summary-tabs mx-2">
-            <button 
-              class="btn btn-light" 
-              [ngClass]="{'active': currentTab === 'tab1'}"
-              (click)="changeTab('market')">{{ 'MarketSummary.Title' | translate }}</button>
-            <button 
-              class="btn btn-light" 
-              [ngClass]="{'active': currentTab === 'tab2'}"
-              (click)="changeTab('egx')">{{ 'EGXSummary.Title' | translate }}</button>
-            <button 
-              class="btn btn-light" 
-              [ngClass]="{'active': currentTab === 'tab3'}"
-              (click)="changeTab('trading')">{{ 'TradingSummary.Title' | translate }}</button>
-          </div>
-  
-          <!-- Market Summary Table -->
-          <div *ngIf="currentTab === 'market'" class="summary-details mx-2 my-2">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>{{ 'MarketSummary.Columns.TopGainers' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.TopLosers' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.StockCount' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.TradesCount' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.TotalVolume' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.TotalValue' | translate }}</th>
-                    <th>{{ 'MarketSummary.Columns.LastUpdated' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-success">{{ summaryData.gainers }}</td>
-                    <td class="text-danger">{{ summaryData.losers }}</td>
-                    <td>{{ summaryData.stockCount }}</td>
-                    <td>{{ summaryData.tradesCount }}</td>
-                    <td>{{ summaryData.totalVolume | number:'1.0-0' }} </td>
-                    <td>{{ summaryData.totalValue | number:'1.0-0' }}</td>
-                    <td>{{ summaryData.borsaDate }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-  
-          <!-- EGX Summary Table -->
-          <div *ngIf="currentTab === 'egx'" class="summary-details mx-2 my-2">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th *ngFor="let summary of egxSummaries">{{ summary.name }}</th>
-                  </tr>
-                  <tr>
-                    <th>{{ 'EGXSummary.Columns.Value' | translate }}</th>
-                    <td *ngFor="let summary of egxSummaries">{{ summary.value  }}</td>
-                  </tr>
-                  <tr>
-                    <th>{{ 'EGXSummary.Columns.Difference' | translate }}</th>
-                    <td *ngFor="let summary of egxSummaries">{{ summary.difference }}</td>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-          </div>
-  
-          <!-- Trading Summary Table -->
-          <div *ngIf="currentTab === 'trading'" class="summary-details mx-2 my-2">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>{{ 'TradingSummary.Columns.Name' | translate }}</th>
-                    <th>{{ 'TradingSummary.Columns.Buy' | translate }}</th>
-                    <th>{{ 'TradingSummary.Columns.Sell' | translate }}</th>
-                    <th>{{ 'TradingSummary.Columns.LastUpdated' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let investor of investors">
-                    <td>{{ investor.name }}</td>
-                    <td>{{ investor.buy | number:'1.0-0' }}</td>
-                    <td>{{ investor.sell | number:'1.0-0'}}</td>
-                    <td>{{ investor.investorsDate }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-  
-          <!-- Buttons to Toggle Markets -->
-          <!-- <div class="summary-tabs mx-2">
-            <button class="btn btn-light" (click)="toggleArabMarkets()" [ngClass]="{'active': showArabMarkets}">{{ 'ArabMarkets.Title' | translate }}</button>
-            <button class="btn btn-light" (click)="toggleInternationalMarkets()" [ngClass]="{'active': !showArabMarkets}">{{ 'InternationalMarkets.Title' | translate }}</button>
-          </div> -->
-  
-          <!-- Arab Markets Table -->
-          <!-- <div *ngIf="showArabMarkets" class="summary-details mx-2 my-2">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>{{ 'ArabMarkets.Columns.Name' | translate }}</th>
-                    <th>{{ 'ArabMarkets.Columns.MarketValue' | translate }}</th>
-                    <th>{{ 'ArabMarkets.Columns.ChangeValue' | translate }}</th>
-                    <th>{{ 'ArabMarkets.Columns.ChangePercentage' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let market of arabMarkets">
-                    <td>{{ market.nameE }}</td>
-                    <td>{{ market.marketValue  }}</td>
-                    <td [ngClass]="{'text-success': market.changeValue >= 0, 'text-danger': market.changeValue < 0}">
-                      {{ market.changeValue }}
-                    </td>
-                    <td [ngClass]="{'text-success': market.changePercent >= 0, 'text-danger': market.changePercent < 0}">
-                      {{ market.changePercent }}%
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div> -->
-  
-          <!-- Dropdown to Filter International Markets -->
-          <!-- <div *ngIf="!showArabMarkets" class="summary-details mx-2 my-2">
-            <div class="market-type-filter mb-3">
-              <mat-form-field appearance="fill">
-                <mat-label>Filter</mat-label>
-                <mat-select id="marketType" (selectionChange)="filterInternationalMarkets($event.value)">
-                  <mat-option value="Europe">Europe</mat-option>
-                  <mat-option value="US">US</mat-option>
-                  <mat-option value="Asia">Asia</mat-option>
-                  <mat-option value="Egypt">Egypt</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div> -->
-            <!-- International Markets Table -->
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>{{ 'InternationalMarkets.Columns.Name' | translate }}</th>
-                    <th>{{ 'InternationalMarkets.Columns.MarketValue' | translate }}</th>
-                    <th>{{ 'InternationalMarkets.Columns.ChangeValue' | translate }}</th>
-                    <th>{{ 'InternationalMarkets.Columns.ChangePercentage' | translate }}</th>
-                    <th>{{ 'InternationalMarkets.Columns.MarketType' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- <tr *ngFor="let market of getFilteredInternationalMarkets()">
-                    <td>{{ market.nameE }}</td>
-                    <td>{{ market.marketValue }}</td>
-                    <td [ngClass]="{'text-success': market.changeValue >= 0, 'text-danger': market.changeValue < 0}">
-                      {{ market.changeValue }}
-                    </td>
-                    <td [ngClass]="{'text-success': market.changePercent >= 0, 'text-danger': market.changePercent < 0}">
-                      {{ market.changePercent }}%
-                    </td>
-                    <td>{{ market.marketTypeName }}</td>
-                  </tr> -->
-                </tbody>
-              </table>
-            </div>
+<section id="agenda">
+  <div class="jobs" [dir]="'Direction' | translate">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container" [dir]="'Direction' | translate">
+        <h3 class="section-title">{{ "Header.Item7" | translate }}</h3>
+      </div>
+      <div class="jobs-inner">
+        <div class="summary-tabs mx-2">
+          <button 
+            class="btn btn-light" 
+            [ngClass]="{'active': currentSummary === 'dividends'}"
+            (click)="changeSummary('dividends')">{{ 'Dividends' | translate }}</button>
+          <button 
+            class="btn btn-light" 
+            [ngClass]="{'active': currentSummary === 'genAssemblies'}"
+            (click)="changeSummary('genAssemblies')">{{ 'GeneralAssemblies' | translate }}</button>
+          <button 
+            class="btn btn-light" 
+            [ngClass]="{'active': currentSummary === 'bonusShares'}"
+            (click)="changeSummary('bonusShares')">{{ 'BonusShares' | translate }}</button>
+        </div>
+
+        <!-- Market Summary Table -->
+        <div *ngIf="currentSummary === 'bonusShares'" class="summary-details mx-2 my-2">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>{{ "Company" | translate }}</th>
+                  <!-- <th>{{ "ISIN" | translate }}</th> -->
+                  <th>{{ "Distribution" | translate }}</th>
+                  <th>{{ "MaturityDate" | translate }}</th>
+                  <th>{{ "DistributionDate" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bonusShare of bonusShares">
+                  <td>{{ bonusShare.bsCompName }}</td>
+                  <!-- <td>{{ bonusShare.bsIsinCode }}</td> -->
+                  <td>{{ bonusShare.bsDistibution }}</td>
+                  <td>{{ bonusShare.bsMatDate }}</td>
+                  <td>{{ bonusShare.bsDistDate }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+
+        <!-- EGX Summary Table -->
+        <div *ngIf="currentSummary === 'genAssemblies'" class="summary-details mx-2 my-2">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <!-- <th>{{ "ISIN" | translate }}</th> -->
+                  <th>{{ "Name" | translate }}</th>
+                  <th>{{ "Date" | translate }}</th>
+                  <th>{{ "Address" | translate }}</th>
+                  <th>{{ "Timing" | translate }}</th>
+                  <th>{{ "Type" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let assembly of genAssemblies">
+                  <!-- <td>{{ assembly.genIsinIsin }}</td> -->
+                  <td>{{ assembly.genIsinName }}</td>
+                  <td>{{ assembly.genIsinDate }}</td>
+                  <td>{{ assembly.genIsinAddress }}</td>
+                  <td>{{ assembly.genIsinTiming }}</td>
+                  <td>{{ assembly.genIsinType }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Trading Summary Table -->
+        <div *ngIf="currentSummary === 'dividends'" class="summary-details mx-2 my-2">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>{{ "Company" | translate }}</th>
+                  <th>{{ "Currency" | translate }}</th>
+                  <th>{{ "Address" | translate }}</th>
+                  <th>{{ "Number" | translate }}</th>
+                  <th>{{ "Value" | translate }}</th>
+                  <th>{{ "MaturityDate" | translate }}</th>
+                  <th>{{ "PayDate" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dividend of dividends">
+                  <td>{{ dividend.divCompName }}</td>
+                  <td>{{ dividend.divCurrency }}</td>
+                  <td>{{ dividend.divAddess }}</td>
+                  <td>{{ dividend.divNumber }}</td>
+                  <td>{{ dividend.divValue }}</td>
+                  <td>{{ dividend.divMatDate }}</td>
+                  <td>{{ dividend.divPayDate }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        
+
+       
+      
+        
       </div>
-  </section>
+    </div>
+  </div>
+</section>
