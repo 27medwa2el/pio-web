@@ -61,9 +61,13 @@
                 </mat-form-field>
               </div>
             </div>
+            <re-captcha
+              (resolved)="onCaptchaResolved($event)"
+              [siteKey]="siteKey">
+            </re-captcha>
             <button type="submit" class="mx-auto btn btn-primary" [disabled]="contactForm.invalid">{{ 'ContactUs.SubmitMessage' | translate }}</button>
           </form>
-          <div *ngIf="message" class="mt-3 alert" [ngClass]="messageClass">{{ message | translate}}</div>
+          <div *ngIf="message" class="mt-3 alert" [ngClass]="messageClass" >{{ message | translate}}</div>
         </div>
 
         <div class="col-lg-6">
@@ -89,3 +93,4 @@
     </div>
   </div>
 </section>
+

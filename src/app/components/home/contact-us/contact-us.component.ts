@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from 'src/app/services/data/contract.service';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,19 +13,21 @@ import { ContactService } from 'src/app/services/data/contract.service';
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   cities: { [key: string]: string[] } = {
-    'Egypt': ['Cairo', 'Alexandria', 'Giza', 'Shubra El Kheima', 'Port Said', 'Suez', 'Mansoura', 'Tanta', 'Asyut', 'Ismailia', 'Faiyum', 'Zagazig', 'Damietta', 'Aswan', 'Minya', 'Damanhur', 'Beni Suef', 'Hurghada', 'Qena', 'Sohag', 'Shibin El Kom', 'Banha', 'Arish', 'Mallawi', '10th of Ramadan City', 'Bilqas', 'Banha', 'Marsa Matruh', '6th of October City', 'Luxor'],
-    'Saudi Arabia': ['Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Khobar', 'Tabuk', 'Buraidah', 'Khamis Mushait', 'Hofuf', 'Al Hasa', 'Hail', 'Najran', 'Abha', 'Jizan', 'Yanbu', 'Al Jubail', 'Qatif', 'Al Kharj', 'Taif', 'Al Baha', 'Sakakah', 'Arar']
+    'Egypt': ['Cairo', 'Alexandria', 'Giza', '...'],
+    'Saudi Arabia': ['Riyadh', 'Jeddah', 'Mecca', '...']
   };
   cityOptions: string[] = [];
   message: string;
   messageClass: string;
-
+  recaptchaToken: string;
+  siteKey : string;
+  language : string;
   constructor(
     private router: Router,
     public analyticsService: AnalyticsService,
     private contactService: ContactService,
     private fb: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -49,23 +50,40 @@ export class ContactUsComponent implements OnInit {
       this.cityOptions = this.cities[selectedCountry] || [];
       this.contactForm.get('city').reset();
     });
+    this.siteKey = environment.recaptchaSiteKey;
+    this.loadReCaptchaScript();
+    this.language = localStorage.getItem("Language");
   }
-
+  loadReCaptchaScript(): void {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${this.siteKey}`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
   onSubmit() {
-    if (this.contactForm.valid) {
-      this.contactService.sendContactForm(this.contactForm.value).subscribe(
+    if (this.contactForm.valid && this.recaptchaToken) {
+      const formData = this.contactForm.value;
+      formData.recaptchaToken = this.recaptchaToken;
+
+      this.contactService.sendContactForm(formData).subscribe(
         response => {
-          this.message = 'Message sent successfully'; // Or use translation service
+          this.message = 'Message sent successfully';
           this.messageClass = 'alert-success';
+          this.contactForm.reset();
         },
         error => {
-          this.message = 'Error sending message'; // Or use translation service
+          this.message = 'Error sending message';
           this.messageClass = 'alert-danger';
         }
       );
     } else {
-      this.message = 'Please fill out the entire form correctly.'; // Or use translation service
+      this.language=="en"?this.message = 'Please fill out the entire form correctly and solve the captcha.' :this.message = 'من فضلك أدخل جميع البيانات وقم بحل كلمة التحقق';
       this.messageClass = 'alert-warning';
     }
+  }
+
+  onCaptchaResolved(captchaResponse: string) {
+    this.recaptchaToken = captchaResponse;
   }
 }

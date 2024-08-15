@@ -90,4 +90,20 @@ export class MarketSummaryService {
   getDividendsTables(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/api/DividendsTables`,{headers: {"accept-language": this.language}});
   }
+  getInsiderTrading(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/InsiderTradings`,{headers: {"accept-language": this.language}});
+  }
+  getStockInsiderTrading(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/InsiderTradings/GetStockInsiderTradings/${isin}`,{headers: {"accept-language": this.language}});
+  }
+  getCompaniesFinancialStatements(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesFinancialStatementsAnnualIsins/${isin}`, { headers: { "accept-language": this.language } });
+  }
+  getAuditReportsForStock(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesAuditReports/${isin}`, { headers: { "accept-language": this.language } });
+  }
+  getAnnouncementsForStock(isin: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesAnnouncements/${isin}`, { headers: { "accept-language": this.language } });
+  }
+  
 }

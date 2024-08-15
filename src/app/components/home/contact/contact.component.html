@@ -14,28 +14,39 @@
           (click)="analyticsService.sendAnalyticEvent('click_send_mail', 'contact', 'email')"
           href="mailto:helpdesk@pioneers-securities.com"
           target="_blank"
-          class="main-btn"
+          class="btn btn-primary"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
           {{ "Contact.Btn" | translate }}
         </a>
       </div>
-      <div class="branches-section">
-        <button (click)="toggleBranches()" class="branches-btn" data-aos="fade-up" data-aos-duration="1000">
+      <div class="branches-section mt-4">
+        <button
+          (click)="toggleBranches()"
+          class="btn btn-success"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <i class="fa fa-map-marker"></i> {{ "Branch.Title" | translate }}
         </button>
-        <div class="branches-container" [@branchAnimation]="showBranches ? 'visible' : 'void'">
-          <div *ngFor="let branch of branches" class="branch-item" data-aos="fade-up" data-aos-duration="1000">
-            <div class="branch-icon">
-              <i class="fa fa-building"></i>
-            </div>
-            <div class="branch-details">
-              <h5>{{ branch.name }}</h5>
-              <p (click)="openMap(branch.mapLink)">{{ branch.location }}</p>
-              <p *ngFor="let phone of branch.phones">
-                <a [href]="'tel:' + phone">{{ phone }}</a>
-              </p>
+        <div class="branches-container row mt-4" [@branchAnimation]="showBranches ? 'visible' : 'void'">
+          <div *ngFor="let branch of branches" class="branch-item col-12 col-md-4 mb-3" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <div class="branch-icon">
+                  <i class="fa fa-building fa-2x text-success"></i>
+                </div>
+                <div class="branch-details mt-3">
+                  <h5 class="card-title text-success">{{ branch.name }}</h5>
+                  <p class="card-text" (click)="openMap(branch.mapLink)">
+                    {{ branch.location }}
+                  </p>
+                  <p *ngFor="let phone of branch.phones" class="card-text">
+                    <a [href]="'tel:' + phone">{{ phone }}</a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -43,4 +54,3 @@
     </div>
   </div>
 </section>
-  

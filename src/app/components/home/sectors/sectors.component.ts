@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyDto, SectorsDto } from 'src/app/models/market-summary/market-summary.model';
 import { MarketSummaryService } from 'src/app/services/data/market-summary.service';
+import { DateFormatterService } from '../../services/utilities/date-formatter.service';
 
 @Component({
   selector: 'app-sectors',
@@ -11,8 +12,11 @@ export class SectorsComponent implements OnInit {
   sectorsData: SectorsDto[] = [];
   currenciesData: CurrencyDto[] = [];
   selectedPeriod: string = 'W';
+  dateFormatterService: any;
 
-  constructor(private marketSummaryService: MarketSummaryService) {}
+  constructor(private marketSummaryService: MarketSummaryService, dateFormatterService: DateFormatterService) {
+    this.dateFormatterService = dateFormatterService;
+  }
 
   ngOnInit(): void {
     this.loadSectorsData(this.selectedPeriod);

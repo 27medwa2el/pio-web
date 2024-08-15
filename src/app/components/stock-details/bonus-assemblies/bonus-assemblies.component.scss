@@ -12,12 +12,46 @@
       border: 1px solid #ddd;
       border-radius: 5px;
     //   padding: 15px;
-  
+      width: auto;
       table {
         width: 100%;
+        margin-bottom: -4px;
         border-collapse: collapse;
   
         th, td {
+         
+          padding: 10px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+  
+        th {
+          background-color: #f4f4f4;
+        }
+      }
+    }
+  }
+  
+  .insider-actions-container{
+    padding-top: 2%;
+    .table-title {
+      font-size: larger;
+      font-weight: bold;
+      color: #000000;
+    }
+  
+    .table-container {
+      background-color: #fff; 
+      border: 1px solid #ddd;
+      border-radius: 5px;
+
+      table {
+        width: 100%;
+        margin-bottom: -4px;
+        border-collapse: collapse;
+  
+        th, td {
+          width: 100%;
           padding: 10px;
           text-align: center;
           border: 1px solid #ddd;
@@ -34,3 +68,25 @@
       text-align: right;
     }
   }
+  .contai{
+    margin-top: 3%;
+  }
+  @media(max-width: 767px) {
+    .table-container {
+        margin-bottom: 20px;
+    }
+    
+    .table-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .no-content-message {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

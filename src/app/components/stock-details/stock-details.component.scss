@@ -113,7 +113,7 @@
   .dividends-column {
     flex: 1;
     padding-right: 10px;
-
+    
     .dividends-table-container {
       border: 1px solid #ddd;
       border-radius: 5px;
@@ -131,6 +131,7 @@
         td, th {
           text-align: center;
           padding: 10px;
+          
         }
       }
     }
@@ -257,7 +258,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
-
+    
     .dividends-column {
       padding-right: 0;
       margin-bottom: 20px;
@@ -267,5 +268,10 @@
       padding-left: 0;
       padding-right: 0;
     }
+  }
+}
+@media (max-width: 768px) {
+  .jobs-inner {
+    margin-top: 70%;
   }
 }

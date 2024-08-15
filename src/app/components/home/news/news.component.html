@@ -23,7 +23,7 @@
                 </div>
                 <div class="news-content">
                   <h3 class="news-title">{{ getHeader(article.newsHeader) }}</h3>
-                  <p class="news-date">{{ getFormattedDate(article.newsDate) }}</p>
+                  <p class="news-date">{{ dateFormatterService.getFormattedDate(article.newsDate) }}</p>
                   <p class="news-summary">{{ getSummary(article.newsDetails) }}</p>
                   <a (click)="selectArticle(article)" class="news-read-more">{{ 'News.ReadMore' | translate }}</a>
                 </div>
@@ -40,7 +40,7 @@
             </div>
 
             <div *ngIf="selectedArticle" class="news-detail-container" [@fadeInAnimation]>
-              <div class="back-button" (click)="clearSelection()">← Back</div>
+              <div class="back-button" (click)="clearSelection()">{{ 'News.Back' | translate }}</div>
               <div class="news-detail-image" [@imageAnimation]>
                 <img [src]="selectedArticle.imagePath || 'assets/images/stocks.jpg'" alt="Article Image">
               </div>

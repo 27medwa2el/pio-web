@@ -9,6 +9,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BaseChartDirective } from 'ng2-charts';
 import { BonusAssembliesComponent } from './bonus-assemblies/bonus-assemblies.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient){
   imports: [
     CommonModule,
     NgbNavModule,
+    NgxPaginationModule,
     BaseChartDirective,
     FormsModule,
     CarouselModule,

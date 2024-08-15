@@ -1,72 +1,212 @@
-<div class="container mt-4 bonus-assemblies-container"  [dir]="'Direction' | translate">
-    <div class="row">
+<div class="container mt-4 bonus-assemblies-container" [dir]="'Direction' | translate">
+  <div class="row">
       <!-- Bonus Shares Table -->
-      <div class="col-md-6">
-        <h4 class="table-title">{{ "BonusShares" | translate }}</h4>
-        <div class="table-container">
-          <ng-container *ngIf="bonusSharesData && bonusSharesData.length > 0; else noBonusShares">
-            <table class="table table-bordered table-responsive">
-              <thead>
-                <tr>
-                  <th>{{ "Company" | translate }}</th>
-                  <th>{{ "Distribution" | translate }}</th>
-                  <th>{{ "MaturityDate" | translate }}</th>
-                  <th>{{ "DistributionDate" | translate }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let bonusShare of bonusSharesData">
-                  <td>{{ bonusShare.bsCompName }}</td>
-                  <td>{{ bonusShare.bsDistibution }}</td>
-                  <td>{{ bonusShare.bsMatDate }}</td>
-                  <td>{{ bonusShare.bsDistDate }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </ng-container>
-          <!-- No Bonus Shares Message -->
-          <ng-template #noBonusShares>
-            <div class="no-content-message text-center">
-              {{ "There's no information availabe" | translate }}
-            </div>
-          </ng-template>
-        </div>
+      <div class="col-12 col-md-6">
+          <h4 class="table-title">{{ "BonusShares" | translate }}</h4>
+          <div class="table-container">
+              <ng-container *ngIf="bonusSharesData && bonusSharesData.length > 0; else noBonusShares">
+                  <table class="table table-bordered table-responsive">
+                      <thead>
+                          <tr>
+                              <th>{{ "CompanyName" | translate }}</th>
+                              <th>{{ "Distribution" | translate }}</th>
+                              <th>{{ "MaturityDate" | translate }}</th>
+                              <th>{{ "DistributionDate" | translate }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let bonusShare of bonusSharesData">
+                              <td>{{ bonusShare.bsCompName }}</td>
+                              <td>{{ bonusShare.bsDistibution }}</td>
+                              <td>{{ bonusShare.bsMatDate }}</td>
+                              <td>{{ bonusShare.bsDistDate }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </ng-container>
+              <!-- No Bonus Shares Message -->
+              <ng-template #noBonusShares>
+                  <div class="no-content-message text-center">
+                      {{ "There's no information available" | translate }}
+                  </div>
+              </ng-template>
+          </div>
       </div>
-  
+
       <!-- Assemblies Table -->
-      <div class="col-md-6">
-        <h4 class="table-title">{{ "GeneralAssemblies" | translate }}</h4>
+      <div class="col-12 col-md-6">
+          <h4 class="table-title">{{ "GeneralAssemblies" | translate }}</h4>
+          <div class="table-container">
+              <ng-container *ngIf="assembliesData && assembliesData.length > 0; else noAssemblies">
+                  <table class="table table-bordered table-responsive">
+                      <thead>
+                          <tr>
+                              <th>{{ "CompanyName" | translate }}</th>
+                              <th>{{ "Date" | translate }}</th>
+                              <th>{{ "Address" | translate }}</th>
+                              <th>{{ "Timing" | translate }}</th>
+                              <th>{{ "Type" | translate }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let assembly of assembliesData">
+                              <td>{{ assembly.genIsinName }}</td>
+                              <td>{{ assembly.genIsinDate | date:'shortDate' }}</td>
+                              <td>{{ assembly.genIsinAddress }}</td>
+                              <td>{{ assembly.genIsinTiming }}</td>
+                              <td>{{ assembly.genIsinType }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </ng-container>
+              <!-- No Assemblies Message -->
+              <ng-template #noAssemblies>
+                  <div class="no-content-message text-center">
+                      {{ "There's no information available" | translate }}
+                  </div>
+              </ng-template>
+          </div>
+      </div>
+  </div>
+  <div class="row insider-actions-container">
+      <!-- Insider Actions Table -->
+      <div class="col-12 col-md-6">
+          <h4 class="table-title">{{ "InsiderActions" | translate }}</h4>
+          <div class="table-container">
+              <ng-container *ngIf="insiderTradingData && insiderTradingData.length > 0; else noInsiderActions">
+                  <table class="table table-bordered table-responsive">
+                      <thead>
+                          <tr>
+                              <th>{{ "CompanyName" | translate }}</th>
+                              <th>{{ "TransType" | translate }}</th>
+                              <th>{{ "Volume" | translate }}</th>
+                              <th>{{ "ClosePrice" | translate }}</th>
+                              <th>{{ "Date" | translate }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let insiderTrading of insiderTradingData">
+                              <td>{{ insiderTrading.stockName }}</td>
+                              <td>{{ insiderTrading.transType }}</td>
+                              <td>{{ insiderTrading.volume }}</td>
+                              <td>{{ insiderTrading.closePrice }}</td>
+                              <td>{{ insiderTrading.transDate | date:'shortDate' }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </ng-container>
+              <!-- No Insider Actions Message -->
+              <ng-template #noInsiderActions>
+                  <div class="no-content-message text-center">
+                      {{ "There's no information available" | translate }}
+                  </div>
+              </ng-template>
+          </div>
+      </div>
+      <div class="col-12 col-md-6">
+      
+        <h4 class="table-title">{{ "CompaniesFinancialStatements" | translate }}</h4>
         <div class="table-container">
-          <ng-container *ngIf="assembliesData && assembliesData.length > 0; else noAssemblies">
+          <ng-container *ngIf="financialStatementsData && financialStatementsData.length > 0; else noFinancialStatements">
             <table class="table table-bordered table-responsive">
               <thead>
                 <tr>
-                  <th>{{ "Name" | translate }}</th>
-                  <th>{{ "Date" | translate }}</th>
-                  <th>{{ "Address" | translate }}</th>
-                  <th>{{ "Timing" | translate }}</th>
+                  <!-- <th>{{ "ISIN" | translate }}</th> -->
                   <th>{{ "Type" | translate }}</th>
+                  <th>{{ "LastUpdated" | translate }}</th>
+                  <th>{{ "Download" | translate }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let assembly of assembliesData">
-                  <td>{{ assembly.genIsinName }}</td>
-                  <td>{{ assembly.genIsinDate }}</td>
-                  <td>{{ assembly.genIsinAddress }}</td>
-                  <td>{{ assembly.genIsinTiming }}</td>
-                  <td>{{ assembly.genIsinType }}</td>
+                <tr *ngFor="let statement of financialStatementsData">
+                  <!-- <td>{{ statement.isin }}</td> -->
+                  <td>{{ statement.type1 }}</td>
+                  <td>{{ statement.lastUpdated | date:'shortDate' }}</td>
+                  <td>
+                    <a [href]="statement.downloadUrl" download="{{ statement.isin }}_FinancialStatement.pdf" class="btn btn-primary">
+                      {{ "Download" | translate }}
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </ng-container>
-          <!-- No Assemblies Message -->
-          <ng-template #noAssemblies>
+          <!-- No Financial Statements Message -->
+          <ng-template #noFinancialStatements>
             <div class="no-content-message text-center">
-              {{ "There's no information availabe" | translate }}
+              {{ "There's no information available" | translate }}
+            </div>
+          </ng-template>
+       
+        </div>
+      </div>
+      <div class="col-12 col-md-6 contai">
+        <h4 class="table-title">{{ "AuditReports" | translate }}</h4>
+        <div class="table-container">
+          <ng-container *ngIf="auditReportsData && auditReportsData.length > 0; else noAuditReports">
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>{{ "Header" | translate }}</th>
+                  <th>{{ "Date" | translate }}</th>
+                  <th>{{ "Download" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let report of auditReportsData">
+                  <td>{{ report.header }}</td>
+                  <td>{{ report.annDate | date:'shortDate' }}</td>
+                  <td>
+                    <a [href]="report.downloadUrl" class="btn btn-primary" download="{{ report.isin }}_report.pdf" class="btn btn-primary">
+                      {{ "Download" | translate }}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <!-- No Audit Reports Message -->
+          <ng-template #noAuditReports>
+            <div class="no-content-message text-center">
+              {{ "There's no information available" | translate }}
             </div>
           </ng-template>
         </div>
       </div>
-    </div>
+      
+      <div class="col-12 col-md-6  contai">
+        <h4 class="table-title">{{ "Announcements" | translate }}</h4>
+        <div class="table-container">
+          <ng-container *ngIf="announcementsData && announcementsData.length > 0; else noAnnouncements">
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>{{ "Header" | translate }}</th>
+                  <th>{{ "Date" | translate }}</th>
+                  <th>{{ "Download" | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let announcement of announcementsData">
+                  <td>{{ announcement.header }}</td>
+                  <td>{{ announcement.annDate | date:'shortDate' }}</td>
+                  <td>
+                    <a [href]="announcement.downloadUrl" class="btn btn-primary" download="{{ announcement.isin }}_Announcement.pdf" class="btn btn-primary">
+                      {{ "Download" | translate }}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <!-- No Announcements Message -->
+          <ng-template #noAnnouncements>
+            <div class="no-content-message text-center">
+              {{ "There's no information available" | translate }}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
   </div>
-  
+</div>

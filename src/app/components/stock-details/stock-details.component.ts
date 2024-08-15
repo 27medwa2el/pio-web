@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { NewsDto } from 'src/app/models/news/news-dto.model';
 import { MarketSummaryService } from 'src/app/services/data/market-summary.service';
@@ -32,6 +32,7 @@ export class StockDetailsComponent implements OnInit {
   public lineChartType = 'line';
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private marketSummaryService: MarketSummaryService,
     private dateFormatterService: DateFormatterService
   ) {}
@@ -122,10 +123,14 @@ export class StockDetailsComponent implements OnInit {
 
   onStockChange(newIsin: string): void {
     this.isin = newIsin;
-    this.updateStockDetails(newIsin);
-    this.updateStockChart(newIsin);
-    this.updateAdditionalStockDetails(newIsin);
-    this.updateNews(newIsin);
+    this.router.navigate(['/stock-details', this.isin]).then(() => {
+      window.location.reload();
+    });
+    // this.updateStockDetails(newIsin);
+    // this.updateStockChart(newIsin);
+    // this.updateAdditionalStockDetails(newIsin);
+    // this.updateNews(newIsin);
+    //  this.router.navigate(['/stock-details', this.isin]);
   }
   selectNews(news: NewsDto): void {
     this.selectedArticle = news;

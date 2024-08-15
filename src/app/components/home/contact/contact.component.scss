@@ -116,15 +116,10 @@
 }
 
 @media (max-width: 768px) {
-  .contact {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    display: block;
-  }
-
   .branches-container {
     .branch-item {
       width: calc(100% - 20px);
     }
   }
 }
+

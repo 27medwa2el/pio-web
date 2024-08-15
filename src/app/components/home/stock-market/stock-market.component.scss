@@ -1,9 +1,11 @@
 @import "./../../../../variables.scss";
+
 .container {
   .row {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; // Ensure wrapping on smaller screens
   }
 
   .col-md-6 {
@@ -12,6 +14,12 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
+
+    @media (max-width: 768px) {
+      height: auto;
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 
   .pie-container {
@@ -20,6 +28,10 @@
     align-items: center;
     height: 50%;
     width: 100%;
+
+    @media (max-width: 768px) {
+      height: auto;
+    }
   }
 
   .market-status {
@@ -28,23 +40,26 @@
 
     .col-md-6 {
       margin-top: 20px;
-    }
 
-    .pie-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50%;
-      width: 100%;
+      @media (max-width: 768px) {
+        margin-top: 0;
+        margin-bottom: 20px;
+        width: 100%;
+      }
     }
 
     h4 {
       font-weight: bold;
       margin-bottom: 20px;
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
 
     .market-summary-table {
       width: 100%;
+
       table {
         width: 100%;
         border-collapse: collapse;
@@ -53,6 +68,10 @@
           padding: 8px;
           text-align: center;
           border: 1px solid #ddd;
+
+          @media (max-width: 768px) {
+            padding: 6px;
+          }
         }
 
         .text-success {
@@ -81,17 +100,30 @@
   .jobs-inner {
     background-color: #fff;
     margin-top: 5%;
+
+    @media (max-width: 768px) {
+      margin-top: 20px;
+      padding: 10px;
+    }
   }
 }
 
 .btn-primary {
   background-color: $LightNavy;
   color: white;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 }
 
 .btn-light {
   background-color: #f8f9fa;
   color: #343a40;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 }
 
 .btn-primary, .btn-light {
@@ -111,15 +143,31 @@
 
     .col-md-6 {
       margin-top: 20px;
+
+      @media (max-width: 768px) {
+        margin-top: 0;
+        margin-bottom: 20px;
+        width: 100%;
+      }
     }
 
     .market-status {
       .col-md-6 {
         margin-top: 20px;
+
+        @media (max-width: 768px) {
+          margin-top: 0;
+          margin-bottom: 20px;
+          width: 100%;
+        }
       }
 
       h4 {
         text-align: right; 
+
+        @media (max-width: 768px) {
+          text-align: center;
+        }
       }
 
       .market-summary-table {

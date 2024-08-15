@@ -32,6 +32,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^4.5.0",
     "chart.js": "^4.4.3",
+    "ng-recaptcha": "^13.2.1",
     "ng2-charts": "^6.0.1",
     "ngx-google-analytics": "^11.2.0",
     "ngx-owl-carousel-o": "^17.0.0",

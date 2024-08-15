@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { NewsService } from './news.service';
 import { NewsDto } from 'src/app/models/news/news-dto.model';
+import { DateFormatterService } from '../../services/utilities/date-formatter.service';
 
 @Component({
   selector: 'app-news',
@@ -33,7 +34,7 @@ export class NewsComponent implements OnInit {
   totalPages: number;
   categories: string[];
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private dateFormatterService: DateFormatterService ) { }
 
   ngOnInit(): void {
     this.newsService.getArticles().subscribe(data => {
@@ -89,16 +90,7 @@ export class NewsComponent implements OnInit {
     return details.toLocaleLowerCase().split('<br>')[0];
   }
 
-  getFormattedDate(dateString: string): string {
-    const language = localStorage.getItem('language')
-    const date = new Date(dateString)
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? (language === 'ar' ? 'م' : 'pm') : (language === 'ar' ? 'ص' : 'am');
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()} ${hours}:${minutes}${ampm}`
-  }
+  
 
   getDisplayedPages(): number[] {
     const totalPages = this.totalPages;
