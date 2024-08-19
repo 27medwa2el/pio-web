@@ -32,7 +32,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let stock of displayedStocks" (click)="navigateToDetails(stock.isin)">
+                  <tr *ngFor="let stock of displayedStocks" (click)="navigateToDetails(stock.isin)" style="cursor: pointer; transition: background-color 0.3s ease;">
                     <td>{{ stock.englishName }}</td>
                     <td>{{ stock.symbol }}</td>
                     <td>{{ stock.open }}</td>

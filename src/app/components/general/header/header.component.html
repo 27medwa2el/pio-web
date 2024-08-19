@@ -22,8 +22,8 @@
         </div>
     </div>
 
-    <div class="ticker-bar" [dir]="'Direction' | translate">
-        <marquee>
+    <div class="ticker-bar">
+        <marquee [attr.direction]="languageFormControl.value === 'ar' ? 'right' : 'left'">
             <ng-container *ngIf="stockNews.length > 0; else noNews">
                 <span *ngFor="let stock of stockNews">
                     {{ stock.englishName }}

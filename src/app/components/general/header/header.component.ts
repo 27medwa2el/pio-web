@@ -35,6 +35,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export class HeaderComponent implements OnInit {
   stockNews: any[] = [];
+  stockNewsText: string = '';
   searchControl: FormControl = new FormControl();
   stocks: any[] = [];
   filteredStocks: any[] = [];
@@ -67,6 +68,7 @@ export class HeaderComponent implements OnInit {
    
       this.marketSummaryService.getStocks().subscribe((data: any) => {
         this.stockNews = data;
+       
       });
       this.marketSummaryService.getStocksGridData().subscribe((data: any) => {
         this.stocks = data;
@@ -75,6 +77,7 @@ export class HeaderComponent implements OnInit {
 
  
   }
+  
   setupSearch(): void {
     this.searchControl.valueChanges.pipe(
       debounceTime(300), 
