@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                   <th>{{ 'EGXSummary.Columns.Difference' | translate }}</th>
-                  <td *ngFor="let summary of egxSummaries">{{ summary.difference }}</td>
+                  <td [ngClass]="{'text-success': summary.difference >= 0, 'text-danger': summary.difference < 0}" *ngFor="let summary of egxSummaries">{{ summary.difference }}</td>
                 </tr>
               </thead>
             </table>

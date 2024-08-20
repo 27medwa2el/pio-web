@@ -11,8 +11,13 @@ export class AdditionalTablesComponent {
   currentSummary: string = 'dividends';
   bonusShares: any[] = [];
   genAssemblies: any[] = [];
+  genAssembliesPage: number = 1;
+  genAssembliesPageSize: number = 10;
+  dividendsPage: number = 1;
+  dividendsPageSize: number = 10;
 
-
+  bonusSharesPage: number = 1;
+  bonusSharesPageSize: number = 10;
   constructor(private marketSummaryService: MarketSummaryService) {}
 
   ngOnInit(): void {

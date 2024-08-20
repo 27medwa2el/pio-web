@@ -20,23 +20,21 @@
             (click)="changeSummary('bonusShares')">{{ 'BonusShares' | translate }}</button>
         </div>
 
-        <!-- Market Summary Table -->
+        <!-- Bonus Shares Table -->
         <div *ngIf="currentSummary === 'bonusShares'" class="summary-details mx-2 my-2">
           <div class="table-responsive">
             <table class="table table-bordered">
               <thead>
                 <tr>
                   <th>{{ "Company" | translate }}</th>
-                  <!-- <th>{{ "ISIN" | translate }}</th> -->
                   <th>{{ "Distribution" | translate }}</th>
                   <th>{{ "MaturityDate" | translate }}</th>
                   <th>{{ "DistributionDate" | translate }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let bonusShare of bonusShares">
+                <tr *ngFor="let bonusShare of bonusShares | paginate: { itemsPerPage: bonusSharesPageSize, currentPage: bonusSharesPage }">
                   <td>{{ bonusShare.bsCompName }}</td>
-                  <!-- <td>{{ bonusShare.bsIsinCode }}</td> -->
                   <td>{{ bonusShare.bsDistibution }}</td>
                   <td>{{ bonusShare.bsMatDate }}</td>
                   <td>{{ bonusShare.bsDistDate }}</td>
@@ -44,15 +42,16 @@
               </tbody>
             </table>
           </div>
+          <!-- Pagination Controls -->
+          <pagination-controls (pageChange)="bonusSharesPage = $event"></pagination-controls>
         </div>
 
-        <!-- EGX Summary Table -->
+        <!-- General Assemblies Table -->
         <div *ngIf="currentSummary === 'genAssemblies'" class="summary-details mx-2 my-2">
           <div class="table-responsive">
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <!-- <th>{{ "ISIN" | translate }}</th> -->
                   <th>{{ "Name" | translate }}</th>
                   <th>{{ "Date" | translate }}</th>
                   <th>{{ "Address" | translate }}</th>
@@ -61,20 +60,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let assembly of genAssemblies">
-                  <!-- <td>{{ assembly.genIsinIsin }}</td> -->
+                <tr *ngFor="let assembly of genAssemblies | paginate: { itemsPerPage: genAssembliesPageSize, currentPage: genAssembliesPage }">
                   <td>{{ assembly.genIsinName }}</td>
                   <td>{{ assembly.genIsinDate }}</td>
                   <td>{{ assembly.genIsinAddress }}</td>
                   <td>{{ assembly.genIsinTiming }}</td>
-                  <td>{{ assembly.genIsinType  }}</td>
+                  <td>{{ assembly.genIsinType }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <!-- Pagination Controls -->
+          <pagination-controls (pageChange)="genAssembliesPage = $event"></pagination-controls>
         </div>
 
-        <!-- Trading Summary Table -->
+        <!-- Dividends Table -->
         <div *ngIf="currentSummary === 'dividends'" class="summary-details mx-2 my-2">
           <div class="table-responsive">
             <table class="table table-bordered">
@@ -90,7 +90,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let dividend of dividends">
+                <tr *ngFor="let dividend of dividends | paginate: { itemsPerPage: dividendsPageSize, currentPage: dividendsPage }">
                   <td>{{ dividend.divCompName }}</td>
                   <td>{{ dividend.divCurrency }}</td>
                   <td>{{ dividend.divAddess }}</td>
@@ -102,13 +102,10 @@
               </tbody>
             </table>
           </div>
+          <!-- Pagination Controls -->
+          <pagination-controls (pageChange)="dividendsPage = $event"></pagination-controls>
         </div>
 
-        
-
-       
-      
-        
       </div>
     </div>
   </div>

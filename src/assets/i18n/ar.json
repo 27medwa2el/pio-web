@@ -92,7 +92,7 @@
     "EGXSummary.Columns": {
         "Name": "الاسم",
         "Value": "القيمة",
-        "Difference": "الفرق"
+        "Difference": "التغيّر"
     },
     "TradingSummary.Columns": {
         "Name": "الاسم",

@@ -27,6 +27,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NgxPaginationModule } from 'ngx-pagination';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSelectModule,
     MatOptionModule,
     DragDropModule,
+    NgxPaginationModule,
     // AnimateOnScrollModule.forRoot(),
     BrowserModule,
     AppRoutingModule,

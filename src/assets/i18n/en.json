@@ -91,7 +91,7 @@
     "EGXSummary.Columns": {
         "Name": "Name",
         "Value": "Value",
-        "Difference": "Difference"
+        "Difference": "Change"
     },
     "TradingSummary.Columns": {
         "Name": "Name",
