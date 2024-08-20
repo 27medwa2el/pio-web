@@ -44,7 +44,7 @@
   background-color: #112240;
   width: 150px; 
   height: auto;
-  min-width: 100px; 
+  /* min-width: 100px;  */
 }
 
 @media (max-width: 768px) {
@@ -69,7 +69,7 @@
 }
 @media (max-width: 576px) {
   .clickable-photo img {
-    width: 80px; 
+    width: 60px; 
   }
   .empty-space{
     margin-top: 250px;
