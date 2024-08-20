@@ -65,12 +65,14 @@ footer{
         font-family: $CodeFont;
         font-size: 12px;
         line-height: 1;
-    
+
         position: absolute;
         margin: auto;
         left: 0;
         right: 0;
         margin-top: -60px;
+
+
 
         a{
             color: $LightSlate;
@@ -87,4 +89,27 @@ footer{
             }
         }
     }
+  .footer-icons {
+    padding-bottom: 50px;
+    background-color: $Navy;
+    display: flex;
+    justify-content: center;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        float: left;
+        margin: 10px;
+      }
+    }
+    i {
+      font-size: 19px;
+      color: $LightSlate;
+    }
+  }
+}
+@media (min-width: 991px) {
+  .footer-icons {
+    display: none !important;
+  }
 }
