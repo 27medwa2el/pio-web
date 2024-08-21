@@ -15,9 +15,7 @@ export class BonusAssembliesComponent implements OnInit, OnChanges {
   auditReportsData: any[] = [];
   announcementsData: any[] = [];
 
-  constructor(
-    private marketSummaryService: MarketSummaryService
-  ) {}
+  constructor(private marketSummaryService: MarketSummaryService) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -52,53 +50,64 @@ export class BonusAssembliesComponent implements OnInit, OnChanges {
 
   loadAssemblies(): void {
     this.marketSummaryService.getStockAssemblies(this.stockIsin).subscribe(data => {
-      this.assembliesData = data;
+      this.assembliesData = data.map(item => ({
+        ...item,
+        genIsinDate: this.parseDateString(item.genIsinDate)
+      }));
     });
   }
 
   loadFinancialStatements(): void {
     this.marketSummaryService.getCompaniesFinancialStatements(this.stockIsin).subscribe(data => {
-      this.financialStatementsData = data.map(statement => ({
-        ...statement,
-        downloadUrl: this.createDownloadUrl(this.base64ToArrayBuffer(statement.dataContent))
-      }));
+      this.financialStatementsData = data;
     });
   }
 
   loadAuditReports(): void {
     this.marketSummaryService.getAuditReportsForStock(this.stockIsin).subscribe(data => {
-      this.auditReportsData = data.map(report => ({
-        ...report,
-        downloadUrl: this.createDownloadUrl(this.base64ToArrayBuffer(report.annContent))
-      }));
+      this.auditReportsData = data;
     });
   }
 
   loadAnnouncements(): void {
     this.marketSummaryService.getAnnouncementsForStock(this.stockIsin).subscribe(data => {
-      this.announcementsData = data.map(announcement => ({
-        ...announcement,
-        downloadUrl: this.createDownloadUrl(this.base64ToArrayBuffer(announcement.annContent))
-      }));
+      this.announcementsData = data;
     });
   }
 
-  createDownloadUrl(data: ArrayBuffer): string { 
-    const blob = new Blob([data], { type: 'application/pdf' });
-    return URL.createObjectURL(blob);
+  downloadPdf(id: number, isin: string): void {
+    this.marketSummaryService.downloadFinancialStatementPdf(id).subscribe(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${isin}_FinancialStatement.pdf`;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
   }
-
-  revokeUrl(url: string): void {
-    URL.revokeObjectURL(url);
+  downloadAuditPdf(id: number, isin: string): void {
+    this.marketSummaryService.downloadAuditReportPdf(id).subscribe(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${isin}_AuditReport.pdf`;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
   }
-
-  base64ToArrayBuffer(base64: string): ArrayBuffer {
-    const binaryString = window.atob(base64);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
-    }
-    return bytes.buffer;
+  downloadAnnouncementPdf(id: number, isin: string): void {
+    this.marketSummaryService.downloadAnnouncementPdf(id).subscribe(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${isin}_Announcement.pdf`;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
+  }
+  
+  parseDateString(dateString: string): Date {
+    const [day, month, year] = dateString.split('/').map(part => parseInt(part, 10));
+    return new Date(year, month - 1, day);
   }
 }

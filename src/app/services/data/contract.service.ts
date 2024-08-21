@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
-  private apiUrl = 'https://www.pioneers-securities.com/webdataapi/api/Contact';  
+  private apiUrl = 'http://localhost:5037/api/Contact';  
 
   constructor(private http: HttpClient) { }
 

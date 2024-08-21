@@ -1,0 +1,61 @@
+@import "./../../../../variables.scss";
+
+.jobs {
+  background-color: $Navy;
+  padding-top: 5%;
+  .jobs-inner {
+    background-color: #fff;
+    margin-bottom: -5%;
+    padding: 20px;
+  }
+}
+
+.summary-tabs {
+  display: flex;
+
+
+  .btn {
+    margin: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #333;
+
+    &.active {
+      background-color: $LightNavy;
+      color: white;
+    }
+  }
+}
+
+.summary-details {
+  margin-bottom: 20px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      
+      color: black;
+    }
+
+    td {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .summary-tabs {
+    text-align: right;
+  }
+  .summary-details {
+    text-align: right;
+  }
+}

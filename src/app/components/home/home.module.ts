@@ -30,6 +30,7 @@ import { MarketWatchComponent } from './market-watch/market-watch.component';
 import { AdditionalTablesComponent } from './additional-tables/additional-tables.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { StocksInformationComponent } from './stocks-information/stocks-information.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -51,7 +52,8 @@ export function HttpLoaderFactory(http: HttpClient){
     NewsComponent,
     SectorsComponent,
     MarketWatchComponent,
-    AdditionalTablesComponent
+    AdditionalTablesComponent,
+    StocksInformationComponent
   ],
   imports: [
     CommonModule,

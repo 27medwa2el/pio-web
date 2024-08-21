@@ -13,9 +13,14 @@
             </li>
             <li>
                 <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://whatsapp.com/channel/0029Va21eln1iUxR3gxiq01l" target='_blank'>
-                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-whatsapp" data-toggle="tooltip" title="news"></i>
                 </a>
             </li>
+            <li>
+              <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp2")' href="https://api.whatsapp.com/send?phone=%2B201090549514&context=ARD6rR-cdAslUlAHADH9tgM13dorjlsoP6_uQqofB76kxJ1fbhcW8-ykhfLu8fhRkr5c8ebslfl3kbov7FbNvv3PxZXagLsNefMxRex463j8YQ8dedVTxkqqtcZXbZ7u0Lx5kJUxPJ9sdsLtxpeivopdlw" target='_blank'>
+                  <i class="fab fa-whatsapp" style="color: lightslategray;" data-toggle="tooltip" title="contact us"></i>
+              </a>
+          </li>
             <li>
                 <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "telegram")' href="https://t.me/+qj0TIQiOvihmM2E0" target='_blank'>
                     <i class="fab fa-telegram"></i>

@@ -104,14 +104,12 @@
           </div>
       </div>
       <div class="col-12 col-md-6">
-      
         <h4 class="table-title">{{ "CompaniesFinancialStatements" | translate }}</h4>
         <div class="table-container">
           <ng-container *ngIf="financialStatementsData && financialStatementsData.length > 0; else noFinancialStatements">
             <table class="table table-bordered table-responsive">
               <thead>
                 <tr>
-                  <!-- <th>{{ "ISIN" | translate }}</th> -->
                   <th>{{ "Type" | translate }}</th>
                   <th>{{ "LastUpdated" | translate }}</th>
                   <th>{{ "Download" | translate }}</th>
@@ -119,25 +117,22 @@
               </thead>
               <tbody>
                 <tr *ngFor="let statement of financialStatementsData">
-                  <!-- <td>{{ statement.isin }}</td> -->
                   <td>{{ statement.type1 }}</td>
                   <td>{{ statement.lastUpdated | date:'shortDate' }}</td>
                   <td>
-                    <a [href]="statement.downloadUrl" download="{{ statement.isin }}_FinancialStatement.pdf" class="btn btn-primary">
+                    <button (click)="downloadPdf(statement.id, statement.isin)" class="btn btn-primary">
                       {{ "Download" | translate }}
-                    </a>
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </ng-container>
-          <!-- No Financial Statements Message -->
           <ng-template #noFinancialStatements>
             <div class="no-content-message text-center">
               {{ "There's no information available" | translate }}
             </div>
           </ng-template>
-       
         </div>
       </div>
       <div class="col-12 col-md-6 contai">
@@ -157,15 +152,14 @@
                   <td>{{ report.header }}</td>
                   <td>{{ report.annDate | date:'shortDate' }}</td>
                   <td>
-                    <a [href]="report.downloadUrl" class="btn btn-primary" download="{{ report.isin }}_report.pdf" class="btn btn-primary">
+                    <button (click)="downloadAuditPdf(report.id, report.isin)" class="btn btn-primary">
                       {{ "Download" | translate }}
-                    </a>
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </ng-container>
-          <!-- No Audit Reports Message -->
           <ng-template #noAuditReports>
             <div class="no-content-message text-center">
               {{ "There's no information available" | translate }}
@@ -174,7 +168,7 @@
         </div>
       </div>
       
-      <div class="col-12 col-md-6  contai">
+      <div class="col-12 col-md-6 contai">
         <h4 class="table-title">{{ "Announcements" | translate }}</h4>
         <div class="table-container">
           <ng-container *ngIf="announcementsData && announcementsData.length > 0; else noAnnouncements">
@@ -191,15 +185,14 @@
                   <td>{{ announcement.header }}</td>
                   <td>{{ announcement.annDate | date:'shortDate' }}</td>
                   <td>
-                    <a [href]="announcement.downloadUrl" class="btn btn-primary" download="{{ announcement.isin }}_Announcement.pdf" class="btn btn-primary">
+                    <button (click)="downloadAnnouncementPdf(announcement.id, announcement.isin)" class="btn btn-primary">
                       {{ "Download" | translate }}
-                    </a>
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </ng-container>
-          <!-- No Announcements Message -->
           <ng-template #noAnnouncements>
             <div class="no-content-message text-center">
               {{ "There's no information available" | translate }}
@@ -207,6 +200,7 @@
           </ng-template>
         </div>
       </div>
+      
 
   </div>
 </div>

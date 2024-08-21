@@ -127,10 +127,10 @@ export class HeaderComponent implements OnInit {
         window.open('https://www.pioneers-securities.com/Etrade/', '_blank');
         break;
       case 'ultimateTrade':
-        window.open('https://www.pioneers-securities.com/Etrade/', '_blank');
+        window.open('https://ultimate.pioneers-securities.com/Ultimate/Account/Login/', '_blank');
         break;
       case 'openAccount':
-        window.open('https://ultimate.pioneers-securities.com/Ultimate/Account/Login', '_blank');
+        window.open('https://www.pioneers-securities.com/Pioneers/OpenAccount/Create', '_blank');
         break;
       default:
         console.warn('Unknown navigation destination:', destination);

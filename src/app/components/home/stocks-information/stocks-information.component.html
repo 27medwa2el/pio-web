@@ -1,0 +1,144 @@
+<section id="stocks-information">
+    <div class="jobs" [dir]="'Direction' | translate">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container" [dir]="'Direction' | translate">
+          <h3 class="section-title">{{ "Stocks Information" | translate }}</h3>
+        </div>
+        <div class="jobs-inner">
+          <div class="summary-tabs mx-2">
+            <button 
+              class="btn btn-light" 
+              [ngClass]="{'active': currentSummary === 'insiderActions'}"
+              (click)="changeSummary('insiderActions')">{{ 'InsiderActions' | translate }}</button>
+            <button 
+              class="btn btn-light" 
+              [ngClass]="{'active': currentSummary === 'financialStatements'}"
+              (click)="changeSummary('financialStatements')">{{ 'CompaniesFinancialStatements' | translate }}</button>
+            <button 
+              class="btn btn-light" 
+              [ngClass]="{'active': currentSummary === 'auditReports'}"
+              (click)="changeSummary('auditReports')">{{ 'AuditReports' | translate }}</button>
+            <button 
+              class="btn btn-light" 
+              [ngClass]="{'active': currentSummary === 'announcements'}"
+              (click)="changeSummary('announcements')">{{ 'Announcements' | translate }}</button>
+          </div>
+  
+          <!-- Insider Actions Table -->
+          <div *ngIf="currentSummary === 'insiderActions'" class="summary-details mx-2 my-2">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>{{ "Company" | translate }}</th>
+                    <th>{{ "Type" | translate }}</th>
+                    <th>{{ "Volume" | translate }}</th>
+                    <th>{{ "ClosePrice" | translate }}</th>
+                    <th>{{ "Date" | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let insider of insiderTradingData | paginate: { itemsPerPage: 10, currentPage: insiderTradingPage }">
+                    <td>{{ insider.stockName }}</td>
+                    <td>{{ insider.transType }}</td>
+                    <td>{{ insider.volume }}</td>
+                    <td>{{ insider.closePrice }}</td>
+                    <td>{{ insider.transDate | date : 'shortDate' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pagination-controls (pageChange)="insiderTradingPage = $event"></pagination-controls>
+          </div>
+  
+          <!-- Financial Statements Table -->
+          <div *ngIf="currentSummary === 'financialStatements'" class="summary-details mx-2 my-2">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>{{ "Company" | translate }}</th>
+                    <th>{{ "Type" | translate }}</th>
+                    <th>{{ "LastUpdated" | translate }}</th>
+                    <th>{{ "Download" | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let statement of financialStatementsData | paginate: { itemsPerPage: 10, currentPage: financialStatementsPage }">
+                    <td>{{ statement.stockName }}</td>
+                    <td>{{ statement.type1 }}</td>
+                    <td>{{ statement.lastUpdated | date : 'shortDate' }}</td>
+                    <td>
+                      <button (click)="downloadPdf(statement.id, statement.isin, 'financialStatement')" class="btn btn-primary">
+                        {{ "Download" | translate }}
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pagination-controls (pageChange)="financialStatementsPage = $event"></pagination-controls>
+          </div>
+  
+          <!-- Audit Reports Table -->
+          <div *ngIf="currentSummary === 'auditReports'" class="summary-details mx-2 my-2">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>{{ "Company" | translate }}</th>
+                    <th>{{ "Header" | translate }}</th>
+                    <th>{{ "Date" | translate }}</th>
+                    <th>{{ "Download" | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let report of auditReportsData | paginate: { itemsPerPage: 10, currentPage: auditReportsPage }">
+                    <td>{{ report.stockName }}</td>
+                    <td>{{ report.header }}</td>
+                    <td>{{ report.annDate | date : 'shortDate' }}</td>
+                    <td>
+                      <button (click)="downloadPdf(report.id, report.isin, 'auditReport')" class="btn btn-primary">
+                        {{ "Download" | translate }}
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pagination-controls (pageChange)="auditReportsPage = $event"></pagination-controls>
+          </div>
+  
+          <!-- Announcements Table -->
+          <div *ngIf="currentSummary === 'announcements'" class="summary-details mx-2 my-2">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>{{ "Company" | translate }}</th>
+                    <th>{{ "Header" | translate }}</th>
+                    <th>{{ "Date" | translate }}</th>
+                    <th>{{ "Download" | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let announcement of announcementsData | paginate: { itemsPerPage: 10, currentPage: announcementsPage }">
+                    <td>{{ announcement.stockName }}</td>
+                    <td>{{ announcement.header }}</td>
+                    <td>{{ announcement.annDate | date : 'shortDate' }}</td>
+                    <td>
+                      <button (click)="downloadPdf(announcement.id, announcement.isin, 'announcement')" class="btn btn-primary">
+                        {{ "Download" | translate }}
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pagination-controls (pageChange)="announcementsPage = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

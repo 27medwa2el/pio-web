@@ -9,7 +9,7 @@ import { NewsDto } from 'src/app/models/news/news-dto.model';
   providedIn: 'root'
 })
 export class MarketSummaryService {
-  private baseUrl = 'https://www.pioneers-securities.com/webdataapi';
+  private baseUrl = 'http://localhost:5037';
   private language = localStorage.getItem("language")?? "en";
 
   constructor(private http: HttpClient) { }
@@ -105,5 +105,28 @@ export class MarketSummaryService {
   getAnnouncementsForStock(isin: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesAnnouncements/${isin}`, { headers: { "accept-language": this.language } });
   }
-  
+  getAllAnnouncements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesAnnouncements`, { headers: { "accept-language": this.language } });
+  }
+  getAllAuditReports(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesAuditReports`, { headers: { "accept-language": this.language } });
+  }
+  getAllFinancialStatements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/api/CompaniesFinancialStatementsAnnualIsins`, { headers: { "accept-language": this.language } });
+  }
+  downloadFinancialStatementPdf(id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/api/CompaniesFinancialStatementsAnnualIsins/download/${id}`, {
+      responseType: 'blob'
+    });
+  }
+  downloadAuditReportPdf(id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/api/CompaniesAuditReports/${id}/download`, {
+      responseType: 'blob'
+    });
+  }
+  downloadAnnouncementPdf(id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/api/CompaniesAnnouncements/${id}/download`, {
+      responseType: 'blob'
+    });
+  }
 }

@@ -34,7 +34,10 @@ export class AdditionalTablesComponent {
 
   loadGenAssemblies(): void {
     this.marketSummaryService.getGenAssembliesIsins().subscribe((data: any[]) => {
-      this.genAssemblies = data;
+      this.genAssemblies = data.map(item => ({
+        ...item,
+        genIsinDate: this.parseDateString(item.genIsinDate)
+      }));
     });
   }
 
@@ -59,5 +62,9 @@ export class AdditionalTablesComponent {
         this.loadBonusShares();
         break;
     }
+  }
+  parseDateString(dateString: string): Date {
+    const [day, month, year] = dateString.split('/').map(part => parseInt(part, 10));
+    return new Date(year, month - 1, day);
   }
 }

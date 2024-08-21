@@ -62,7 +62,7 @@
               <tbody>
                 <tr *ngFor="let assembly of genAssemblies | paginate: { itemsPerPage: genAssembliesPageSize, currentPage: genAssembliesPage }">
                   <td>{{ assembly.genIsinName }}</td>
-                  <td>{{ assembly.genIsinDate }}</td>
+                  <td>{{ assembly.genIsinDate | date : 'shortDate' }}</td>
                   <td>{{ assembly.genIsinAddress }}</td>
                   <td>{{ assembly.genIsinTiming }}</td>
                   <td>{{ assembly.genIsinType }}</td>
