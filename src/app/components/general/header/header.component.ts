@@ -85,12 +85,13 @@ export class HeaderComponent implements OnInit {
     if (id === this.openedTab)
     {
       element?.classList.add('d-block');
+      this.openedTab = '';
     }else{
       prevElement?.classList.remove('d-block');
       element?.classList.add('d-block');
+      this.openedTab = id;
     }
 
-    this.openedTab = id;
   }
 
   setupSearch(): void {
