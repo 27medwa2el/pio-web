@@ -75,7 +75,7 @@ export class HeaderComponent implements OnInit {
       this.marketSummaryService.getStocksGridData().subscribe((data: any) => {
         this.stocks = data;
         this.setupSearch();
-      })
+      });
   }
 
   changeTab(id: string): void {
