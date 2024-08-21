@@ -11,16 +11,16 @@
     align-items: center;
 
     input {
-      flex-grow: 1; 
-      width: 100%; 
-      padding-right: 40px; 
+      flex-grow: 1;
+      width: 100%;
+      padding-right: 40px;
     }
 
     .search-icon-button {
       background: none;
       border: none;
       padding: 0;
-      margin-left: -35px; 
+      margin-left: -35px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -34,15 +34,15 @@
 
     .search-results {
       position: absolute;
-      top: 100%; 
+      top: 100%;
       left: 0;
       right: 0;
       background-color: white;
       border: 1px solid #ccc;
-      z-index: 1000; 
+      z-index: 1000;
 
       ul {
-        list-style-type: none; 
+        list-style-type: none;
         margin: 0;
         padding: 0;
         color: #000;
@@ -68,21 +68,66 @@
   font-family: $MainFont;
   font-weight: 800
 }
+
+.sub-menu {
+  float: left;
+  display: none;
+  height: 0 !important;
+  width: 100%;
+  margin: 0 0 0 0 !important;
+  padding: 0 !important;
+  list-style-type: none !important;
+  li {
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+    padding: 5px 0 !important;
+    background-color: rgba(168, 178, 209, 0.8);
+    opacity: 0.1;
+    transition: 0.3s;
+    a {
+      color: $LightestSlate;
+      text-decoration: none;
+    }
+  }
+
+  li:hover {
+    cursor: pointer;
+    background-color: $Slate;
+  }
+
+}
+
+.sub-menu-responsive {
+  display: none;
+  list-style-type: none !important;
+}
+
+li:hover {
+  .sub-menu {
+    display: block;
+    li {
+      opacity: 1;
+    }
+  }
+}
+
 .main-navbar {
     height: 70px;
     background: $Navy;
-    
+
     .menu-ul{
       li{
         margin: 0px 13px;
       }
-      
+
       li:first-child{
         margin-left: 0px;
       }
       li:last-child{
         margin-right: 0px;
       }
+
 
     }
     .menu-responsive {
@@ -207,7 +252,7 @@
       height: 60px;
       cursor: pointer;
       z-index: 11;
-    
+
       .hamburger-menu,
       .hamburger-menu:after,
       .hamburger-menu:before {
@@ -215,14 +260,14 @@
         width: 36px;
         height: 1.5px;
         background: $Green;
-        transition: all 0.15s ease-in-out; 
+        transition: all 0.15s ease-in-out;
       }
-    
+
       .hamburger-menu {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-    
+
         &:before,
         &:after {
           content: "";
@@ -230,34 +275,34 @@
           left: 0;
           background: $Green;
         }
-    
+
         &:before {
           bottom: 8px;
-          transition: bottom 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out; 
+          transition: bottom 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out;
         }
-    
+
         &:after {
           top: 8px;
-          transition: top 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out; 
+          transition: top 0.05s 0.05s ease-in-out, transform 0.05s ease-in-out;
         }
-    
+
         &.animate {
           background: transparent;
           &:before {
             bottom: 0;
             transform: rotate(-45deg);
-            transition: bottom 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out; 
+            transition: bottom 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out;
           }
           &:after {
             top: 0;
             transform: rotate(45deg);
-            transition: top 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out; 
+            transition: top 0.05s ease-in-out, transform 0.05s 0.05s ease-in-out;
           }
         }
       }
     }
-    
-    
+
+
 }
 
 .on-top {
@@ -290,7 +335,7 @@
 @media (max-width: 991px) {
     nav .nav {
         display: none;
-    } 
+    }
     .nav-shadow {
         height: 160px;
     }
@@ -395,34 +440,34 @@
     color: #e6e6e6;
     padding: 10px 0;
     text-align: center;
-  
+
     .status-content {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 15px;
       font-family: $CodeFont;
-  
+
       .datetime {
         font-size: 12px;
         padding: 5px 10px;
         color: #000;
       }
-  
+
       .indicator {
         width: 15px;
         height: 15px;
         border-radius: 50%;
-  
+
         &.green {
           background-color: green;
         }
-  
+
         &.red {
           background-color: red;
         }
       }
-  
+
       .link-button, .open-account-button {
         background: none;
         border: none;
@@ -430,25 +475,25 @@
         cursor: pointer;
         padding: 5px 10px;
         font-size: 12px;
-  
+
         &:hover {
           color: #ff4500;
         }
       }
-  
+
       .search-bar {
         padding: 5px;
         font-size: 12px;
         border: 1px solid #ccc;
         border-radius: 5px;
         width: 200px;
-  
+
         &:focus {
           outline: none;
           border-color: #021016;
         }
       }
-  
+
       .search-button {
         padding: 5px 10px;
         font-size: 12px;
@@ -457,19 +502,19 @@
         color: white;
         cursor: pointer;
         border-radius: 5px;
-  
+
         &:hover {
           background-color: #030f16;
         }
       }
     }
   }
-  
+
   @media (max-width: 768px) {
     .status-bar .status-content {
       flex-wrap: wrap;
       gap: 10px;
-  
+
       .datetime,  .link-button, .open-account-button, .search-bar, .search-button, .search-bar {
         flex: 3 6 20%;
         text-align: center;
@@ -482,19 +527,19 @@
         border-radius: 100%;
 
       }
-  
-      
+
+
     }
     .nav-shadow {
         height: 220px;
     }
   }
   @media (max-width: 500px) {
-    
+
     .status-bar .status-content {
       flex-wrap: wrap;
       gap: 10px;
-  
+
       .datetime,  .link-button, .open-account-button, .search-bar, .search-button, .search-bar {
         flex: 3 6 20%;
         text-align: center;
@@ -507,15 +552,15 @@
         border-radius: 100%;
 
       }
-  
-      
+
+
     }
     .nav-shadow {
         height: 235px;
     }
   }
-  
-  
+
+
   .news-ticker {
     width: 100%;
     background: $LightestSlate;
@@ -523,9 +568,9 @@
     padding: 5px 0;
     font-family: $CodeFont;
     border-top: 1px solid $Green;
-  
+
     marquee {
       color: $LightestSlate;
     }
   }
-  
+
