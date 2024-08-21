@@ -79,10 +79,17 @@ export class HeaderComponent implements OnInit {
   }
 
   changeTab(id: string): void {
-    let element = document.getElementById(id)
-    let prevElement = document.getElementById(this.openedTab)
-    prevElement?.classList.remove('d-block');
-    element?.classList.add('d-block');
+    const element = document.getElementById(id);
+    const prevElement = document.getElementById(this.openedTab);
+
+    if (id === this.openedTab)
+    {
+      element?.classList.add('d-block');
+    }else{
+      prevElement?.classList.remove('d-block');
+      element?.classList.add('d-block');
+    }
+
     this.openedTab = id;
   }
 
