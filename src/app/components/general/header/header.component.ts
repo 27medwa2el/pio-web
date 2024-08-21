@@ -84,7 +84,7 @@ export class HeaderComponent implements OnInit {
 
     if (id === this.openedTab)
     {
-      element?.classList.add('d-block');
+      element?.classList.remove('d-block');
       this.openedTab = '';
     }else{
       prevElement?.classList.remove('d-block');
