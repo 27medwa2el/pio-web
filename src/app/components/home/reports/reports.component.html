@@ -1,0 +1,61 @@
+<section id="reports">
+    <div class="empty-space"></div>
+    <div class="jobs" [dir]="'Direction' | translate">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="section-box">
+          <div>
+            <h3 class="section-title" [dir]="'Direction' | translate">
+              {{ 'Reports.Title' | translate }}
+            </h3>
+          </div>
+          <div class="jobs-inner">
+            <div class="summary-tabs mx-2">
+              <button 
+                class="btn btn-light" 
+                [ngClass]="{'active': currentReportType === 'daily'}"
+                (click)="changeReportType('daily')">{{ 'Daily' | translate }}</button>
+              <button 
+                class="btn btn-light" 
+                [ngClass]="{'active': currentReportType === 'weekly'}"
+                (click)="changeReportType('weekly')">{{ 'Weekly' | translate }}</button>
+              <button 
+                class="btn btn-light" 
+                [ngClass]="{'active': currentReportType === 'quarterly'}"
+                (click)="changeReportType('quarterly')">{{ 'Quarterly' | translate }}</button>
+            </div>
+  
+            <div class="report-details mx-2 my-2">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>{{ "Name" | translate }}</th>
+                      <th>{{ "Size" | translate }}</th>
+                      <th>{{ "Date" | translate }}</th>
+                      <th>{{ "Type" | translate }}</th>
+                      <th>{{ "Download" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let report of reportsData | paginate: { itemsPerPage: 10, currentPage: reportsPage }">
+                      <td>{{ report.name }}</td>
+                      <td>{{ report.size | number : '1.0-0'}} KB</td>
+                      <td>{{ report.date | date : 'shortDate' }}</td>
+                      <td>{{ report.type }}</td>
+                      <td>
+                        <button (click)="downloadFile(report.name)" class="btn btn-primary">
+                          {{ "Download" | translate }}
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <pagination-controls (pageChange)="reportsPage = $event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

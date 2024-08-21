@@ -28,6 +28,8 @@
     "Volume": "الحجم",
     "Today": "اليوم",
     "Daily": "يومي",
+    "Weekly": "أسبوعي",
+    "Quarterly": "ربع سنوي",
     "W": "أسبوع",
     "2W": "أسبوعين",
     "M": "شهر",
@@ -262,6 +264,7 @@
   "Email": "البريد الإلكتروني",
   "Board Members": "أعضاء مجلس الإدارة",
   "Stock Price Chart": "مخطط أسعار الأسهم",
-  "Additional Information": "معلومات إضافية"
+  "Additional Information": "معلومات إضافية",
+  "Companies Information" : "معلومات الشركات"
 }
   

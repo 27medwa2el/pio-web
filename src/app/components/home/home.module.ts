@@ -31,6 +31,7 @@ import { AdditionalTablesComponent } from './additional-tables/additional-tables
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { StocksInformationComponent } from './stocks-information/stocks-information.component';
+import { ReportsComponent } from './reports/reports.component';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient){
     SectorsComponent,
     MarketWatchComponent,
     AdditionalTablesComponent,
-    StocksInformationComponent
+    StocksInformationComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,

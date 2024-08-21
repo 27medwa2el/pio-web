@@ -1,0 +1,68 @@
+@import "./../../../../variables.scss";
+
+#reports {
+  .empty-space {
+    height: 70px;   
+    background-color: $Navy;
+  }
+
+  .jobs {
+    background-color: $Navy;
+
+    .jobs-inner {
+      background-color: #fff;
+      padding: 30px;
+      margin-bottom: -5%;
+      
+      .summary-tabs {
+        display: flex;
+        margin-bottom: 20px;
+
+        .btn {
+          margin: 5px;
+          background-color: #f8f9fa;
+          border: 1px solid #ddd;
+          color: #333;
+
+          &.active {
+            background-color: $LightNavy;
+            color: white;
+          }
+        }
+      }
+
+      .report-details {
+        .table-responsive {
+          table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th, td {
+              padding: 10px;
+              text-align: center;
+            }
+
+            th {
+           
+              color: black;
+            }
+
+            td {
+              background-color: #fff;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  [dir="rtl"] {
+    .summary-tabs {
+      text-align: right;
+    }
+    .report-details {
+      text-align: right;
+    }
+  }
+}
