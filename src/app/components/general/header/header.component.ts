@@ -44,8 +44,10 @@ export class HeaderComponent implements OnInit {
   languageFormControl: UntypedFormControl= new UntypedFormControl();
   cvName: string = "";
   currentDate = new Date();
-  isMarketOpen = false; 
+  isMarketOpen = false;
   searchQuery = '';
+  openedTab = '';
+
   constructor(
     private router: Router,
     public analyticsService: AnalyticsService,
@@ -64,23 +66,29 @@ export class HeaderComponent implements OnInit {
     this.updateTime();
     this.checkMarketStatus();
   }
+
   fetchStocks() {
-   
       this.marketSummaryService.getStocks().subscribe((data: any) => {
         this.stockNews = data;
-       
+
       });
       this.marketSummaryService.getStocksGridData().subscribe((data: any) => {
         this.stocks = data;
         this.setupSearch();
       })
-
- 
   }
-  
+
+  changeTab(id: string): void {
+    let element = document.getElementById(id)
+    let prevElement = document.getElementById(this.openedTab)
+    prevElement?.classList.remove('d-block');
+    element?.classList.add('d-block');
+    this.openedTab = id;
+  }
+
   setupSearch(): void {
     this.searchControl.valueChanges.pipe(
-      debounceTime(300), 
+      debounceTime(300),
       distinctUntilChanged()
     ).subscribe(searchTerm => {
       this.filteredStocks = this.stocks.filter(stock => stock.englishName.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -112,6 +120,8 @@ export class HeaderComponent implements OnInit {
       this.currentDate = new Date();
     }, 1000);
   }
+
+
 
   checkMarketStatus() {
     const now = new Date();
