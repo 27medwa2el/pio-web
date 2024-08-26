@@ -326,7 +326,7 @@ li:hover {
   border: 1px solid $Green;
   border-radius: 5px;
   font-size: 12px;
-  
+
   &.show {
     display: block; // Show on hover
   }
@@ -346,7 +346,7 @@ li:hover {
     .nav-shadow {
         height: 140px;
     }
-    
+
 }
 
 @media (max-width: 991px) {
@@ -360,12 +360,16 @@ li:hover {
     .language-container-full-nav {
       display: none;
   }
- 
-  
+
+  .ignore-mb {
+    display: none !important;
+  }
 }
 
 @media (min-width: 991px) {
-    
+  .ignore-mb {
+    display: none;
+  }
 
   .menu-wrapper,
     .menu-responsive {
@@ -374,7 +378,7 @@ li:hover {
     .nav-shadow {
         height: 140px;
     }
-    
+
 }
 
 .flag-text {
@@ -488,7 +492,7 @@ li:hover {
   font-size: 12px;
   .dropdown-item {
     color: darkgray;
-    
+
 
     &:hover {
       background-color: $Green;
@@ -506,7 +510,7 @@ li:hover {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 5px;
       font-family: $CodeFont;
 
       .datetime {
@@ -539,7 +543,7 @@ li:hover {
 
         &:hover {
           color:  $Green;
-          
+
         }
       }
 
@@ -604,16 +608,16 @@ li:hover {
     .nav-shadow {
         height: 220px;
     }
-    
+
   }
-  
+
   @media (max-width: 500px) {
     .language-icon{
       display: none;
     }
     .status-bar .status-content {
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 40px;
 
       .datetime,  .link-button, .open-account-button, .search-bar, .search-button, .search-bar {
         flex: 3 6 20%;
@@ -633,21 +637,21 @@ li:hover {
     .nav-shadow {
         height: 235px;
     }
-    
+
   }
 
 
   .news-ticker {
     // width: 100%;
-    
-    
+
+
     color: $Green;
     padding: 5px 0;
     font-family: $CodeFont;
-   
+
     span.stock-name {
-      font-weight: bold; 
-      
+      font-weight: bold;
+
     }
     marquee {
       color: $LightestSlate;
@@ -655,11 +659,10 @@ li:hover {
   }
 
   .status-content img {
-    margin-right: 8px; 
-    vertical-align: middle; 
+    margin-right: 8px;
+    vertical-align: middle;
   }
-  
+
   .dropdown-item img {
     margin-right: 8px;
   }
-  
