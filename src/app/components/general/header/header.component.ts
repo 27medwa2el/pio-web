@@ -98,11 +98,11 @@
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
     }
-  
+
     openDropdown() {
       this.showDropdown = true;
     }
-  
+
     closeDropdown() {
       this.showDropdown = false;
     }
@@ -139,9 +139,9 @@
     updateTime() {
       setInterval(() => {
         this.currentDate = new Date();
-        
+
         if (this.languageFormControl.value === 'ar') {
-         
+
           this.formattedDate = this.currentDate.toLocaleString('ar-EG-u-nu-latn', {
             weekday: 'long',
             year: 'numeric',
@@ -153,7 +153,7 @@
             hour12: true
           });
         } else {
-        
+
           this.formattedDate = this.currentDate.toLocaleString('en-US', {
             weekday: 'long',
             year: 'numeric',
@@ -165,12 +165,12 @@
             hour12: true
           });
         }
-    
+
       }, 1000);
     }
-    
-    
-    
+
+
+
 
 
 
@@ -180,6 +180,16 @@
       const hour = now.getHours();
       const minutes = now.getMinutes();
       this.isMarketOpen = (day >= 1 && day <= 5) && (hour >= 9 && hour < 14) || (day >= 1 && day <= 5 && hour == 14 && minutes <= 30);
+    }
+
+    marketStatus(): string {
+      const lang = localStorage.getItem('language') ?? 'en';
+      if (lang === 'en') {
+        return this.isMarketOpen ? 'Open 🟢' : 'Close 🔴';
+      }
+      else {
+        return this.isMarketOpen ? 'مفتوح 🟢' : 'مغلق 🔴';
+      }
     }
 
     navigateTo(destination: string): void {

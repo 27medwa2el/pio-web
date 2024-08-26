@@ -3,13 +3,15 @@
         <div class="status-content">
             <img src="assets/icons/calendar.png" alt="Open Account" width="16" height="16" />
           <span class="datetime">{{ formattedDate  }}</span>
-          <button class="indicator" [ngClass]="{'green': isMarketOpen, 'red': !isMarketOpen}"> </button>
-          
-    
+
+          <span class="datetime">{{marketStatus()}}<i></i></span>
+<!--          <button class="indicator" [ngClass]="{'green': isMarketOpen, 'red': !isMarketOpen}"></button>-->
+
+
           <!-- Trade Now Dropdown with Icon -->
-          <div ngbDropdown class="d-inline-block" 
-          (mouseover)="openDropdown()" 
-          (mouseout)="closeDropdown()" 
+          <div ngbDropdown class="d-inline-block"
+          (mouseover)="openDropdown()"
+          (mouseout)="closeDropdown()"
           [class.show]="showDropdown">
        <button class="btn btn-secondary dropdown-toggle">
          <img src="assets/icons/trading.png" alt="Trade" width="16" height="16" />  {{"Trade Now" | translate}}
@@ -19,20 +21,20 @@
            <img src="assets/icons/trading.png" alt="eTrade" width="16" height="16" />  {{"eTrade" | translate}}
          </button>
          <button class="dropdown-item" (click)="navigateTo('ultimateTrade')">
-           <img src="assets/icons/trading.png" alt="Ultimate Trade" width="16" height="16" /> {{"Ultimate Trade" | translate}} 
+           <img src="assets/icons/trading.png" alt="Ultimate Trade" width="16" height="16" /> {{"Ultimate Trade" | translate}}
          </button>
        </div>
      </div>
-    
+
           <!-- Open Account Button with Icon -->
           <button class="open-account-button" (click)="navigateTo('openAccount')">
             <img src="assets/icons/add-user.png" alt="Open Account" width="16" height="16" />
             {{"openAccount" | translate}}
           </button>
-    
+
           <!-- Search Container with Icon -->
-          <div class="search-container">
-            
+          <div class="search-container ignore-mb">
+
             <input type="text" placeholder="{{ 'search' | translate }}..." [formControl]="searchControl">
             <button class="search-icon-button" (click)="search()">
               <img src="assets/icons/search.svg" alt="Search" />
@@ -48,7 +50,7 @@
         </div>
       </div>
 
-    
+
 
     <div class="container mid-container" [dir]="'Direction' | translate">
         <a class="navbar-brand text-light" [routerLink]="'inicio'">
@@ -91,18 +93,18 @@
               </ul>
         </div>
         <div class="language-icon">
-            <img 
-              *ngIf="languageFormControl.value === 'en'" 
-              src="https://www.worldometers.info/img/flags/eg-flag.gif" 
-              alt="Arabic" 
-              (click)="changeLanguage('ar')" 
+            <img
+              *ngIf="languageFormControl.value === 'en'"
+              src="https://www.worldometers.info/img/flags/eg-flag.gif"
+              alt="Arabic"
+              (click)="changeLanguage('ar')"
               width="20px"
             />
-            <img 
-              *ngIf="languageFormControl.value === 'ar'" 
-              src="https://www.worldometers.info/img/flags/us-flag.gif" 
-              alt="English" 
-              (click)="changeLanguage('en')" 
+            <img
+              *ngIf="languageFormControl.value === 'ar'"
+              src="https://www.worldometers.info/img/flags/us-flag.gif"
+              alt="English"
+              (click)="changeLanguage('en')"
               width="20px"
             />
           </div>
@@ -113,6 +115,22 @@
             <aside [class.aside-show]='responsiveMenuVisible' [class.nav-shadow]='this.pageYPosition>0' class="on-top">
                 <nav>
                     <ol>
+                      <li>
+                        <div class="search-container">
+
+                          <input type="text" placeholder="{{ 'search' | translate }}..." [formControl]="searchControl">
+                          <button class="search-icon-button ignore-mb" (click)="search()">
+                            <img src="assets/icons/search.svg" alt="Search" />
+                          </button>
+                          <div class="search-results" *ngIf="filteredStocks.length > 0">
+                            <ul>
+                              <li *ngFor="let stock of filteredStocks.slice(0, 10)" (click)="onSelectStock(stock.isin)">
+                                {{ stock.englishName }}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
                         <li (click)='analyticsService.sendAnalyticEvent("click_about", "menu", "click")'>
                             <a [routerLink]="'/home'">
                                 <span></span> {{"Header.Item1" | translate}}
@@ -183,9 +201,9 @@
                 <span *ngFor="let stock of stockNews">
                     <span class="stock-name" >{{ stock.englishName }}</span>
                     <span style="color: rgb(20, 20, 20);">
-                        {{ stock.open }} 
+                        {{ stock.open }}
                     </span>
-                    <span class="close-price" [ngStyle]="{'color': stock.change > 0 ? 'green' : stock.change == 0 ? 'rgb(20, 20, 20)' : 'red'}"> 
+                    <span class="close-price" [ngStyle]="{'color': stock.change > 0 ? 'green' : stock.change == 0 ? 'rgb(20, 20, 20)' : 'red'}">
                         {{ stock.close }}
                     </span>
                     <span [ngStyle]="{'color': stock.change > 0 ? 'green' : stock.change == 0 ? 'rgb(20, 20, 20)' : 'red'}">
