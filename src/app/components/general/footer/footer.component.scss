@@ -1,8 +1,9 @@
+@import "./../../../../variables.scss";
 .footer {
     background-color: #1A3A5A; /* Dark blue background color */
     padding: 60px 0;
     color: #ffffff;
-  
+    font-family: $CodeFont;
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -127,5 +128,10 @@
   
   [dir="rtl"] {
     text-align: right;
+    font-family: $MainFont;
+    font-weight: 800
   }
+  
+
+
   
