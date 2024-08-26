@@ -1,8 +1,9 @@
+@import "./../../../../variables.scss";
 .footer {
     background-color: #1A3A5A; /* Dark blue background color */
     padding: 60px 0;
     color: #ffffff;
-  
+    font-family: $CodeFont !important;
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -16,7 +17,7 @@
     .footer-title {
       font-size: 18px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
   
     .footer-contact-info {
@@ -99,7 +100,9 @@
       .footer {
         padding: 40px 20px;
       }
-  
+      .footer-title {
+        margin-top: 10px;
+      }
       .footer-contact-info, .footer-links, .footer-contact-form {
         text-align: center;
       }
@@ -127,5 +130,10 @@
   
   [dir="rtl"] {
     text-align: right;
+    font-family: $MainFont;
+    font-weight: 800
   }
+  
+
+
   

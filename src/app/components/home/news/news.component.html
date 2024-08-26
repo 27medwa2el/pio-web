@@ -1,14 +1,14 @@
-<section id="news">
+<section id="news" [dir]="'Direction' | translate">
   <div class="empty-space"></div>
   <div class="jobs">
     <div class="container" data-aos="fade-up" data-aos-duration="1000">
       <div class="section-box">
         <div>
-         <span class="section-title" [dir]="'Direction' | translate">
+         <span class="section-title" >
             {{ 'News.Title' | translate }}
          </span>
         </div>
-        <div class="jobs-inner" [dir]="'Direction' | translate">
+        <div class="jobs-inner" >
           <div class="news-container" data-aos="fade-up" data-aos-duration="1000">
             <ul ngbNav #nav="ngbNav" class="nav-tabs">
               <li *ngFor="let category of categories" ngbNavItem (click)="changeCategory(category)">
