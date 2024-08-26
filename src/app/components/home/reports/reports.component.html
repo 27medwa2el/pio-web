@@ -4,9 +4,9 @@
       <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <div class="section-box">
           <div>
-            <h3 class="section-title" [dir]="'Direction' | translate">
+            <span class="section-title" [dir]="'Direction' | translate">
               {{ 'Reports.Title' | translate }}
-            </h3>
+            </span>
           </div>
           <div class="jobs-inner">
             <div class="summary-tabs mx-2">
@@ -37,7 +37,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let report of reportsData | paginate: { itemsPerPage: 10, currentPage: reportsPage }">
+                    <tr *ngFor="let report of reportsData | paginate: { id: 'paginationReports', itemsPerPage: 10, currentPage: reportsPage }">
                       <td>{{ report.name }}</td>
                       <td>{{ report.size | number : '1.0-0'}} KB</td>
                       <td>{{ report.date | date : 'shortDate' }}</td>
@@ -51,7 +51,7 @@
                   </tbody>
                 </table>
               </div>
-              <pagination-controls (pageChange)="reportsPage = $event"></pagination-controls>
+              <pagination-controls id="paginationReports" (pageChange)="reportsPage = $event"></pagination-controls>
             </div>
           </div>
         </div>

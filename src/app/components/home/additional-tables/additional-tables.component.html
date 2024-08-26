@@ -2,7 +2,7 @@
   <div class="jobs" [dir]="'Direction' | translate">
     <div class="container" data-aos="fade-up" data-aos-duration="1000">
       <div class="container" [dir]="'Direction' | translate">
-        <h3 class="section-title">{{ "Header.Item7" | translate }}</h3>
+        <span class="section-title">{{ "Header.Item7" | translate }}</span>
       </div>
       <div class="jobs-inner">
         <div class="summary-tabs mx-2">
@@ -33,7 +33,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let bonusShare of bonusShares | paginate: { itemsPerPage: bonusSharesPageSize, currentPage: bonusSharesPage }">
+                <tr *ngFor="let bonusShare of bonusShares | paginate: {id: 'pagination3', itemsPerPage: bonusSharesPageSize, currentPage: bonusSharesPage }">
                   <td>{{ bonusShare.bsCompName }}</td>
                   <td>{{ bonusShare.bsDistibution }}</td>
                   <td>{{ bonusShare.bsMatDate }}</td>
@@ -43,7 +43,7 @@
             </table>
           </div>
           <!-- Pagination Controls -->
-          <pagination-controls (pageChange)="bonusSharesPage = $event"></pagination-controls>
+          <pagination-controls id="pagination3" (pageChange)="bonusSharesPage = $event"></pagination-controls>
         </div>
 
         <!-- General Assemblies Table -->
@@ -60,7 +60,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let assembly of genAssemblies | paginate: { itemsPerPage: genAssembliesPageSize, currentPage: genAssembliesPage }">
+                <tr *ngFor="let assembly of genAssemblies | paginate: {id: 'pagination2', itemsPerPage: genAssembliesPageSize, currentPage: genAssembliesPage }">
                   <td>{{ assembly.genIsinName }}</td>
                   <td>{{ assembly.genIsinDate | date : 'shortDate' }}</td>
                   <td>{{ assembly.genIsinAddress }}</td>
@@ -71,7 +71,7 @@
             </table>
           </div>
           <!-- Pagination Controls -->
-          <pagination-controls (pageChange)="genAssembliesPage = $event"></pagination-controls>
+          <pagination-controls id="pagination2" (pageChange)="genAssembliesPage = $event"></pagination-controls>
         </div>
 
         <!-- Dividends Table -->
@@ -90,7 +90,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let dividend of dividends | paginate: { itemsPerPage: dividendsPageSize, currentPage: dividendsPage }">
+                <tr *ngFor="let dividend of dividends | paginate: { id: 'paginationDividend',itemsPerPage: dividendsPageSize, currentPage: dividendsPage }">
                   <td>{{ dividend.divCompName }}</td>
                   <td>{{ dividend.divCurrency }}</td>
                   <td>{{ dividend.divAddess }}</td>
@@ -103,10 +103,11 @@
             </table>
           </div>
           <!-- Pagination Controls -->
-          <pagination-controls (pageChange)="dividendsPage = $event"></pagination-controls>
+          <pagination-controls id="paginationDividend" (pageChange)="dividendsPage = $event"></pagination-controls>
         </div>
 
       </div>
     </div>
   </div>
 </section>
+<div class="empty-space"></div>

@@ -2,9 +2,13 @@
     <div class="container-fluid p-0" data-aos="fade-up" data-aos-duration="1000">
         <div class="row no-gutters position-relative">
             <div class="col-12 position-relative photos-container">
+                <!-- Second photo -->
+                <img src="assets/images/Egypt-photo.jpg" class="img-fluid w-100 second-photo empty-space" alt="Second Photo">
+
                 <!-- First photo -->
-                <img *ngIf="language=='ar'" src="assets/images/banner_ar.png" class="img-fluid w-100 container empty-space" alt="First Photo">
-                <img *ngIf="language=='en'" src="assets/images/banner_en.png" class="img-fluid w-100 container empty-space" alt="First Photo">
+                <img *ngIf="language=='ar'" src="assets/images/banner_ar_new.png" class="img-fluid w-100" alt="First Photo">
+                <img *ngIf="language=='en'" src="assets/images/banner_en_new.png" class="img-fluid w-100" alt="First Photo">
+                
                 <!-- Button container for alignment -->
                 <div class="clickable-photo-container">
                     <a href="https://apps.apple.com/tc/app/pioneers-egypt/id1196384460" class="clickable-photo mb-2">

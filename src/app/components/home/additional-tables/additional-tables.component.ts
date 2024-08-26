@@ -51,6 +51,9 @@ export class AdditionalTablesComponent {
 
   changeSummary(type: string): void {
     this.currentSummary = type;
+    this.bonusSharesPage = 1;
+    this.dividendsPage = 1;
+    this.genAssembliesPage = 1;
     switch (type) {
       case 'dividends':
         this.loadDividendsTables();

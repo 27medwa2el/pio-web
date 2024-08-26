@@ -41,33 +41,34 @@ body {
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: 32px;
-  font-weight: 600;
-  color: $LightestSlate;
+  font-size: 68px;
+  font-weight: bold;
+  color: rgb(9, 71, 112);
   font-family: $MainFont;
   margin: 0 0 10px 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  // .n-section-title {
+  //   margin-right: 10px;
+  //   font-family: $CodeFont;
+  //   font-weight: normal;
+  //   color: $Green;
+  //   font-size: 20px;
+  //   position: relative;
+  //   bottom: 4px;
+  // }
 
-  .n-section-title {
-    margin-right: 10px;
-    font-family: $CodeFont;
-    font-weight: normal;
-    color: $Green;
-    font-size: 20px;
-    position: relative;
-    bottom: 4px;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 300px;
-    background-color: $LightestNavy;
-    position: relative;
-    top: -5px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   height: 1px;
+  //   width: 300px;
+  //   background-color: $LightestNavy;
+  //   position: relative;
+  //   top: -5px;
+  //   margin-left: 20px;
+  //   margin-right: 20px;
+  // }
 }
 
 .main-btn {
@@ -157,7 +158,7 @@ a {
 
 @media (max-width: 768em) {
   .section-title {
-    font-size: 24px;
+    font-size: 48px;
   }
   .container {
     width: 90%;
@@ -180,6 +181,48 @@ a {
   .banner h3,
   .big-title {
     font-size: 60px !important;
+  }
+  .section-title {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 10px 0 40px;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(9, 71, 112);
+    font-family: $MainFont;
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    // .n-section-title {
+    //   margin-right: 10px;
+    //   font-family: $CodeFont;
+    //   font-weight: normal;
+    //   color: $Green;
+    //   font-size: 20px;
+    //   position: relative;
+    //   bottom: 4px;
+    // }
+  
+    // &:after {
+    //   content: "";
+    //   display: block;
+    //   height: 1px;
+    //   width: 300px;
+    //   background-color: $LightestNavy;
+    //   position: relative;
+    //   top: -5px;
+    //   margin-left: 20px;
+    //   margin-right: 20px;
+    // }
   }
 }
 @media (max-width: 480px) {

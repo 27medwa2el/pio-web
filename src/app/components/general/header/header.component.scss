@@ -319,6 +319,22 @@ li:hover {
     box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
+.d-inline-block .dropdown-menu {
+  display: none; // Initially hidden
+  position: absolute;
+  background-color: $LightestSlate;
+  border: 1px solid $Green;
+  border-radius: 5px;
+  font-size: 12px;
+  
+  &.show {
+    display: block; // Show on hover
+  }
+}
+
+.d-inline-block:hover .dropdown-menu {
+  display: block;
+}
 
 @media (max-width: 1000px) {
     .main-navbar {
@@ -330,10 +346,12 @@ li:hover {
     .nav-shadow {
         height: 140px;
     }
+    
 }
 
 @media (max-width: 991px) {
-    nav .nav {
+
+  nav .nav {
         display: none;
     }
     .nav-shadow {
@@ -342,16 +360,21 @@ li:hover {
     .language-container-full-nav {
       display: none;
   }
+ 
+  
 }
 
 @media (min-width: 991px) {
-    .menu-wrapper,
+    
+
+  .menu-wrapper,
     .menu-responsive {
         display: none;
     }
     .nav-shadow {
         height: 140px;
     }
+    
 }
 
 .flag-text {
@@ -369,6 +392,18 @@ li:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+.language-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 20px;
+    height: auto;
+  }
+}
+
 
 .language-container-selector {
     margin: 0 !important;
@@ -435,6 +470,32 @@ li:hover {
         visibility: inherit;
     }
 }
+.dropdown-toggle {
+  background-color: $Navy;
+  color: $LightestSlate;
+  border: none;
+  font-size: 12px;
+  &:hover, &:focus {
+    background-color: $Green;
+    color: white;
+  }
+}
+
+.dropdown-menu {
+  background-color: $LightestSlate;
+  border: 1px solid $Green;
+  border-radius: 5px;
+  font-size: 12px;
+  .dropdown-item {
+    color: darkgray;
+    
+
+    &:hover {
+      background-color: $Green;
+      color: black;
+    }
+  }
+}
 .status-bar {
     width: 100%;
     color: #e6e6e6;
@@ -477,7 +538,8 @@ li:hover {
         font-size: 12px;
 
         &:hover {
-          color: #ff4500;
+          color:  $Green;
+          
         }
       }
 
@@ -509,7 +571,16 @@ li:hover {
       }
     }
   }
-
+  @media (max-width: 768px) {
+    .language-icon{
+      display: none;
+    }
+  }
+  @media (max-width: 991px) {
+    .language-icon{
+      display: none;
+    }
+  }
   @media (max-width: 768px) {
     .status-bar .status-content {
       flex-wrap: wrap;
@@ -533,9 +604,13 @@ li:hover {
     .nav-shadow {
         height: 220px;
     }
+    
   }
+  
   @media (max-width: 500px) {
-
+    .language-icon{
+      display: none;
+    }
     .status-bar .status-content {
       flex-wrap: wrap;
       gap: 10px;
@@ -558,19 +633,33 @@ li:hover {
     .nav-shadow {
         height: 235px;
     }
+    
   }
 
 
   .news-ticker {
-    width: 100%;
-    background: $LightestSlate;
+    // width: 100%;
+    
+    
     color: $Green;
     padding: 5px 0;
     font-family: $CodeFont;
-    border-top: 1px solid $Green;
-
+   
+    span.stock-name {
+      font-weight: bold; 
+      
+    }
     marquee {
       color: $LightestSlate;
     }
   }
 
+  .status-content img {
+    margin-right: 8px; 
+    vertical-align: middle; 
+  }
+  
+  .dropdown-item img {
+    margin-right: 8px;
+  }
+  

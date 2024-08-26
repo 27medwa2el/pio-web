@@ -3,11 +3,12 @@
     "Header.Item1": "Home",
     "Header.Item2": "Market Watch",
     "Header.Item3": "News",
-    "Header.Item4": "Trading Rules",
+    "Header.Item4": "Reports",
     "Header.Item5": "Market Statistics",
     "Header.Item6": "Contact us",
     "Contact.Title": "Contact Us",
     "Header.Item7": "Agenda",
+    "Header.Item8": "Companies",
     "News.Title": "News",
     "ContactUs.Title": "Contact Us",
     "Contact.Content": "We will be happy to receive your contact if you want to talk about new opportunities. Write us, and we will reply as soon as we see your message.",
@@ -256,6 +257,38 @@
   "Email": "Email",
   "Board Members": "Board Members",
   "Stock Price Chart": "Stock Price Chart",
-  "Additional Information": "Additional Information"
+  "Additional Information": "Additional Information",
+  "footer": {
+    "logoAlt": "Company Logo",
+    "companyDescription": "Pioneers Securities is a leading financial services firm providing top-notch trading and investment services. We are committed to your success.",
+    "companyLinks": "Company links",
+    "contact": "Contact",
+    "contact.address": "6 El Imam Ali Heliopolis, Cairo, Egypt",
+    "contact.phone": "19973",
+    "contact.email": "helpdesk@pioneers-securities.com",
+    "contact.branches": "Branches",
+    "social": {
+      "findUsOn": "Find us on",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "contactUs": "Contact Us",
+      "tiktok": "TikTok",
+      "spotify": "Spotify",
+      "googlePlay": "Google Play",
+      "apple": "Apple Store"
+    },
+    "contactForm": {
+      "quickContact": "Quick Contact",
+      "name": "Name",
+      "email": "Email",
+      "message": "Your Message",
+      "send": "Send"
+    },
+    "copyright": "© 2024 Pioneers Securities. Built by Pioneers Securities software team."
+  }
 }
   

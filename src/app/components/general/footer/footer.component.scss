@@ -1,115 +1,131 @@
-@import "./../../../../variables.scss";
-
-footer{
-    color: $LightSlate;
-
-    .footer-left-bar:after, .footer-right-bar:after{
-        content: '';
-        display: block;
-        width: 1px;
-        height: 90px;
-        margin: 0 auto;
-        background-color: $LightSlate;
+.footer {
+    background-color: #1A3A5A; /* Dark blue background color */
+    padding: 60px 0;
+    color: #ffffff;
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    .footer-left-bar li, .footer-right-bar li{
-        list-style: none;
+  
+    .footer-logo {
+      width: 150px;
+      margin-bottom: 20px;
     }
-
-    .footer-left-bar{
-        position: fixed;
-        bottom: -16px;
-        left: 51px;
-        padding: 0;
-
-        i{
-            font-size: 19px;
-            color: $LightSlate;
-        }
-
-        li{
-            margin: 20px 0px;
-
-            &:last-of-type {
-                margin-bottom: 33px;
-            }
-        }
+  
+    .footer-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
-
-    .footer-right-bar{
-        position: fixed;
-        bottom: 0px;
-        right: 41px;
-        padding: 0;
-
-        li{
-            transform: rotate(90deg);
-        }
-
-        a{
-            font-family: $CodeFont;
-            font-size: 12px;
-            -webkit-letter-spacing: 0.1em;
-            -moz-letter-spacing: 0.1em;
-            -ms-letter-spacing: 0.1em;
-            letter-spacing: 0.1em;
-            -webkit-writing-mode: vertical-rl;
-            -ms-writing-mode: tb-rl;
-            writing-mode: vertical-rl;
-            margin: 20px auto;
-            padding: 10px;
-            color: $LightSlate;
-        }
-    }
-    .footer-credits{
-        font-family: $CodeFont;
-        font-size: 12px;
-        line-height: 1;
-
-        position: absolute;
-        margin: auto;
-        left: 0;
-        right: 0;
-        margin-top: -60px;
-
-
-
-        a{
-            color: $LightSlate;
-            -webkit-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-            transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-            transition-property: all;
-            transition-duration: 0.25s;
-            transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition-delay: 0s;
-
-            &:hover, &:focus {
-                text-decoration: none;
-                color: $Green;
-            }
-        }
-    }
-  .footer-icons {
-    padding-bottom: 50px;
-    background-color: $Navy;
-    display: flex;
-    justify-content: center;
-    ul {
-      list-style-type: none;
+  
+    .footer-contact-info {
+      list-style: none;
       padding: 0;
+      margin: 0;
+  
       li {
-        float: left;
-        margin: 10px;
+        margin-bottom: 10px;
+  
+        i {
+          margin-right: 10px;
+        }
       }
     }
-    i {
-      font-size: 19px;
-      color: $LightSlate;
+  
+    .footer-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1; /* Ensure equal width for each column */
+  
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-bottom: 10px;
+        display: block;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .footer-social-icons {
+      margin-top: 20px;
+  
+      a {
+        color: #ffffff;
+        margin-right: 15px;
+        font-size: 18px;
+  
+        &:hover {
+          color: #1E90FF; /* Lighter blue for hover effect */
+        }
+      }
+    }
+  
+    .footer-contact-form {
+      input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f5f5f5;
+        border: none;
+        border-radius: 5px;
+      }
+  
+      button {
+        background-color: #003366;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #1E90FF;
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px;
+      }
+  
+      .footer-contact-info, .footer-links, .footer-contact-form {
+        text-align: center;
+      }
+  
+      .footer-contact-form {
+        button {
+          width: 100%;
+        }
+      }
+  
+      .footer-social-icons {
+        text-align: center;
+  
+        a {
+          margin-bottom: 10px;
+        }
+      }
+  
+      .footer-links-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
-}
-@media (min-width: 991px) {
-  .footer-icons {
-    display: none !important;
+  
+  [dir="rtl"] {
+    text-align: right;
   }
-}
+  

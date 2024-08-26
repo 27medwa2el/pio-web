@@ -9,7 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { MoreProyectsComponent } from './more-proyects/more-proyects.component';
 import { ProyectsComponent } from './proyects/proyects.component';
-import { NgbModule, NgbNav, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule, NgbNav, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -32,6 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { StocksInformationComponent } from './stocks-information/stocks-information.component';
 import { ReportsComponent } from './reports/reports.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient){
     BaseChartDirective,
     BrowserAnimationsModule,
     NgbNavModule,
+    NgbDropdownModule,
     MatSelectModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -72,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient){
     ReactiveFormsModule,
     NgxPaginationModule,
     RecaptchaModule,
+    FontAwesomeModule,
     TranslateModule.forChild({
         loader: {
             provide: TranslateLoader,

@@ -1,11 +1,14 @@
 @import "./../../../../variables.scss";
-
+.empty-space {
+  height: 60px;   
+  background-color: $Navy;
+}
 .jobs {
   background-color: $Navy;
-  padding-top: 5%;
+  padding-top: 7%;
   .jobs-inner {
     background-color: #fff;
-    margin-bottom: -5%;
+    // margin-bottom: -5%;
     padding: 20px;
   }
 }
@@ -57,5 +60,34 @@
   }
   .summary-details {
     text-align: right;
+  }
+}
+@media (max-width: 768px) {
+  .jobs {
+    padding-top: 85%;
+  }
+  
+}
+
+
+@media (max-width: 2000px) {
+  .jobs {
+    padding-top: 10%;
+  }
+}
+@media (max-width: 1500px) {
+  .jobs {
+    padding-top: 20%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .jobs {
+    padding-top: 30%;
+  }
+}
+@media (max-width: 640px) {
+  .jobs {
+    padding-top: 80%;
   }
 }

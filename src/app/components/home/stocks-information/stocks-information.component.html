@@ -2,7 +2,7 @@
     <div class="jobs" [dir]="'Direction' | translate">
       <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <div class="container" [dir]="'Direction' | translate">
-          <h3 class="section-title">{{ "Companies Information" | translate }}</h3>
+          <span class="section-title">{{ "Companies Information" | translate }}</span>
         </div>
         <div class="jobs-inner">
           <div class="summary-tabs mx-2">
@@ -38,7 +38,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let insider of insiderTradingData | paginate: { itemsPerPage: 10, currentPage: insiderTradingPage }">
+                  <tr *ngFor="let insider of insiderTradingData | paginate: {id: 'paginationInsider', itemsPerPage: 10, currentPage: insiderTradingPage }">
                     <td>{{ insider.stockName }}</td>
                     <td>{{ insider.transType }}</td>
                     <td>{{ insider.volume }}</td>
@@ -48,7 +48,7 @@
                 </tbody>
               </table>
             </div>
-            <pagination-controls (pageChange)="insiderTradingPage = $event"></pagination-controls>
+            <pagination-controls id="paginationInsider" (pageChange)="insiderTradingPage = $event"></pagination-controls>
           </div>
   
           <!-- Financial Statements Table -->
@@ -64,7 +64,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let statement of financialStatementsData | paginate: { itemsPerPage: 10, currentPage: financialStatementsPage }">
+                  <tr *ngFor="let statement of financialStatementsData | paginate: { id: 'paginationFinancial', itemsPerPage: 10, currentPage: financialStatementsPage }">
                     <td>{{ statement.stockName }}</td>
                     <td>{{ statement.type1 }}</td>
                     <td>{{ statement.lastUpdated | date : 'shortDate' }}</td>
@@ -77,7 +77,7 @@
                 </tbody>
               </table>
             </div>
-            <pagination-controls (pageChange)="financialStatementsPage = $event"></pagination-controls>
+            <pagination-controls id="paginationFinancial" (pageChange)="financialStatementsPage = $event"></pagination-controls>
           </div>
   
           <!-- Audit Reports Table -->
@@ -93,7 +93,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let report of auditReportsData | paginate: { itemsPerPage: 10, currentPage: auditReportsPage }">
+                  <tr *ngFor="let report of auditReportsData | paginate: { id: 'paginationAudit', itemsPerPage: 10, currentPage: auditReportsPage }">
                     <td>{{ report.stockName }}</td>
                     <td>{{ report.header }}</td>
                     <td>{{ report.annDate | date : 'shortDate' }}</td>
@@ -106,7 +106,7 @@
                 </tbody>
               </table>
             </div>
-            <pagination-controls (pageChange)="auditReportsPage = $event"></pagination-controls>
+            <pagination-controls id="paginationAudit" (pageChange)="auditReportsPage = $event"></pagination-controls>
           </div>
   
           <!-- Announcements Table -->
@@ -122,7 +122,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let announcement of announcementsData | paginate: { itemsPerPage: 10, currentPage: announcementsPage }">
+                  <tr *ngFor="let announcement of announcementsData | paginate: { id: 'paginationAnn', itemsPerPage: 10, currentPage: announcementsPage }">
                     <td>{{ announcement.stockName }}</td>
                     <td>{{ announcement.header }}</td>
                     <td>{{ announcement.annDate | date : 'shortDate' }}</td>
@@ -135,10 +135,10 @@
                 </tbody>
               </table>
             </div>
-            <pagination-controls (pageChange)="announcementsPage = $event"></pagination-controls>
+            <pagination-controls id="paginationAnn" (pageChange)="announcementsPage = $event"></pagination-controls>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+  <div class="empty-space"></div>

@@ -173,3 +173,10 @@
       background-color: darken($LightNavy, 10%);
     }
   }
+
+  @media (max-width: 768px) {
+    .jobs {
+      padding-top: 25%;
+    }
+    
+  }

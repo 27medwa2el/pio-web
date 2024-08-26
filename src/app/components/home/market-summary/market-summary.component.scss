@@ -4,7 +4,7 @@
   padding: 20px;
   background-color: $Navy;
   color: white;
-
+ 
   .summary-tabs {
     display: flex;
     justify-content: space-between;
@@ -93,7 +93,7 @@
   
   .jobs-inner {
     background-color: #fff;
-    margin-bottom: -5%;
+    margin-bottom: -0.8%;
   }
 }
 .summary-tabs .btn {
@@ -125,4 +125,8 @@ tr th {
 
 tr td {
   text-align: center;
+}
+.empty-space {
+  height: 70px;   
+  background-color: $Navy;
 }

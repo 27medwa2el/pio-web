@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ReportsService {
 
-  private apiUrl = 'http://localhost:5037/api/reports';  
+  private apiUrl = 'https://www.pioneers-securities.com/webdataapi/api/reports';  
   private language = localStorage.getItem("language")?? "en";
   constructor(private http: HttpClient) { }
   getReports(reportType: string): Observable<any[]> {

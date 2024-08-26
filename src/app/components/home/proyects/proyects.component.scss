@@ -11,7 +11,7 @@ h3 {
 }
 
 .space-row {
-    margin: 15px;
+    margin: 0 0;
     padding: 25px;
     margin-bottom: -1%;
     font-size: larger;
@@ -26,7 +26,7 @@ h3 {
 
 .jobs {
     background-color: $Navy;
-
+    font-family: 'Times New Roman', Times, serif;
     .jobs-inner {
         background-color: #fff;
     }

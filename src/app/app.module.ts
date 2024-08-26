@@ -17,7 +17,7 @@ import {
   TranslateModule,
   TranslateService,
 } from '@ngx-translate/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StockDetailsModule } from './components/stock-details/stock-details.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +28,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -49,6 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatOptionModule,
     DragDropModule,
     NgxPaginationModule,
+    NgbModule,
+    NgbDropdownModule,
     // AnimateOnScrollModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
@@ -64,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    NgbModule,
+    
+    FontAwesomeModule,
   ],
   providers: [TranslateService, provideAnimationsAsync(),provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent],

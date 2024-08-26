@@ -9,7 +9,7 @@ import { NewsDto } from 'src/app/models/news/news-dto.model';
   providedIn: 'root'
 })
 export class MarketSummaryService {
-  private baseUrl = 'http://localhost:5037';
+  private baseUrl = 'https://www.pioneers-securities.com/webdataapi';
   private language = localStorage.getItem("language")?? "en";
 
   constructor(private http: HttpClient) { }

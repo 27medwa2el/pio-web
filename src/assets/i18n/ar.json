@@ -3,12 +3,15 @@
     "Header.Item1": "الرئيسية",
     "Header.Item2": "جلسة التداول",
     "Header.Item3": "أخبار",
-    "Header.Item4": "قواعد التداول",
+    "Header.Item4": "تقارير",
     "Header.Item5": "احصائيات السوق",
     "Header.Item6": "تواصل معنا",
     "Contact.Title": "تواصل معنا",
     "Header.Item7": "الأجندة",
+    "Header.Item8": "شركات",
     "News.Title": "الأخبار",
+    "Trade Now" : "تداول الآن",
+    "Ultimate Trade": "تداول ألتميمت",
     "ContactUs.Title": "تواصل معنا",
     "Contact.Content": "يسعدنا تلقي اتصالك إذا كنت ترغب في التحدث عن فرص جديدة. اكتب لنا وسنرد عليك بأسرع ما يمكن بعد رؤية رسالتك.",
     "Contact.Btn": "قل مرحبا",
@@ -21,6 +24,8 @@
     "EGX30": "EGX30",
     "MoneyFlows.Title": "تدفقات المال",
     "MarketStatus.Title": "حالة السوق",
+    "Closed": "مغلق",
+    "Opened" : "مفتوح",
     "Gainers": "الرابحين",
     "Losers": "الخاسرين",
     "Unchanged": "دون تغيير",
@@ -158,7 +163,7 @@
     "ContactUs.OurLocation": "موقعنا",
     "ContactUs.Location" : "الإمام علي هيليوبليس 6",
     "ultimateTrade" : "Ultimate Trade",
-    "eTrade" : "eTrade",
+    "eTrade" : "تداول إلكتروني",
     "openAccount" : "فتح حساب",
     "search" : "بحث",
     "Contact": {
@@ -265,6 +270,39 @@
   "Board Members": "أعضاء مجلس الإدارة",
   "Stock Price Chart": "مخطط أسعار الأسهم",
   "Additional Information": "معلومات إضافية",
-  "Companies Information" : "معلومات الشركات"
+  "Companies Information" : "معلومات الشركات",
+  "footer": {
+    "logoAlt": "شعار الشركة",
+    "companyDescription": "بايونيرز للأوراق المالية هي شركة رائدة في مجال الخدمات المالية، تقدم خدمات تداول واستثمار من الدرجة الأولى. نحن ملتزمون بنجاحك.",
+    "companyLinks": "روابط الشركة",
+    "contact": "اتصل بنا",
+    "contact.address": "6 الإمام علي، مصر الجديدة، القاهرة، مصر",
+    "contact.phone": "19973",
+    "contact.email": "helpdesk@pioneers-securities.com",
+    "contact.branches": "الفروع",
+    "social": {
+      "findUsOn": "تجدنا على",
+      "facebook": "فيسبوك",
+      "twitter": "تويتر",
+      "instagram": "إنستغرام",
+      "telegram": "تيليجرام",
+      "linkedin": "لينكدإن",
+      "whatsapp": "واتساب",
+      "contactUs": "اتصل بنا",
+      "tiktok": "تيك توك",
+      "spotify": "سبوتيفاي",
+      "googlePlay": "جوجل بلاي",
+      "apple": "متجر آبل"
+    },
+    "contactForm": {
+      "quickContact": "اتصال سريع",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "message": "رسالتك",
+      "send": "إرسال"
+    },
+    "copyright": "© 2024 بايونيرز للأوراق المالية. تم بناء الموقع من قبل فريق برمجيات بايونيرز للأوراق المالية."
+}
+
 }
   

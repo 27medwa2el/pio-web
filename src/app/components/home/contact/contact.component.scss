@@ -5,7 +5,7 @@
   max-width: 1000px;
   text-align: center;
   display: table;
-
+  padding-top: 10%;
   .container {
     display: table-cell;
     vertical-align: middle;
@@ -116,6 +116,9 @@
 }
 
 @media (max-width: 768px) {
+  .contact{
+    padding-top: 35%;
+  }
   .branches-container {
     .branch-item {
       width: calc(100% - 20px);

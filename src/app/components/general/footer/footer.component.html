@@ -1,106 +1,72 @@
-<footer>
-    <div [@animateFooter]>
-        <ul class="footer-left-bar d-none d-md-block">
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "facebook")' href="https://www.facebook.com/PioneersSecurities" target='_blank'>
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "x")' href="https://x.com/PioSec/" target='_blank'>
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://whatsapp.com/channel/0029Va21eln1iUxR3gxiq01l" target='_blank'>
-                    <i class="fab fa-whatsapp" data-toggle="tooltip" title="news"></i>
-                </a>
-            </li>
-            <li>
-              <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp2")' href="https://api.whatsapp.com/send?phone=%2B201090549514&context=ARD6rR-cdAslUlAHADH9tgM13dorjlsoP6_uQqofB76kxJ1fbhcW8-ykhfLu8fhRkr5c8ebslfl3kbov7FbNvv3PxZXagLsNefMxRex463j8YQ8dedVTxkqqtcZXbZ7u0Lx5kJUxPJ9sdsLtxpeivopdlw" target='_blank'>
-                  <i class="fab fa-whatsapp" style="color: lightslategray;" data-toggle="tooltip" title="contact us"></i>
-              </a>
+<footer class="footer" [dir]="'Direction' | translate">
+  <div class="container">
+    <div class="row">
+      <!-- Logo and Contact Information -->
+      <div class="col-md-4">
+        <img src="assets/images/pioLogo.png" alt="{{ 'footer.logoAlt' | translate }}" class="footer-logo mb-4" style="background-color: white;">
+        <!-- <p class="company-description">
+          {{ 'footer.companyDescription' | translate }}
+        </p> -->
+        <ul class="footer-contact-info">
+          <li>
+            <i class="fas fa-map-marker-alt"></i> {{ 'footer.contact.address' | translate }}
           </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "telegram")' href="https://t.me/+qj0TIQiOvihmM2E0" target='_blank'>
-                    <i class="fab fa-telegram"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://www.instagram.com/pioneers.securities/?fbclid=IwY2xjawEm09xleHRuA2FlbQIxMAABHTD61PWK2qLYhVCqnQTcutViJueRMdRaOLmd2bBDA4FFL8xEab7U3KAtYg_aem_q-a2x3RxJVaCu_SEle33GQ" target='_blank'>
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://open.spotify.com/show/4bScgs3LywR2KFj4lotZ3S?si=47dc17ad801f4905" target='_blank'>
-                    <i class="fab fa-spotify"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "tiktok")' href="https://www.tiktok.com/@pioneerssecurities?fbclid=IwY2xjawEm075leHRuA2FlbQIxMAABHX3TWgKXNCzjyxf1W7YBbEwPAFexw1ltgjYuOwqXAcXI9wW7PpJqa2D7rg_aem_3fIWGQsik_WQOyU17yj9tg" target='_blank'>
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </li>
-            <li>
-                <a (click)='analyticsService.sendAnalyticEvent("click_linkedin", "footer", "github")' href="https://www.linkedin.com/company/pioneerssecurities/" target='_blank'>
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </li>
+          <li>
+            <i class="fas fa-phone"></i> {{ 'footer.contact.phone' | translate }}
+          </li>
+          <li>
+            <i class="fas fa-code-branch"></i>  <a [routerLink]="'/contact'">{{ 'footer.contact.branches' | translate }}</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i> <a href="mailto:{{ 'footer.contact.email' | translate }}">{{ 'footer.contact.email' | translate }}</a>
+          </li>
         </ul>
-        <div class="footer-right-bar d-none d-md-block">
-            <a (click)='analyticsService.sendAnalyticEvent("click_send_mail", "footer", "email")' href="mailto:helpdesk@pioneers-securities.com" target='_blank'>helpdesk&#64;pioneers-securities.com </a>
-        </div>
-    </div>
+      </div>
 
-  <div class="footer-icons">
-  <ul>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "facebook")' href="https://www.facebook.com/PioneersSecurities" target='_blank'>
-        <i class="fab fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "x")' href="https://x.com/PioSec/" target='_blank'>
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://whatsapp.com/channel/0029Va21eln1iUxR3gxiq01l" target='_blank'>
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "telegram")' href="https://t.me/+qj0TIQiOvihmM2E0" target='_blank'>
-        <i class="fab fa-telegram"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://www.instagram.com/pioneers.securities/?fbclid=IwY2xjawEm09xleHRuA2FlbQIxMAABHTD61PWK2qLYhVCqnQTcutViJueRMdRaOLmd2bBDA4FFL8xEab7U3KAtYg_aem_q-a2x3RxJVaCu_SEle33GQ" target='_blank'>
-        <i class="fab fa-instagram"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "whatsapp")' href="https://open.spotify.com/show/4bScgs3LywR2KFj4lotZ3S?si=47dc17ad801f4905" target='_blank'>
-        <i class="fab fa-spotify"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_github", "footer", "tiktok")' href="https://www.tiktok.com/@pioneerssecurities?fbclid=IwY2xjawEm075leHRuA2FlbQIxMAABHX3TWgKXNCzjyxf1W7YBbEwPAFexw1ltgjYuOwqXAcXI9wW7PpJqa2D7rg_aem_3fIWGQsik_WQOyU17yj9tg" target='_blank'>
-        <i class="fab fa-tiktok"></i>
-      </a>
-    </li>
-    <li>
-      <a (click)='analyticsService.sendAnalyticEvent("click_linkedin", "footer", "github")' href="https://www.linkedin.com/company/pioneerssecurities/" target='_blank'>
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-  </ul>
+  <!-- Company Links -->
+<div class="col-md-4">
+  <h4 class="footer-title">{{ 'footer.companyLinks' | translate }}</h4>
+  <div class="footer-links-container">
+      <ul class="footer-links">
+        <li><a [routerLink]="'/home'">{{ 'Header.Item1' | translate }}</a></li>
+        <li><a [routerLink]="'/reports'">{{ 'Header.Item4' | translate }}</a></li>
+        <li><a [routerLink]="'/news'">{{ 'Header.Item3' | translate }}</a></li>
+        <li><a [routerLink]="'/market-watch'">{{ 'Header.Item2' | translate }}</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a [routerLink]="'/market-statistics'">{{ 'Header.Item5' | translate }}</a></li>
+        <li><a [routerLink]="'/contact-us'">{{ 'Header.Item6' | translate }}</a></li>
+        <li><a [routerLink]="'/stocks-information'">{{ 'Header.Item8' | translate }}</a></li>
+        <li><a [routerLink]="'/agenda'">{{ 'Header.Item7' | translate }}</a></li>
+      </ul>
   </div>
+  <h4 class="footer-title">{{ 'footer.social.findUsOn' | translate }}</h4>
+  <div class="footer-social-icons">
+    <a href="https://www.facebook.com/PioneersSecurities" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/PioSec/" target="_blank" ><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/pioneers.securities/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://play.google.com/store" target="_blank" ><i class="fab fa-google-play"></i></a>
+    <a href="https://www.apple.com/app-store/" target="_blank"><i class="fab fa-apple"></i></a>
+  </div>
+</div>
 
-    <div class="footer-credits text-center">
-        <a (click)='analyticsService.sendAnalyticEvent("click_github_portfolio_andresjose", "footer", "click")' href="https://www.linkedin.com/company/pioneerssecurities/" target="_blank" rel="nofollow noopener noreferrer">
-            <div>Built by Pioneers Securities software team</div>
-        </a>
+
+
+      <!-- Quick Contact Form -->
+      <div class="col-md-4">
+        <h4 class="footer-title">{{ 'footer.contactForm.quickContact' | translate }}</h4>
+        <form class="footer-contact-form">
+          <input type="text" placeholder="{{ 'footer.contactForm.name' | translate }}" required>
+          <input type="email" placeholder="{{ 'footer.contactForm.email' | translate }}" required>
+          <textarea placeholder="{{ 'footer.contactForm.message' | translate }}" required></textarea>
+          <button type="submit">{{ 'footer.contactForm.send' | translate }}</button>
+        </form>
+      </div>
     </div>
-
+  </div>
+  <div class="footer-bottom text-center py-3">
+    <div class="container">
+      <div>{{ 'footer.copyright' | translate }}</div>
+    </div>
+  </div>
 </footer>

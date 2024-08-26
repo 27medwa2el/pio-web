@@ -4684,31 +4684,13 @@ body {
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: 32px;
-  font-weight: 600;
-  color: #0d0e12;
+  font-size: 68px;
+  font-weight: bold;
+  color: rgb(9, 71, 112);
   font-family: Calibre, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif;
   margin: 0 0 10px 0;
-}
-.section-title .n-section-title {
-  margin-right: 10px;
-  font-family: SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, Monospace;
-  font-weight: normal;
-  color: #40af95;
-  font-size: 20px;
-  position: relative;
-  bottom: 4px;
-}
-.section-title:after {
-  content: "";
-  display: block;
-  height: 1px;
-  width: 300px;
-  background-color: #303C55;
-  position: relative;
-  top: -5px;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .main-btn {
@@ -4791,7 +4773,7 @@ a:hover {
 }
 @media (max-width: 768em) {
   .section-title {
-    font-size: 24px;
+    font-size: 48px;
   }
   .container {
     width: 90%;
@@ -4812,6 +4794,21 @@ a:hover {
   .banner h3,
   .big-title {
     font-size: 60px !important;
+  }
+  .section-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 40px;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(9, 71, 112);
+    font-family: Calibre, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif;
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 }
 @media (max-width: 480px) {
