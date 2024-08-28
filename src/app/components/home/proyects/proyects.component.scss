@@ -1,7 +1,8 @@
 @import "./../../../../variables.scss";
 
-h3 {
-    color: $LightNavy;
+h2 {
+    color: $NavyText;
+    font-weight: bold;
 }
 
 .other-proyect-title {
@@ -10,7 +11,8 @@ h3 {
     color: $LightestSlate;
 }
 
-
+.head-text{ 
+padding-top: 100px;}
 .space-row {
   padding: 25px;
   margin: 0 0 -1%;
@@ -33,7 +35,7 @@ h3 {
 }
 
 .empty-space {
-    background-color: $Navy;
+    background-color: White;
     height: 50px;
     margin: 0;
     padding: 0;

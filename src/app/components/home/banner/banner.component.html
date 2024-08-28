@@ -9,7 +9,7 @@
                 <img *ngIf="language=='ar'" src="assets/images/banner_ar_new.png" class="img-fluid w-100" alt="First Photo">
                 <img *ngIf="language=='en'" src="assets/images/banner_en_new.png" class="img-fluid w-100" alt="First Photo">
                 
-                <!-- Button container for alignment -->
+                <!-- Button container for alignment (Moved up) -->
                 <div class="clickable-photo-container">
                     <a href="https://apps.apple.com/tc/app/pioneers-egypt/id1196384460" class="clickable-photo mb-2">
                         <img src="assets/images/AppStore.png" class="clickable-photo-img" alt="App Store">
@@ -18,6 +18,10 @@
                         <img src="assets/images/GooglePlay.png" class="clickable-photo-img" alt="Google Play">
                     </a>
                 </div>
+
+                <!-- Employee image -->
+                <img *ngIf="language=='ar'" src="assets/images/employees_ar.png" class="img-fluid w-100" alt="First Photo">
+                <img *ngIf="language=='en'" src="assets/images/employees_en.png" class="img-fluid w-100" alt="First Photo">
             </div>
         </div>
     </div>

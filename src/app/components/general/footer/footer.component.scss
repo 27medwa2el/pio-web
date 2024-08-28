@@ -1,7 +1,7 @@
 @import "./../../../../variables.scss";
 .footer {
-    background-color: #1A3A5A; /* Dark blue background color */
-    padding: 60px 0;
+    background-color: #1A3A5A; 
+    padding: 45px 0;
     color: #ffffff;
     font-family: $CodeFont !important;
     .container {
@@ -17,7 +17,8 @@
     .footer-title {
       font-size: 18px;
       font-weight: bold;
-      margin-bottom: 40px;
+      margin: 30px 0px;
+      
     }
   
     .footer-contact-info {
@@ -30,6 +31,15 @@
   
         i {
           margin-right: 10px;
+          margin-left: 10px;
+        }
+        a {
+          color: #ffffff;
+         
+    
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -44,7 +54,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      flex: 1; /* Ensure equal width for each column */
+      flex: 1;
   
       a {
         color: #ffffff;
@@ -67,7 +77,7 @@
         font-size: 18px;
   
         &:hover {
-          color: #1E90FF; /* Lighter blue for hover effect */
+          color: #1E90FF; 
         }
       }
     }

@@ -12,12 +12,14 @@ import { AdditionalTablesComponent } from './components/home/additional-tables/a
 import { StocksInformationComponent } from './components/home/stocks-information/stocks-information.component';
 import { StockMarketComponent } from './components/home/stock-market/stock-market.component';
 import { ContactComponent } from './components/home/contact/contact.component';
+import { FullAboutComponent } from './components/home/full-about/full-about.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'stock-details/:isin', component: StockDetailsComponent },
   { path: 'news', component: NewsComponent }, 
+  { path: 'about', component: FullAboutComponent }, 
   { path: 'reports', component: ReportsComponent }, 
   { path: 'market-statistics', component: StockMarketComponent }, 
   { path: 'market-watch', component: MarketWatchComponent },

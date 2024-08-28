@@ -1,34 +1,38 @@
 <!-- <div class="empty-space"></div> -->
 <div class="jobs" [dir]="'Direction' | translate">
     <div class="container">
-        <div class="jobs-inner">
-            <div class="row mx-2 about-details">
+        <div class="container" [dir]="'Direction' | translate">
+            <span class="section-title">{{ "Header.Item2" | translate }}</span>
+          </div>
+        <div class="jobs-inner about-details">
+            <div class="row mx-2">
                 <div class="col-md-6">
-                    <h1 >{{ "AboutPioneers.Title" | translate }}</h1>
-                    <p class="mb-2 mx-2">{{ "WhoWeAre.Content" | translate }}</p>
+                    <h1>{{ "WhoWeAre.Title" | translate }}</h1>
+                    <p>{{ "WhoWeAre.Content" | translate }}</p>
                 </div>
                 <div class="col-md-6">
                     <img [src]="'WhoWeAre.Image' | translate" class="img-fluid" alt="{{ 'WhoWeAre.Title' | translate }}">
                 </div>
             </div>
-            <!-- <div class="row mt-4 mx-2">
+            <div class="row mt-4 mx-2">
                 <div class="col-md-6">
                     <img [src]="'Mission.Image' | translate" class="img-fluid" alt="{{ 'Mission.Title' | translate }}">
                 </div>
                 <div class="col-md-6">
-                    <h2>{{ "Mission.Title" | translate }}</h2>
+                    <h1>{{ "Mission.Title" | translate }}</h1>
                     <p>{{ "Mission.Content" | translate }}</p>
                 </div>
             </div>
             <div class="row mt-4 mx-2">
                 <div class="col-md-6">
-                    <h2>{{ "Vision.Title" | translate }}</h2>
+                    <h1>{{ "Vision.Title" | translate }}</h1>
                     <p>{{ "Vision.Content" | translate }}</p>
                 </div>
                 <div class="col-md-6">
                     <img [src]="'Vision.Image' | translate" class="img-fluid" alt="{{ 'Vision.Title' | translate }}">
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
+<app-proyects></app-proyects>

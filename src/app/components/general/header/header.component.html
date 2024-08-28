@@ -1,58 +1,61 @@
 <nav [@animateMenu] class="navbar main-navbar on-top" [class.nav-shadow]='this.pageYPosition>0'>
-    <div class="status-bar" [dir]="'Direction' | translate">
-        <div class="status-content">
-            <img src="assets/icons/calendar.png" alt="Open Account" width="16" height="16" />
-          <span class="datetime">{{ formattedDate  }}</span>
-
-          <span class="datetime">{{marketStatus()}}<i></i></span>
-<!--          <button class="indicator" [ngClass]="{'green': isMarketOpen, 'red': !isMarketOpen}"></button>-->
-
-
-          <!-- Trade Now Dropdown with Icon -->
-          <div ngbDropdown class="d-inline-block"
-          (mouseover)="openDropdown()"
-          (mouseout)="closeDropdown()"
-          [class.show]="showDropdown">
-       <button class="btn btn-secondary dropdown-toggle">
-         <img src="assets/icons/trading.png" alt="Trade" width="16" height="16" />  {{"Trade Now" | translate}}
-       </button>
-       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-         <button class="dropdown-item" (click)="navigateTo('eTrade')">
-           <img src="assets/icons/trading.png" alt="eTrade" width="16" height="16" />  {{"eTrade" | translate}}
-         </button>
-         <button class="dropdown-item" (click)="navigateTo('ultimateTrade')">
-           <img src="assets/icons/trading.png" alt="Ultimate Trade" width="16" height="16" /> {{"Ultimate Trade" | translate}}
-         </button>
-       </div>
-     </div>
-
-          <!-- Open Account Button with Icon -->
-          <button class="open-account-button" (click)="navigateTo('openAccount')">
-            <img src="assets/icons/add-user.png" alt="Open Account" width="16" height="16" />
-            {{"openAccount" | translate}}
+  <div class="status-bar" [dir]="'Direction' | translate">
+    <div class="status-content">
+      <div class="row-1">
+        <img src="assets/icons/calendar.png" alt="Date and Time" width="16" height="16" />
+        <span class="datetime">{{ formattedDate }}</span>
+  
+        <span class="datetime">{{marketStatus()}}<i></i></span>
+      </div>
+  
+      <div class="row-2">
+        <!-- Trade Now Dropdown with Icon -->
+        <div ngbDropdown class="d-inline-block"
+             (mouseover)="openDropdown()"
+             (mouseout)="closeDropdown()"
+             [class.show]="showDropdown">
+          <button class="btn btn-secondary dropdown-toggle">
+            <img src="assets/icons/line-chart.png" alt="Trade" width="16" height="16" />  {{"Trade Now" | translate}}
           </button>
-
-          <!-- Search Container with Icon -->
-          <div class="search-container ignore-mb">
-
-            <input type="text" placeholder="{{ 'search' | translate }}..." [formControl]="searchControl">
-            <button class="search-icon-button" (click)="search()">
-              <img src="assets/icons/search.svg" alt="Search" />
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" (click)="navigateTo('eTrade')">
+              <img src="assets/icons/line-chart.png" alt="eTrade" width="16" height="16" />  {{"eTrade" | translate}}
             </button>
-            <div class="search-results" *ngIf="filteredStocks.length > 0">
-              <ul>
-                <li *ngFor="let stock of filteredStocks.slice(0, 10)" (click)="onSelectStock(stock.isin)">
-                  {{ stock.englishName }}
-                </li>
-              </ul>
-            </div>
+            <button class="dropdown-item" (click)="navigateTo('ultimateTrade')">
+              <img src="assets/icons/line-chart.png" alt="Ultimate Trade" width="16" height="16" /> {{"Ultimate Trade" | translate}}
+            </button>
+          </div>
+        </div>
+  
+        <!-- Open Account Button with Icon -->
+        <button class="open-account-button" (click)="navigateTo('openAccount')">
+          <img src="assets/icons/add-user.png" alt="Open Account" width="16" height="16" />
+          {{"openAccount" | translate}}
+        </button>
+      </div>
+  
+      <div class="row-3 ">
+        <!-- Search Container with Icon -->
+        <div class="search-container  ignore-mb">
+          <input type="text" placeholder="{{ 'search' | translate }}..." [formControl]="searchControl">
+          <button class="search-icon-button" (click)="search()">
+            <img src="assets/icons/search.svg" alt="Search" />
+          </button>
+          <div class="search-results" *ngIf="filteredStocks.length > 0">
+            <ul>
+              <li *ngFor="let stock of filteredStocks.slice(0, 10)" (click)="onSelectStock(stock.isin)">
+                {{ stock.englishName }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  
 
 
-
-    <div class="container mid-container" [dir]="'Direction' | translate">
+    <div class="mid-container" [dir]="'Direction' | translate">
         <a class="navbar-brand text-light" [routerLink]="'inicio'">
             <img src='assets/images/pioLogo.png' width='25' />
         </a>
@@ -131,42 +134,42 @@
                           </div>
                         </div>
                       </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_about", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_about", "menu", "click"); closeMenu();'>
                             <a [routerLink]="'/home'">
                                 <span></span> {{"Header.Item1" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_experience", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_experience", "menu", "click"); closeMenu();'>
                             <a [routerLink]="'/market-statistics'">
                                 <span></span> {{"Header.Item5" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_jobs", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_jobs", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/news'">
                                 <span></span> {{"Header.Item3" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_jobs", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_jobs", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/market-watch'">
                                 <span></span> {{"Header.Item2" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/reports'">
                                 <span></span> {{"Header.Item4" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/stocks-information'">
                                 <span></span> {{"Header.Item8" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/agenda'">
                                 <span></span> {{"Header.Item7" | translate}}
                             </a>
                         </li>
-                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click")'>
+                        <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/contact-us'">
                                 <span></span> {{"Header.Item6" | translate}}
                             </a>

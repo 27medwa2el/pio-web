@@ -185,7 +185,7 @@
     marketStatus(): string {
       const lang = localStorage.getItem('language') ?? 'en';
       if (lang === 'en') {
-        return this.isMarketOpen ? 'Open 🟢' : 'Close 🔴';
+        return this.isMarketOpen ? 'Open 🟢' : 'Closed 🔴';
       }
       else {
         return this.isMarketOpen ? 'مفتوح 🟢' : 'مغلق 🔴';
@@ -193,6 +193,7 @@
     }
 
     navigateTo(destination: string): void {
+      this.responsiveMenuVisible=false;
       switch (destination) {
         case 'eTrade':
           window.open('https://www.pioneers-securities.com/Etrade/', '_blank');
@@ -210,6 +211,9 @@
 
     search() {
       console.log(`Searching for ${this.searchQuery}`);
+    }
+    closeMenu() {
+      this.responsiveMenuVisible = false;
     }
 
     // downloadCV(){
