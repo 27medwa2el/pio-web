@@ -65,44 +65,77 @@
                   <a ngbNavLink [routerLink]="'/home'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item1" | translate}}</span></a>
                   <ng-template ngbNavContent>First content</ng-template>
                 </li>
+                <!-- <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_experience', 'menu', 'click')">
+                  <a ngbNavLink [routerLink]="'/reports'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item4" | translate}}</span></a>
+                  <ng-template ngbNavContent>Second content</ng-template>
+                </li> -->
+                <li ngbNavItem class="underline  nav-item dropdown" 
+                    (mouseover)="openMainDropdown()" 
+                    (mouseout)="closeMainDropdownWithDelay()"
+                    [class.show]="isDropdownOpen">
+                  <a class="nav-link dropdown-toggle nav-text" id="navbarDropdown" role="button">
+                    {{"Header.Item4" | translate}}
+                  </a>
+                 
+                  <div class="dropdown-menu" [ngClass]="{'dropdown-menu': true, 'dropdown-menu-end': languageFormControl.value === 'ar'}" aria-labelledby="navbarDropdown">
+                   
+                    <a class="dropdown-item" [routerLink]="'/reports'">{{"Header.Item4" | translate}}</a>
+                    
+                    <a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a>
+                  </div>
+                </li>
                 <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_about', 'menu', 'click')">
                   <a ngbNavLink [routerLink]="'/news'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item3" | translate}}</span></a>
                   <ng-template ngbNavContent>First content</ng-template>
                 </li>
+                
                 <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_experience', 'menu', 'click')">
-                  <a ngbNavLink [routerLink]="'/reports'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item4" | translate}}</span></a>
+                  <a ngbNavLink [routerLink]="'/trading-rules'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item10" | translate}}</span></a>
                   <ng-template ngbNavContent>Second content</ng-template>
                 </li>
-                <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_experience', 'menu', 'click')">
-                  <a ngbNavLink [routerLink]="'/stocks-information'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item8" | translate}}</span></a>
-                  <ng-template ngbNavContent>Second content</ng-template>
+                <li ngbNavItem class="underline  nav-item dropdown" 
+                  (mouseover)="openMainDropdown()" 
+                  (mouseout)="closeMainDropdownWithDelay()"
+                  [class.show]="isDropdownOpen">
+                  <a class="nav-link dropdown-toggle nav-text" id="navbarDropdown" role="button">
+                    {{"Header.Item5" | translate}}
+                  </a>
+                
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="'/market-statistics'">{{"MarketStatus.Title" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/market-watch'">{{"Header.Item2" | translate}}</a>
+                    <!-- <a class="dropdown-item" [routerLink]="'/stocks-information'">{{"Header.Item8" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a> -->
+                  </div>
                 </li>
-                <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_contact', 'menu', 'click')">
+                <!-- <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_jobs', 'menu', 'click')">
+                  <a ngbNavLink [routerLink]="'/market-statistics'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item5" | translate}}</span></a>
+                  <ng-template ngbNavContent>Second content</ng-template>
+                </li> -->
+                <!-- <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_contact', 'menu', 'click')">
                   <a ngbNavLink [routerLink]="'/agenda'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item7" | translate}}</span></a>
                   <ng-template ngbNavContent>Second content</ng-template>
                 </li>
-                <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_jobs', 'menu', 'click')">
-                  <a ngbNavLink [routerLink]="'/market-statistics'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item5" | translate}}</span></a>
-                  <ng-template ngbNavContent>Second content</ng-template>
-                </li>
-                <li ngbNavItem class="nav-item dropdown" 
+                
+                <li ngbNavItem class="underline  nav-item dropdown" 
                     (mouseover)="openMainDropdown()" 
                     (mouseout)="closeMainDropdownWithDelay()"
                     [class.show]="isDropdownOpen">
-                  <a class="nav-link dropdown-toggle underline nav-text" id="navbarDropdown" role="button">
+                  <a class="nav-link dropdown-toggle nav-text" id="navbarDropdown" role="button">
                     {{"Header.Item9" | translate}}
                   </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" [routerLink]="'/news'">{{"Header.Item3" | translate}}</a></li>
-                    <li><a class="dropdown-item" [routerLink]="'/reports'">{{"Header.Item4" | translate}}</a></li>
-                    <li><a class="dropdown-item" [routerLink]="'/stocks-information'">{{"Header.Item8" | translate}}</a></li>
-                    <li><a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a></li>
-                  </ul>
-                </li>
-                <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_about', 'menu', 'click')">
+                 
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="'/news'">{{"Header.Item3" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/reports'">{{"Header.Item4" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/stocks-information'">{{"Header.Item8" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a>
+                  </div>
+                </li> -->
+                <!-- <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_about', 'menu', 'click')">
                   <a ngbNavLink [routerLink]="'/market-watch'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item2" | translate}}</span></a>
                   <ng-template ngbNavContent>First content</ng-template>
-                </li>
+                </li> -->
                 <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_contact', 'menu', 'click')">
                   <a ngbNavLink [routerLink]="'/contact-us'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item6" | translate}}</span></a>
                   <ng-template ngbNavContent>Second content</ng-template>

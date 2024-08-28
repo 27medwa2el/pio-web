@@ -13,6 +13,7 @@ import { StocksInformationComponent } from './components/home/stocks-information
 import { StockMarketComponent } from './components/home/stock-market/stock-market.component';
 import { ContactComponent } from './components/home/contact/contact.component';
 import { FullAboutComponent } from './components/home/full-about/full-about.component';
+import { MoreProyectsComponent } from './components/home/more-proyects/more-proyects.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'market-statistics', component: StockMarketComponent }, 
   { path: 'market-watch', component: MarketWatchComponent },
   { path: 'contact-us', component: ContactUsComponent }, 
+  { path: 'trading-rules', component: MoreProyectsComponent },
   { path: 'contact', component: ContactComponent }, 
   { path: 'agenda', component: AdditionalTablesComponent }, 
   { path: 'stocks-information', component: StocksInformationComponent }, 

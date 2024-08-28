@@ -4694,9 +4694,9 @@ body {
 }
 
 .main-btn {
-  color: #40af95;
+  color: #7196e9;
   background-color: transparent;
-  border: 1px solid #40af95;
+  border: 1px solid #7196e9;
   border-radius: 3px;
   font-size: 13px;
   font-family: sans-serif;
@@ -4717,14 +4717,14 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #40af95;
+  color: #7196e9;
 }
 
 .underline {
   text-decoration: none;
   display: inline-block;
   position: relative;
-  color: #40af95 !important;
+  color: #7196e9 !important;
 }
 
 .underline:after {
@@ -4735,7 +4735,7 @@ a:hover {
   height: 1px;
   left: 50%;
   position: absolute;
-  background: #40af95;
+  background: #7196e9;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0%;
 }

@@ -34,6 +34,7 @@ import { StocksInformationComponent } from './stocks-information/stocks-informat
 import { ReportsComponent } from './reports/reports.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FullAboutComponent } from './full-about/full-about.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatDividerModule,
     MatOptionModule,
     CarouselModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     RecaptchaModule,
