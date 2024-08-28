@@ -93,7 +93,13 @@
     }
   }
 }
-
+.section-title{
+  padding-top: 230px;
+  @media (max-width: 768px) {
+    padding-top: 0px;
+  }
+  
+}
 .jobs {
   background-color: $Navy;
   
@@ -102,7 +108,11 @@
     margin-top: 5%;
 
     @media (max-width: 768px) {
-      margin-top: 20px;
+      margin-top: 0px;
+      padding: 10px;
+    }
+    @media (max-width: 991px) {
+      margin-top: 60px;
       padding: 10px;
     }
   }

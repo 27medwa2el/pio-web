@@ -4670,7 +4670,7 @@ body {
 }
 
 .code-font {
-  font-family: SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, Monospace;
+  font-family: sans-serif;
 }
 
 .e-font {
@@ -4699,7 +4699,7 @@ body {
   border: 1px solid #40af95;
   border-radius: 3px;
   font-size: 13px;
-  font-family: SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, Monospace;
+  font-family: sans-serif;
   line-height: 1;
   -webkit-text-decoration: none;
   text-decoration: none;

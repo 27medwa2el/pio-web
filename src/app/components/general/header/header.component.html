@@ -85,6 +85,20 @@
                   <a ngbNavLink [routerLink]="'/market-statistics'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item5" | translate}}</span></a>
                   <ng-template ngbNavContent>Second content</ng-template>
                 </li>
+                <li ngbNavItem class="nav-item dropdown" 
+                    (mouseover)="openMainDropdown()" 
+                    (mouseout)="closeMainDropdownWithDelay()"
+                    [class.show]="isDropdownOpen">
+                  <a class="nav-link dropdown-toggle underline nav-text" id="navbarDropdown" role="button">
+                    {{"Header.Item9" | translate}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" [routerLink]="'/news'">{{"Header.Item3" | translate}}</a></li>
+                    <li><a class="dropdown-item" [routerLink]="'/reports'">{{"Header.Item4" | translate}}</a></li>
+                    <li><a class="dropdown-item" [routerLink]="'/stocks-information'">{{"Header.Item8" | translate}}</a></li>
+                    <li><a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a></li>
+                  </ul>
+                </li>
                 <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_about', 'menu', 'click')">
                   <a ngbNavLink [routerLink]="'/market-watch'"><span class='nav-number'></span> <span class="underline nav-text">{{"Header.Item2" | translate}}</span></a>
                   <ng-template ngbNavContent>First content</ng-template>
@@ -169,11 +183,13 @@
                                 <span></span> {{"Header.Item7" | translate}}
                             </a>
                         </li>
+                        
                         <li (click)='analyticsService.sendAnalyticEvent("click_contact", "menu", "click");closeMenu();'>
                             <a [routerLink]="'/contact-us'">
                                 <span></span> {{"Header.Item6" | translate}}
                             </a>
                         </li>
+                        
                         <li>
                             <div class="language-container">
                                 <div (click)='changeLanguage("ar")' class="language-container language-container-selector active" [class.active]='languageFormControl.value == "ar"'>

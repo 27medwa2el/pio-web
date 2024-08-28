@@ -42,6 +42,7 @@
     responsiveMenuVisible: Boolean = false;
     pageYPosition: number;
     showDropdown = false;
+    showSubMenu: boolean = false;
     languageFormControl: UntypedFormControl= new UntypedFormControl();
     cvName: string = "";
     currentDate = new Date();
@@ -50,6 +51,7 @@
     searchQuery = '';
     openedTab = '';
     isDropdownOpen : boolean  = false;
+    private closeDropdownTimeout: any;
     constructor(
       private router: Router,
       public analyticsService: AnalyticsService,
@@ -106,6 +108,23 @@
     closeDropdown() {
       this.showDropdown = false;
     }
+
+      openMainDropdown() {
+        this.isDropdownOpen = true;
+        if (this.closeDropdownTimeout) {
+          clearTimeout(this.closeDropdownTimeout);
+        }
+      }
+
+      closeMainDropdown() {
+        this.isDropdownOpen = false;
+      }
+
+      closeMainDropdownWithDelay() {
+        this.closeDropdownTimeout = setTimeout(() => {
+          this.closeDropdown();
+        }, 3000); 
+      }
 
     setupSearch(): void {
       this.searchControl.valueChanges.pipe(
@@ -168,6 +187,7 @@
 
       }, 1000);
     }
+
 
 
 
