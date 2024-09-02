@@ -13,9 +13,8 @@ import { environment } from 'src/environments/environment';
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   cities: { [key: string]: string[] } = {
-    'Egypt': ['Cairo', 'Alexandria', 'Giza', '...'],
-    'Saudi Arabia': ['Riyadh', 'Jeddah', 'Mecca', '...']
   };
+  purposes: string[] = [];
   cityOptions: string[] = [];
   message: string;
   messageClass: string;
@@ -39,6 +38,7 @@ export class ContactUsComponent implements OnInit {
 
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
+      subject: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       country: ['', Validators.required],
@@ -52,7 +52,44 @@ export class ContactUsComponent implements OnInit {
     });
     this.siteKey = environment.recaptchaSiteKey;
     this.loadReCaptchaScript();
-    this.language = localStorage.getItem("Language");
+    this.language = localStorage.getItem("language");
+    this.purposes = localStorage.getItem("language") == "ar" ? [ 'شكوى',   
+      'اقتراح',  
+      'طلب',     
+      'أخرى'     
+    ] : [ 'Complaint',
+      'Suggestion', 
+      'Request',    
+      'Other'    
+    ];
+    this.cities = localStorage.getItem("language") === "en" ? {
+      'Egypt': ['Cairo', 'Alexandria', 'Giza', 'Shubra El Kheima', 'Port Said', 'Suez', 'Luxor', 'Mansoura', 'Tanta', 'Asyut', 'Ismailia', 'Faiyum', 'Zagazig', 'Damietta', 'Damanhur', 'Aswan', 'Minya', 'Beni Suef', 'Qena', 'Sohag'],
+      'Saudi Arabia': ['Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Khobar', 'Taif', 'Tabuk', 'Buraidah', 'Khamis Mushait', 'Hofuf', 'Al Jubail', 'Najran', 'Abha', 'Yanbu', 'Al Qatif', 'Al Khafji'],
+      'United Arab Emirates': ['Abu Dhabi', 'Dubai', 'Sharjah', 'Ajman', 'Fujairah', 'Ras Al Khaimah', 'Umm Al Quwain'],
+      'Qatar': ['Doha', 'Al Rayyan', 'Umm Salal', 'Al Khor', 'Al Wakrah'],
+      'Kuwait': ['Kuwait City', 'Al Ahmadi', 'Hawalli', 'Farwaniya', 'Jahra'],
+      'Oman': ['Muscat', 'Salalah', 'Sohar', 'Nizwa', 'Sur'],
+      'Bahrain': ['Manama', 'Riffa', 'Muharraq', 'Hamad Town', 'Isa Town'],
+      'Jordan': ['Amman', 'Zarqa', 'Irbid', 'Aqaba', 'Madaba'],
+      'Lebanon': ['Beirut', 'Tripoli', 'Sidon', 'Tyre', 'Byblos'],
+      'Morocco': ['Casablanca', 'Rabat', 'Fes', 'Marrakesh', 'Tangier'],
+      'Algeria': ['Algiers', 'Oran', 'Constantine', 'Annaba', 'Blida'],
+      'Tunisia': ['Tunis', 'Sfax', 'Sousse', 'Kairouan', 'Bizerte']
+    } : {
+      'مصر': ['القاهرة', 'الإسكندرية', 'الجيزة', 'شبرا الخيمة', 'بورسعيد', 'السويس', 'الأقصر', 'المنصورة', 'طنطا', 'أسيوط', 'الإسماعيلية', 'الفيوم', 'الزقازيق', 'دمياط', 'دمنهور', 'أسوان', 'المنيا', 'بني سويف', 'قنا', 'سوهاج'],
+      'السعودية': ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'الطائف', 'تبوك', 'بريدة', 'خميس مشيط', 'الهفوف', 'الجبيل', 'نجران', 'أبها', 'ينبع', 'القطيف', 'الخفجي'],
+      'الإمارات': ['أبو ظبي', 'دبي', 'الشارقة', 'عجمان', 'الفجيرة', 'رأس الخيمة', 'أم القيوين'],
+      'قطر': ['الدوحة', 'الريان', 'أم صلال', 'الخور', 'الوكرة'],
+      'الكويت': ['مدينة الكويت', 'الأحمدي', 'حولي', 'الفروانية', 'الجهراء'],
+      'عمان': ['مسقط', 'صلالة', 'صحار', 'نزوى', 'صور'],
+      'البحرين': ['المنامة', 'الرفاع', 'المحرق', 'مدينة حمد', 'مدينة عيسى'],
+      'الأردن': ['عمان', 'الزرقاء', 'إربد', 'العقبة', 'مادبا'],
+      'لبنان': ['بيروت', 'طرابلس', 'صيدا', 'صور', 'جبيل'],
+      'المغرب': ['الدار البيضاء', 'الرباط', 'فاس', 'مراكش', 'طنجة'],
+      'الجزائر': ['الجزائر', 'وهران', 'قسنطينة', 'عنابة', 'البليدة'],
+      'تونس': ['تونس', 'صفاقس', 'سوسة', 'القيروان', 'بنزرت']
+    };
+    
   }
   loadReCaptchaScript(): void {
     const script = document.createElement('script');

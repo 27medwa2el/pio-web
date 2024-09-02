@@ -24,6 +24,8 @@
             <button class="dropdown-item" (click)="navigateTo('ultimateTrade')">
               <img src="assets/icons/line-chart.png" alt="Ultimate Trade" width="16" height="16" /> {{"Ultimate Trade" | translate}}
             </button>
+            
+          
           </div>
         </div>
   
@@ -32,6 +34,13 @@
           <img src="assets/icons/add-user.png" alt="Open Account" width="16" height="16" />
           {{"openAccount" | translate}}
         </button>
+        <button *ngIf="languageFormControl.value === 'en'" class="open-account-button" (click)="changeLanguage('ar')">
+          <img src="assets/icons/worldwide.png" alt="العربية" width="16" height="16" />  العربية 
+        </button>
+        <button *ngIf="languageFormControl.value === 'ar'" class="open-account-button"  (click)="changeLanguage('en')">
+          <img src="assets/icons/worldwide.png" alt="English" width="16" height="16" style="margin-left: 5px;"/>English
+        </button>
+        
       </div>
   
       <div class="row-3 ">
@@ -56,7 +65,7 @@
 
 
     <div class="mid-container" [dir]="'Direction' | translate">
-        <a class="navbar-brand text-light" [routerLink]="'inicio'">
+        <a class="navbar-brand text-light" [routerLink]="'home'">
             <img src='assets/images/pioLogo.png' width='25' />
         </a>
         <div class="nav-center-wrapper">
@@ -82,6 +91,7 @@
                     <a class="dropdown-item" [routerLink]="'/reports'">{{"Header.Item4" | translate}}</a>
                     
                     <a class="dropdown-item" [routerLink]="'/agenda'">{{"Header.Item7" | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="'/stocks-information'">{{"Header.Item8" | translate}}</a>
                   </div>
                 </li>
                 <li ngbNavItem (click)="analyticsService.sendAnalyticEvent('click_about', 'menu', 'click')">
@@ -143,7 +153,7 @@
               </ul>
         </div>
         <div class="language-icon">
-            <img
+            <!-- <img
               *ngIf="languageFormControl.value === 'en'"
               src="https://www.worldometers.info/img/flags/eg-flag.gif"
               alt="Arabic"
@@ -156,7 +166,7 @@
               alt="English"
               (click)="changeLanguage('en')"
               width="20px"
-            />
+            /> -->
           </div>
           <div class="menu-wrapper">
             <div [class.animate]='responsiveMenuVisible' (click)='responsiveMenuVisible = !responsiveMenuVisible' class="hamburger-menu"></div>

@@ -152,6 +152,7 @@
     "ContactUs.Hotline": "Hotline:",
     "ContactUs.EmailAddress": "Email:",
     "ContactUs.PhoneNumber": "Phone:",
+    "ContactUs.Subject": "Purpose of the message...",
     "ContactUs.RequiredField": "This field is required",
     "ContactUs.OurLocation": "Our Location",
     "ContactU.Location" : "6 El Imam Ali Helioplies",

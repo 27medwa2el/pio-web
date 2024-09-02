@@ -18,6 +18,7 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecaptchaModule } from 'ng-recaptcha';
 import { StockDetailsModule } from './components/stock-details/stock-details.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     
     FontAwesomeModule,
+    RecaptchaModule
   ],
   providers: [TranslateService, provideAnimationsAsync(),provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent],

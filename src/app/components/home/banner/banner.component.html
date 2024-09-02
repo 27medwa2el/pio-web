@@ -12,10 +12,13 @@
                 <!-- Button container for alignment (Moved up) -->
                 <div class="clickable-photo-container">
                     <a href="https://apps.apple.com/tc/app/pioneers-egypt/id1196384460" class="clickable-photo mb-2">
-                        <img src="assets/images/AppStore.png" class="clickable-photo-img" alt="App Store">
+                        <img *ngIf="language=='en'" src="assets/images/app-store.png" class="clickable-photo-img" alt="App Store">
+                        <img *ngIf="language=='ar'" src="assets/images/ar-appstore-dark.svg" class="clickable-photo-img" alt="App Store">
+                        
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=tea.mobile.view.pioneersApp&hl=en_US" class="clickable-photo mb-2">
-                        <img src="assets/images/GooglePlay.png" class="clickable-photo-img" alt="Google Play">
+                        <img *ngIf="language=='en'" src="assets/images/google-play.png" class="clickable-photo-img" alt="Google Play">
+                        <img *ngIf="language=='ar'" src="assets/images/ar-gplay-dark.svg" class="clickable-photo-img" alt="Google Play">
                     </a>
                 </div>
 

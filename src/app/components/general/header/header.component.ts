@@ -162,7 +162,7 @@
         if (this.languageFormControl.value === 'ar') {
 
           this.formattedDate = this.currentDate.toLocaleString('ar-EG-u-nu-latn', {
-            weekday: 'long',
+            // weekday: 'long',
             year: 'numeric',
             month: 'short',
             day: 'numeric',
@@ -174,7 +174,7 @@
         } else {
 
           this.formattedDate = this.currentDate.toLocaleString('en-US', {
-            weekday: 'long',
+            // weekday: 'long',
             year: 'numeric',
             month: 'short',
             day: 'numeric',

@@ -59,13 +59,51 @@
       <!-- Quick Contact Form -->
       <div class="col-md-4">
         <div class="footer-title">{{ 'footer.contactForm.quickContact' | translate }}</div>
-        <form class="footer-contact-form">
-          <input type="text" placeholder="{{ 'footer.contactForm.name' | translate }}" required>
-          <input type="email" placeholder="{{ 'footer.contactForm.email' | translate }}" required>
-          <textarea placeholder="{{ 'footer.contactForm.message' | translate }}" required></textarea>
-          <button type="submit">{{ 'footer.contactForm.send' | translate }}</button>
+        <form class="footer-contact-form" [formGroup]="contactFooterForm" (ngSubmit)="onFooterFormSubmit()">
+          
+          <!-- Name Field -->
+          <input type="text" formControlName="name" placeholder="{{ 'footer.contactForm.name' | translate }}" required>
+          <div *ngIf="contactFooterForm.get('name').invalid &&  contactFooterForm.get('name').touched" class="invalid-feedback">
+            <small *ngIf="contactFooterForm.get('name').hasError('required')">
+              {{ 'footer.contactForm.nameRequired' | translate }}
+            </small>
+          </div>
+      
+          <!-- Email Field -->
+          <input type="email" formControlName="email" placeholder="{{ 'footer.contactForm.email' | translate }}" required>
+          <div *ngIf="contactFooterForm.get('email').invalid && contactFooterForm.get('email').touched" class="invalid-feedback">
+            <small *ngIf="contactFooterForm.get('email').hasError('required')">
+              {{ 'footer.contactForm.emailRequired' | translate }}
+            </small>
+            <small *ngIf="contactFooterForm.get('email').hasError('email')">
+              {{ 'footer.contactForm.emailInvalid' | translate }}
+            </small>
+          </div>
+      
+          <!-- Message Field -->
+          <textarea formControlName="message" placeholder="{{ 'footer.contactForm.message' | translate }}" required></textarea>
+          <div *ngIf="contactFooterForm.get('message').invalid && contactFooterForm.get('message').touched" class="invalid-feedback">
+            <small *ngIf="contactFooterForm.get('message').hasError('required')">
+              {{ 'footer.contactForm.messageRequired' | translate }}
+            </small>
+          </div>
+      
+          <!-- reCAPTCHA -->
+          <re-captcha
+            (resolved)="onFooterCaptchaResolved($event)"
+            [siteKey]="siteKey">
+          </re-captcha>
+      
+          <!-- Submit Button -->
+          <button type="submit" [disabled]="!recaptchaToken">
+            {{ 'footer.contactForm.send' | translate }}
+          </button>
         </form>
+      
+        <!-- Submission Message -->
+        <div *ngIf="message" class="mt-3 alert" [ngClass]="messageClass">{{ message | translate }}</div>
       </div>
+      
     </div>
   </div>
   <div class="footer-bottom text-center py-3">
